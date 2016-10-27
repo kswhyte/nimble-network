@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "nimblenetwork-d13c3",
+    "staging": "nimblenetwork-d13c3"
+  }
+}
