@@ -3,9 +3,19 @@ require('babel-register')({
 });
 require('babel-polyfill')
 
-global.document = require('jsdom').jsdom(
+global.document = require('jsdom').jsdom(`
+  <head>
+    <meta charset="utf-8">
+    <title>NimbleNetwork</title>
+  </head>
+  <body>
+    <div id="application"></div>
+    <h1>Hello</h1>
+    <script src="main.bundle.js"></script>
+  </body>
+`
 
 )
 
-global.window = document.defaultView 
+global.window = document.defaultView
 global.navigator = window.navigator
