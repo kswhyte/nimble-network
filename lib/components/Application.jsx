@@ -14,39 +14,66 @@ export default class Application extends Component {
       user: null
     }
   }
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>
+      this.setState({ usersDatabase: firebase.database.ref(user.uid) }) )
+    )
+  }
+  //be able to save contacts into database into each user's folder, which is named after uid
   render() {
     const { user } = this.state
     return (
-      <div>
-      {
-        user ?
-        <div className="user-welcome-bar">
-          <p className="welcome-contact">Logged in as
-            <span
-              className="user-name-welcome">
-              {user.displayName.split(' ')[0]}
-            </span> ({user.email})
-          </p>
+      <section className='main-application'>
+        <section className="log-in-out-bar">
+        {
+          user ?
+          <div className="user-welcome-bar">
+            <p className="welcome-contact">Logged in as
+              <span
+                className="user-name-welcome">
+                {user.displayName.split(' ')[0]}
+              </span> ({user.email})
+            </p>
+            <button
+              className="sign-out-button"
+              onClick={() =>
+                signOut()}>
+                Sign Out
+            </button>
+          </div> :
           <button
             className="sign-in-button"
             onClick={() =>
-              signOut()}>
-              Sign Out
+              signIn()}>
+              Sign In
           </button>
-        </div> :
-        <button
-          className="sign-out-button"
-          onClick={() =>
-            signIn()}>
-            Sign In
-        </button>
-      }
-      </div>
+        }
+        </section>
+      </section>
     )
   }
 
 }
 
+{/* <ContactList
+  className='contact-list'
+  />
+
+  <CreateContactButton
+  className='create-contact-button'
+  />
+
+  <Search
+  className='search'
+  />
+
+  <SingleContact
+  className='single-contact'
+  /> */}
+{/* <LoginLogout
+className='login-logout'
+user={user}
+/> */}
 
 
 
