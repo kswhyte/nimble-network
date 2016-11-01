@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import firebase, { reference, signIn, signOut } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
+
 import ContactForm from './ContactForm.jsx'
 const LoginLogout = require ('./LoginLogout.jsx')
+const ContactList = require ('./ContactList.jsx')
+
 
 export default class Application extends Component {
   constructor() {
@@ -16,9 +19,11 @@ export default class Application extends Component {
   }
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>
-      this.setState({ usersDatabase: firebase.database().ref(user.uid) }, ()=>
-        { firebase.database().ref(user.uid).on('value', (snapshot) => {
+    firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>this.setState({
+      usersDatabase: firebase.database().ref(user.uid)
+      },
+      ()=>{ firebase.database().ref(user.uid).on('value',
+        (snapshot) => {
             const contacts = snapshot.val() || {}
             let currentContacts = map(contacts, (val, key) => extend(val, { key }))
             this.setState({
@@ -31,7 +36,6 @@ export default class Application extends Component {
   }
 
   createContact(newContact) {
-    console.log('hey')
     this.state.usersDatabase.push(newContact)
   }
 
@@ -43,7 +47,11 @@ export default class Application extends Component {
         />
 
         <ContactForm
-          pushContact={this.createContact.bind(this)}
+          pushContact = {this.createContact.bind(this)}
+        />
+
+        <ContactList
+          contactList = {this.state.contactList}
         />
       </section>
     )
