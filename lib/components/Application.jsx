@@ -7,27 +7,29 @@ export default class Application extends Component {
   constructor() {
     super()
     this.state = {
-      contacts: [],
+      contactList: [],
       followUpContacts: [],
       user: null,
       userDatabase: null
     }
   }
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>
       this.setState({ usersDatabase: firebase.database().ref(user.uid) }, ()=>
         { firebase.database().ref(user.uid).on('value', (snapshot) => {
             const contacts = snapshot.val() || {}
-            map(contacts, (val, key) => extend(val, { key }))
+            let currentContacts = map(contacts, (val, key) => extend(val, { key }))
         })
-        updateContactChanges(contacts)
+        this.updateContactChanges(currentContacts)
         })
       )
     )
   }
-  updateContactChanges(contacts) {
-    contacts.forEach((contact) => {
-      this.state.contacts.push({
+
+  updateContactChanges(currentContacts) {
+    currentContacts.forEach((contact) => {
+      this.state.contactList.push({
         key: contact.uid,
         displayName: contact.displayName,
         email: contact.email
@@ -35,9 +37,9 @@ export default class Application extends Component {
     })
   }
 
-  createContact() {
+  createContact(newContact) {
     console.log('hey')
-    this.state.usersDatabase.push("newData")
+    this.state.usersDatabase.push(newContact)
   }
   //be able to save contacts into database into each user's folder, which is named after uid
   render() {
@@ -69,7 +71,9 @@ export default class Application extends Component {
           </button>
         }
         </section>
-        <ContactForm createContact={this.createContact.bind(this)}/>
+        <ContactForm
+          pushContact={this.createContact.bind(this)}
+        />
       </section>
     )
   }
