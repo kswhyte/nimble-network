@@ -3,7 +3,7 @@ import firebase, { reference, signIn, signOut } from '../firebase'
 // import { pick, map, extend, uniqBy } from 'lodash'
 
 // import { MessageList } from './MessageList.js'
-// import UserList from './UserList.js'
+import ContactForm from './ContactForm.js'
 
 export default class Application extends Component {
   constructor() {
@@ -11,13 +11,48 @@ export default class Application extends Component {
     this.state = {
       contacts: [],
       followUpContacts: [],
-      user: null
+      user: null,
+      userDatabase: null
     }
   }
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>
-      this.setState({ usersDatabase: firebase.database.ref(user.uid) }) )
+      this.setState({ usersDatabase: firebase.database().ref(user.uid) }, ()=>
+        { firebase.database().ref(user.uid).on('value', (snapshot) => {
+            const contacts = snapshot.val() || {}
+            map(contacts, (val, key) => extend(val, { key }))
+        })
+        updateContactChanges(contacts)
+        })
+      )
     )
+  }
+  updateContactChanges() {
+    contacts.forEach((contact) => {
+      this.state.contacts.push({
+        key: contact.user.uid,
+        displayName: contact.user.displayName,
+        email: contact.user.email
+      })
+    })
+  }
+
+  componentDidMount() {
+  reference.limitToLast(100).on('value', (snapshot) => {
+    const messages = snapshot.val() || {}
+    const currentMessages = map(messages, (val, key) => extend(val, { key }))
+    let currentUsers = []
+    currentMessages.forEach((message) => {
+      currentUsers.push({ key: message.user.uid, displayName: message.user.displayName, email: message.user.email })
+    })
+  this.setMessagesAndUsers(currentMessages, currentUsers)
+  })
+  firebase.auth().onAuthStateChanged(user => this.setState({ user }))
+}
+
+  createContact() {
+    console.log('hey')
+    this.state.usersDatabase.push("newData")
   }
   //be able to save contacts into database into each user's folder, which is named after uid
   render() {
@@ -49,6 +84,7 @@ export default class Application extends Component {
           </button>
         }
         </section>
+        <button onClick={this.createContact.bind(this)}>create contact</button>
       </section>
     )
   }
