@@ -3,7 +3,7 @@ import firebase, { reference, signIn, signOut } from '../firebase'
 // import { pick, map, extend, uniqBy } from 'lodash'
 
 // import { MessageList } from './MessageList.js'
-import ContactForm from './ContactForm.js'
+import ContactForm from './ContactForm.jsx';
 
 export default class Application extends Component {
   constructor() {
@@ -27,7 +27,7 @@ export default class Application extends Component {
       )
     )
   }
-  updateContactChanges() {
+  updateContactChanges(contacts) {
     contacts.forEach((contact) => {
       this.state.contacts.push({
         key: contact.user.uid,
@@ -84,7 +84,7 @@ export default class Application extends Component {
           </button>
         }
         </section>
-        <button onClick={this.createContact.bind(this)}>create contact</button>
+        <ContactForm createContact={this.createContact.bind(this)}/>
       </section>
     )
   }
