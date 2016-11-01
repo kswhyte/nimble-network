@@ -90,7 +90,7 @@ export default class ContactForm extends Component {
           })}
         />
         <input className="github"
-          placeholder="Username..."
+          placeholder="github..."
           onChange={(e)=>this.setState({
             github: e.target.value
           })}
