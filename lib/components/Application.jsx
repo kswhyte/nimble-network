@@ -20,22 +20,26 @@ export default class Application extends Component {
         { firebase.database().ref(user.uid).on('value', (snapshot) => {
             const contacts = snapshot.val() || {}
             let currentContacts = map(contacts, (val, key) => extend(val, { key }))
+            // console.log(currentContacts);
+            this.setState({
+              contactList: currentContacts
+            })
         })
-        this.updateContactChanges(currentContacts)
+        // this.updateContactChanges(currentContacts)
         })
       )
     )
   }
 
-  updateContactChanges(currentContacts) {
-    currentContacts.forEach((contact) => {
-      this.state.contactList.push({
-        key: contact.uid,
-        displayName: contact.displayName,
-        email: contact.email
-      })
-    })
-  }
+  // updateContactChanges(currentContacts) {
+  //   currentContacts.forEach((contact) => {
+  //     this.state.contactList.push({
+  //       key: contact.uid,
+  //       displayName: contact.displayName,
+  //       email: contact.email
+  //     })
+  //   })
+  // }
 
   createContact(newContact) {
     console.log('hey')
