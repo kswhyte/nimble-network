@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import firebase, { reference, signIn, signOut } from '../firebase'
-// import { pick, map, extend, uniqBy } from 'lodash'
-
-// import { MessageList } from './MessageList.js'
+import { pick, map, extend, uniqBy } from 'lodash'
 import ContactForm from './ContactForm.jsx';
 
 export default class Application extends Component {
@@ -30,25 +28,12 @@ export default class Application extends Component {
   updateContactChanges(contacts) {
     contacts.forEach((contact) => {
       this.state.contacts.push({
-        key: contact.user.uid,
-        displayName: contact.user.displayName,
-        email: contact.user.email
+        key: contact.uid,
+        displayName: contact.displayName,
+        email: contact.email
       })
     })
   }
-
-  componentDidMount() {
-  reference.limitToLast(100).on('value', (snapshot) => {
-    const messages = snapshot.val() || {}
-    const currentMessages = map(messages, (val, key) => extend(val, { key }))
-    let currentUsers = []
-    currentMessages.forEach((message) => {
-      currentUsers.push({ key: message.user.uid, displayName: message.user.displayName, email: message.user.email })
-    })
-  this.setMessagesAndUsers(currentMessages, currentUsers)
-  })
-  firebase.auth().onAuthStateChanged(user => this.setState({ user }))
-}
 
   createContact() {
     console.log('hey')
@@ -90,58 +75,3 @@ export default class Application extends Component {
   }
 
 }
-
-{/* <ContactList
-  className='contact-list'
-  />
-
-  <CreateContactButton
-  className='create-contact-button'
-  />
-
-  <Search
-  className='search'
-  />
-
-  <SingleContact
-  className='single-contact'
-  /> */}
-{/* <LoginLogout
-className='login-logout'
-user={user}
-/> */}
-
-
-
-// componentDidMount() {
-//   reference.limitToLast(100).on('value', (snapshot) => {
-//     const contacts = snapshot.val() || {}
-//     const currentContacts = map(contacts, (val, key) => extend(val, { key }))
-//     let currentUsers = []
-//     currentContacts.forEach((contact) => {
-//       currentUsers.push({ key: contact.user.uid, displayName: contact.user.displayName, email: contact.user.email })
-//     })
-//   this.setMessagesAndUsers(currentContacts, currentUsers)
-//   })
-//   firebase.auth().onAuthStateChanged(user => this.setState({ user }))
-// }
-// setMessagesAndUsers(currentContacts, currentUsers) {
-//   this.setState({
-//     contacts: currentContacts,
-//     users: uniqBy(currentUsers, 'email')
-//   })
-// }
-// submitNewMessage(draftMessage) {
-//   const { user } = this.state
-//   reference.push({
-//     user: pick(user, 'displayName', 'email', 'uid'),
-//     content: draftMessage,
-//     createdAt: moment().format('MMMM D, h:mm a')
-//   })
-// }
-// filterContacts(searchValue) {
-//   this.setState({filteredContacts: this.state.contacts.filter((contact) => {
-//     return (contact.content.indexOf(searchValue) >= 0)
-//     })
-//   })
-// }
