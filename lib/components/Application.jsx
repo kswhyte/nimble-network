@@ -6,7 +6,6 @@ import ContactForm from './ContactForm.jsx'
 const LoginLogout = require ('./LoginLogout.jsx')
 const ContactList = require ('./ContactList.jsx')
 
-
 export default class Application extends Component {
   constructor() {
     super()

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { map } from 'lodash'
 
-
 const ContactList = ({contactList}) => {
   return(
     <ul className="contact-list">
       {contactList.map(contact => {
         return(
           <li className="single-contact" key={contact.key}>
+            <span className="picture">{contact.picture}</span>
             <span className="full-name">{contact.fullName}</span>
             <span className="company">{contact.company}</span>
             <span className="email1">{contact.email1}</span>

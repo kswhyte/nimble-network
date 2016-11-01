@@ -1,5 +1,5 @@
-import firebase, { reference, signIn, signOut } from '../firebase';
 import React, { Component } from 'react'
+import firebase, { signIn, signOut } from '../firebase';
 
 const LoginLogout = ({user}) => {
   return (
