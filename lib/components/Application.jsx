@@ -20,32 +20,20 @@ export default class Application extends Component {
         { firebase.database().ref(user.uid).on('value', (snapshot) => {
             const contacts = snapshot.val() || {}
             let currentContacts = map(contacts, (val, key) => extend(val, { key }))
-            // console.log(currentContacts);
             this.setState({
               contactList: currentContacts
             })
-        })
-        // this.updateContactChanges(currentContacts)
+          })
         })
       )
     )
   }
 
-  // updateContactChanges(currentContacts) {
-  //   currentContacts.forEach((contact) => {
-  //     this.state.contactList.push({
-  //       key: contact.uid,
-  //       displayName: contact.displayName,
-  //       email: contact.email
-  //     })
-  //   })
-  // }
-
   createContact(newContact) {
     console.log('hey')
     this.state.usersDatabase.push(newContact)
   }
-  //be able to save contacts into database into each user's folder, which is named after uid
+
   render() {
     const { user } = this.state
     return (
@@ -81,5 +69,4 @@ export default class Application extends Component {
       </section>
     )
   }
-
 }
