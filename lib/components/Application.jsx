@@ -3,7 +3,7 @@ import firebase, { reference, signIn, signOut } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
 import ContactForm from './ContactForm.jsx'
-const LoginLogout = require ('./LoginLogout.jsx')
+const { LoginLogout } = require ('./LoginLogout.jsx')
 const ContactList = require ('./ContactList.jsx')
 
 export default class Application extends Component {
@@ -16,7 +16,7 @@ export default class Application extends Component {
       userDatabase: null
     }
   }
-
+  
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>this.setState({
       usersDatabase: firebase.database().ref(user.uid)
@@ -42,15 +42,15 @@ export default class Application extends Component {
     return (
       <section className='main-application'>
         <LoginLogout
-          user = {this.state.user}
+          user={this.state.user}
         />
 
         <ContactForm
-          pushContact = {this.createContact.bind(this)}
+          pushContact={this.createContact.bind(this)}
         />
 
         <ContactList
-          contactList = {this.state.contactList}
+          contactList={this.state.contactList}
         />
       </section>
     )
