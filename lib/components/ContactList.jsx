@@ -10,9 +10,9 @@ export default class ContactList extends Component {
   }
 
   toggleContactDisplay() {
-    if(this.state.hideDisplay){
+    if(!this.state.hideDisplay){
     this.setState({hideDisplay: true})
-  } else if (!this.state.hideDisplay) {
+  } else if (this.state.hideDisplay) {
     this.setState({hideDisplay: false})
     }
   }
