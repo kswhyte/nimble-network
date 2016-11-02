@@ -10,8 +10,13 @@ export default class ContactList extends Component {
   }
 
   toggleContactDisplay() {
+    if(this.state.displayFull){
+    this.setState({displayFull: false})
+  } else if (!this.state.displayFull) {
     this.setState({displayFull: true})
+    }
   }
+
 
   render() {
     const { contactList } = this.props
