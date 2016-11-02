@@ -5,18 +5,17 @@ export default class ContactList extends Component {
   constructor() {
     super()
     this.state = {
-      displayFull: false
+      hideDisplay: true
     }
   }
 
   toggleContactDisplay() {
-    if(this.state.displayFull){
-    this.setState({displayFull: false})
-  } else if (!this.state.displayFull) {
-    this.setState({displayFull: true})
+    if(this.state.hideDisplay){
+    this.setState({hideDisplay: true})
+  } else if (!this.state.hideDisplay) {
+    this.setState({hideDisplay: false})
     }
   }
-
 
   render() {
     const { contactList } = this.props
@@ -33,7 +32,7 @@ export default class ContactList extends Component {
                   >Show More </button>
               </span>
 
-              <div className="show-contact-info">
+              <div hidden={this.state.hideDisplay} className="show-contact-info">
                 <span className="company">{contact.company}</span>
                 <span className="email1">{contact.email1}</span>
                 <span className="email2">{contact.email2}</span>
