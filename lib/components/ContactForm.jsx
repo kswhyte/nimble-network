@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import firebase, { reference, signIn, signOut } from '../firebase'
-// import { pick, map, extend, uniqBy } from 'lodash'
 
 export default class ContactForm extends Component {
   constructor() {
@@ -30,25 +28,25 @@ export default class ContactForm extends Component {
     return (
       <form className="contact-form">
         <input className="full-name"
-          placeholder="Full Name..."
+          placeholder="full name..."
           onChange={(e)=>this.setState({
             fullName: e.target.value
           })}
         />
         <input className="company"
-          placeholder="Company..."
+          placeholder="company..."
           onChange={(e)=>this.setState({
             company: e.target.value
           })}
         />
         <input className="email1"
-          placeholder="Email 1..."
+          placeholder="email 1..."
           onChange={(e)=>this.setState({
             email1: e.target.value
           })}
         />
         <input className="email2"
-          placeholder="Email 2..."
+          placeholder="email 2..."
           onChange={(e)=>this.setState({
             email2: e.target.value
           })}
@@ -60,13 +58,13 @@ export default class ContactForm extends Component {
           })}
         />
         <input className="home"
-          placeholder="home"
+          placeholder="home..."
           onChange={(e)=>this.setState({
             home: e.target.value
           })}
         />
         <input className="work"
-          placeholder="work"
+          placeholder="work..."
           onChange={(e)=>this.setState({
             work: e.target.value
           })}
