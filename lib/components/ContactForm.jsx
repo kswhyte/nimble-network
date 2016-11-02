@@ -5,7 +5,7 @@ export default class ContactForm extends Component {
   constructor() {
     super()
     this.state = {
-      hideDisplay: true,
+      contactID: Date.now(),
       picture: null,
       fullName: '',
       company: '',
@@ -21,14 +21,6 @@ export default class ContactForm extends Component {
       }
     }
 
-    toggleContactDisplay() {
-      if(!this.state.hideDisplay){
-        this.setState({hideDisplay: true})
-      }else if (this.state.hideDisplay) {
-        this.setState({hideDisplay: false})
-      }
-    }
-
   pushContact(){
     var newContact = this.state
     return(this.props.pushContact(newContact))
@@ -36,6 +28,7 @@ export default class ContactForm extends Component {
 
   render() {
     return (
+      <div>
       <form className="contact-form">
         <input
           className="full-name"
@@ -141,12 +134,11 @@ export default class ContactForm extends Component {
             this.pushContact()}
         >create contact
         </button>
-
-        <ContactList
-          contactList={this.props.contactList}
-          toggleContactDisplay={this.toggleContactDisplay.bind(this)}
-        />
       </form>
+      <ContactList
+        contactList={this.props.contactList}
+      />
+      </div>
       )
     }
   }
