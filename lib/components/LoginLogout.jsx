@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
 import firebase, { signIn, signOut } from '../firebase';
 
-const LoginLogout = ({user}) => {
+export const LoginLogout = ({user}) => {
   return (
-    <div className="LoginStatus">
-      {user ?
-        <p>Logged in as
-        <span className ='user-display'>{user.displayName}</span>
-        ({user.email})
-        <button className='LogOut-btn'
-          onClick={()=>signOut()}>Sign Out</button></p>
-        :<button className='LogIn-btn'
-          onClick={()=>signIn()}>Sign In</button>
+    <section className="login-status">
+      {
+        user ?
+        <section className="user-welcome">
+          <p>Logged in as
+            <span
+              className ='user-display'> {user.displayName}
+            </span> ({user.email})
+          </p>
+          <button
+            className='login-btn'
+            onClick={() =>
+              signOut()}>Sign Out
+          </button>
+        </section> :
+        <button
+          className='login-btn'
+          onClick={() =>
+            signIn()}>Sign In
+        </button>
       }
-    </div>
+    </section>
   );
-
 }
-
-module.exports = LoginLogout

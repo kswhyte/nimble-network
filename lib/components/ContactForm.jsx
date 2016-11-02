@@ -27,75 +27,110 @@ export default class ContactForm extends Component {
   render() {
     return (
       <form className="contact-form">
-        <input className="full-name"
+        <input
+          className="full-name"
           placeholder="full name..."
-          onChange={(e)=>this.setState({
-            fullName: e.target.value
-          })}
+          onChange={(e) =>
+            this.setState({
+              fullName: e.target.value
+            })
+          }
         />
-        <input className="company"
+        <input
+          className="company"
           placeholder="company..."
-          onChange={(e)=>this.setState({
-            company: e.target.value
-          })}
+          onChange={(e) =>
+            this.setState({
+              company: e.target.value
+            })
+          }
         />
-        <input className="email1"
+        <input
+          className="email1"
           placeholder="email 1..."
-          onChange={(e)=>this.setState({
-            email1: e.target.value
-          })}
+          onChange={(e) =>
+            this.setState({
+              email1: e.target.value
+            })
+          }
         />
-        <input className="email2"
+        <input
+          className="email2"
           placeholder="email 2..."
-          onChange={(e)=>this.setState({
-            email2: e.target.value
-          })}
+          onChange={(e) =>
+            this.setState({
+              email2: e.target.value
+            })
+          }
         />
-        <input className="cell"
-          placeholder="cell..."
-          onChange={(e)=>this.setState({
-            cell: e.target.value
-          })}
+        <input
+          className="cell-phone"
+          placeholder="cell number..."
+          onChange={(e) =>
+            this.setState({
+              cell: e.target.value
+            })
+          }
         />
-        <input className="home"
-          placeholder="home..."
-          onChange={(e)=>this.setState({
-            home: e.target.value
-          })}
+        <input
+          className="home-phone"
+          placeholder="home number..."
+          onChange={(e) =>
+            this.setState({
+              home: e.target.value
+            })
+          }
         />
-        <input className="work"
-          placeholder="work..."
-          onChange={(e)=>this.setState({
-            work: e.target.value
-          })}
+        <input
+          className="work-phone"
+          placeholder="work number..."
+          onChange={(e) =>
+            this.setState({
+              work: e.target.value
+            })
+          }
         />
-        <input className="google"
-          placeholder="google..."
-          onChange={(e)=>this.setState({
-            google: e.target.value
-          })}
+        <input
+          className="google-plus"
+          placeholder="google+..."
+          onChange={(e) =>
+            this.setState({
+              google: e.target.value
+            })
+          }
         />
-        <input className="facebook"
+        <input
+          className="facebook-username"
           placeholder="facebook..."
-          onChange={(e)=>this.setState({
-            facebook: e.target.value
-          })}
+          onChange={(e) =>
+            this.setState({
+              facebook: e.target.value
+            })
+          }
         />
-        <input className="twitter"
+        <input
+          className="twitter-username"
           placeholder="twitter..."
-          onChange={(e)=>this.setState({
-            twitter: e.target.value
-          })}
+          onChange={(e) =>
+            this.setState({
+              twitter: e.target.value
+            })
+          }
         />
-        <input className="github"
+        <input
+          className="github-username"
           placeholder="github..."
-          onChange={(e)=>this.setState({
-            github: e.target.value
-          })}
+          onChange={(e) =>
+            this.setState({
+              github: e.target.value
+            })
+          }
         />
         <button
-          onClick={()=>this.pushContact()}
-          >create contact</button>
+          onClick={() =>
+            this.pushContact()}
+        >create contact
+        </button>
       </form>
       )
     }
