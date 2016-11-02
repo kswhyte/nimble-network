@@ -4,7 +4,6 @@ import { pick, map, extend, uniqBy } from 'lodash'
 
 import ContactForm from './ContactForm.jsx'
 const { LoginLogout } = require ('./LoginLogout.jsx')
-import ContactList from './ContactList.jsx'
 
 export default class Application extends Component {
   constructor() {
@@ -47,9 +46,6 @@ export default class Application extends Component {
 
         <ContactForm
           pushContact={this.createContact.bind(this)}
-        />
-
-        <ContactList
           contactList={this.state.contactList}
         />
       </section>

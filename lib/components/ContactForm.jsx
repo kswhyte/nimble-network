@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import ContactList from './ContactList.jsx'
 
 export default class ContactForm extends Component {
   constructor() {
     super()
     this.state = {
+      hideDisplay: true,
       picture: null,
       fullName: '',
       company: '',
@@ -16,6 +18,14 @@ export default class ContactForm extends Component {
       facebook: '',
       twitter: '',
       github: ''
+      }
+    }
+
+    toggleContactDisplay() {
+      if(!this.state.hideDisplay){
+        this.setState({hideDisplay: true})
+      }else if (this.state.hideDisplay) {
+        this.setState({hideDisplay: false})
       }
     }
 
@@ -131,6 +141,11 @@ export default class ContactForm extends Component {
             this.pushContact()}
         >create contact
         </button>
+
+        <ContactList
+          contactList={this.props.contactList}
+          toggleContactDisplay={this.toggleContactDisplay.bind(this)}
+        />
       </form>
       )
     }
