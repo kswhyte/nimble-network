@@ -4,7 +4,7 @@ import { pick, map, extend, uniqBy } from 'lodash'
 
 import ContactForm from './ContactForm.jsx'
 const { LoginLogout } = require ('./LoginLogout.jsx')
-const ContactList = require ('./ContactList.jsx')
+import ContactList from './ContactList.jsx'
 
 export default class Application extends Component {
   constructor() {
@@ -16,7 +16,7 @@ export default class Application extends Component {
       userDatabase: null
     }
   }
-  
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>this.setState({
       usersDatabase: firebase.database().ref(user.uid)
