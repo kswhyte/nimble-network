@@ -30,20 +30,24 @@ export default class ContactForm extends Component {
   toggleContactDisplay(key) {
     this.props.contactList.map(contact => {
       if(key === contact.key){
-        this.showMore()
+        return contact.hideDisplay = false;
+        // this.setState({
+        //   hideDisplay: false
+        // })
       }else{
         return
       }
     })
   }
 
-  showMore(key){
-    if(!this.state.hideDisplay){
-      this.setState({hideDisplay: true})
-    } else if (this.state.hideDisplay) {
-      this.setState({hideDisplay: false})
-    }
-  }
+  // showMore(){
+  //   debugger
+  //   if(!this.state.hideDisplay){
+  //     this.setState({hideDisplay: true})
+  //   } else if (this.state.hideDisplay) {
+  //     this.setState({hideDisplay: false})
+  //   }
+  // }
 
   render() {
     return (
