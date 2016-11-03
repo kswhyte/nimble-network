@@ -1,0 +1,21 @@
+@import '../config/colors';
+@import '../config/fonts';
+@import '../config/mixins';
+
+.create-new-contact-title {
+  margin: 15px 0;
+}
+
+.contact-form {
+  @include form-style;
+}
+
+.input-form-field {
+  @include input-style;
+  width: 200px;
+  margin: 5px 20px;
+}
+
+.save-contact-button {
+  margin: 15px 0;
+}

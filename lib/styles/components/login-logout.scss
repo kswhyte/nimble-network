@@ -1,0 +1,16 @@
+@import '../config/colors';
+@import '../config/fonts';
+@import '../config/mixins';
+
+.user-login-info {
+  @include flex-container;
+  text-align: center;
+  margin: 20px;
+}
+
+.user-name {
+  color: $user-name-highlight;
+}
+.user-email {
+  color: $email-highlight;
+}

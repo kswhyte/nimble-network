@@ -1,0 +1,24 @@
+@import '../config/colors';
+@import '../config/fonts';
+@import '../config/mixins';
+
+.search-bar-header {
+  @include flex-container;
+  margin: 20px;
+}
+
+.application-title {
+  font-size: 28px;
+}
+
+.nimble {
+  color: $primary-turqoise;
+}
+
+.network {
+  color: $primary-yellow;
+}
+
+.search-bar {
+  @include input-style;
+}
