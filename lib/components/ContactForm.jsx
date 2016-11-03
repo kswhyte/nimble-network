@@ -24,7 +24,7 @@ export default class ContactForm extends Component {
     }
   }
 
-  pushContact(){
+  pushContact() {
     var newContact = this.state
     return(this.props.pushContact(newContact))
   }
@@ -32,13 +32,15 @@ export default class ContactForm extends Component {
   toggleFollowUp(key) {
     const{ uid } = this.props.user
 
-    this.setState({
-      followUp: !this.state.followUp
-    })
-
+    // this.setState({
+    //   followUp: !this.state.followUp
+    // })
+    console.log(key)
     this.props.contactList.map(contact => {
       if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({followUp: !contact.followUp})
+        firebase.database().ref(`${uid}/${key}`).update({
+          followUp: !contact.followUp
+        })
       } else {
         return
       }
@@ -158,8 +160,8 @@ export default class ContactForm extends Component {
         </form>
 
         <FollowUpContactList
-        contactList={this.props.contactList}
-        toggleFollowUp={this.toggleFollowUp.bind(this)}
+          contactList={this.props.contactList}
+          toggleFollowUp={this.toggleFollowUp.bind(this)}
         />
 
         <ContactList

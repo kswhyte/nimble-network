@@ -21,7 +21,7 @@ export default class Contact extends Component {
   // }
 
   render() {
-    const {contact}= this.props
+    const {contact} = this.props
     return(
       <li className='single-contact'>
         <section>
@@ -31,7 +31,7 @@ export default class Contact extends Component {
         </section>
         <button
           className='follow-up-button'
-          onClick={this.props.toggleFollowUp}
+          onClick={() => this.props.toggleFollowUp(contact.key)}
         >
           Follow-up
         </button>
