@@ -52,6 +52,7 @@ export default class Application extends Component {
         <ContactForm
           pushContact={this.createContact.bind(this)}
           contactList={this.state.contactList}
+          user={this.state.user}
         />
         <LoginLogout
         user={this.state.user}

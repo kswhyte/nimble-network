@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ContactList from './ContactList.jsx'
 // const { ContactList } = require ('./ContactList.jsx')
+import firebase, { reference } from '../firebase'
 
 export default class ContactForm extends Component {
   constructor() {
@@ -28,12 +29,10 @@ export default class ContactForm extends Component {
   }
 
   toggleContactDisplay(key) {
-    this.setState({
-      hideDisplay: !this.state.hideDisplay
-    })
+    const{uid}=this.props.user
     this.props.contactList.map(contact => {
       if(key === contact.key){
-        contact.hideDisplay = !contact.hideDisplay
+        firebase.database().ref(`${uid}/${key}`).update({hideDisplay: !contact.hideDisplay})
       }else{
         return
       }
