@@ -4,7 +4,8 @@ export default class Contact extends Component {
   constructor() {
     super()
     this.state = {
-      hideDisplay: true
+      hideDisplay: true,
+      followUp: false
     }
   }
 
@@ -14,17 +15,28 @@ export default class Contact extends Component {
     })
   }
 
+  toggleFollowUp() {
+    this.setState({
+      followUp: !this.state.followUp
+    })
+  }
+
   render() {
     const {contact}= this.props
     return(
-      <li className="single-contact"
-        onClick={this.toggleHideDisplay.bind(this)}
-        >
+      <li className='single-contact'>
         <section>
-          <p>{contact.fullName}</p>
+          <p onClick={this.toggleHideDisplay.bind(this)}>
+            {contact.fullName}
+          </p>
         </section>
-
-        <ul className='hidden-contact-info' hidden={this.state.hideDisplay} className="show-contact-info">
+        <button
+          className='follow-up-button'
+          onClick={this.toggleFollowUp.bind(this)}
+        >
+          Follow-up
+        </button>
+        <ul className='hidden-contact-info' hidden={this.state.hideDisplay} className='show-contact-info'>
           <li className='contact-display'>{contact.company}</li>
           <li className='contact-display'>{contact.email1}</li>
           <li className='contact-display'>{contact.email2}</li>
