@@ -4,8 +4,7 @@ export default class Contact extends Component {
   constructor() {
     super()
     this.state = {
-      hideDisplay: true,
-      followUp: false
+      hideDisplay: true
     }
   }
 

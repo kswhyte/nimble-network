@@ -21,7 +21,7 @@ export default class ContactList extends Component {
     return (
       <section className='follow-up-contact-section'>
         <h1 className='follow-up-contact-title'>
-          Follow-up Contacts:
+          ~ Follow-up Contacts ~
         </h1>
         <ul className='follow-up-contact-list'>
           { newFollowUpContacts }

@@ -30,7 +30,7 @@ export default class ContactForm extends Component {
   }
 
   toggleFollowUp(key) {
-    const{uid}=this.props.user
+    const{ uid } = this.props.user
 
     this.setState({
       followUp: !this.state.followUp
