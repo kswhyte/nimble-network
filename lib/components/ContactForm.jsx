@@ -27,16 +27,18 @@ export default class ContactForm extends Component {
     return(this.props.pushContact(newContact))
   }
 
-
-
-  // showMore(){
-  //   debugger
-  //   if(!this.state.hideDisplay){
-  //     this.setState({hideDisplay: true})
-  //   } else if (this.state.hideDisplay) {
-  //     this.setState({hideDisplay: false})
-  //   }
-  // }
+  toggleContactDisplay(key) {
+    this.setState({
+      hideDisplay: !this.state.hideDisplay
+    })
+    this.props.contactList.map(contact => {
+      if(key === contact.key){
+        contact.hideDisplay = !contact.hideDisplay
+      }else{
+        return
+      }
+    })
+  }
 
   render() {
     return (
@@ -152,7 +154,7 @@ export default class ContactForm extends Component {
 
         <ContactList
           contactList={this.props.contactList}
-          // toggleContactDisplay={this.toggleContactDisplay.bind(this)}
+          toggleContactDisplay={this.toggleContactDisplay.bind(this)}
         />
 
       </section>

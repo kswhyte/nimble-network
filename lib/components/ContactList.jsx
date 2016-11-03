@@ -2,34 +2,24 @@ import React, { Component } from 'react'
 import { map } from 'lodash'
 
 export default class ContactList extends Component{
-  toggleContactDisplay(key) {
-    this.props.contactList.map(contact => {
-      if(key === contact.key){
-        contact.hideDisplay = false;
-        this.renderList(this.props.contactList)
-      }else{
-        return
-      }
-    })
+  constructor(){
+    super()
+
   }
 
   renderList(contactList){
-    // debugger
     return (contactList.map(contact => {
-      debugger
       return(
         <li className="single-contact" key={contact.key}>
           <section>
             <span>{contact.fullName}</span>
             <button
               className='show-more-button'
-              onClick={()=>this.toggleContactDisplay(contact.key)}
+              onClick={()=>this.props.toggleContactDisplay(contact.key)}
               >Show More </button>
           </section>
 
-          <ul
-            className='hidden-contact-info'
-            hidden={contact.hideDisplay} className="show-contact-info">
+          <ul className='hidden-contact-info' hidden={contact.hideDisplay} className="show-contact-info">
             <li className='contact-display'>{contact.company}</li>
             <li className='contact-display'>{contact.email1}</li>
             <li className='contact-display'>{contact.email2}</li>
@@ -46,7 +36,6 @@ export default class ContactList extends Component{
     })
     )
   }
-
 
   render(){
     const { contactList } = this.props
