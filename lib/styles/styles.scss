@@ -60,7 +60,8 @@ h1 {
 }
 
 .show-more-button:hover {
-  background-color: #0a0a0a;
+  background-color: #212121;
+  color: #f59a11;
 }
 
 .contact-form {
@@ -84,9 +85,13 @@ h1 {
 }
 
 .hidden-contact-info {
-  @include flex-container;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .contact-display {
   @include contact-details-style;
+  text-align: left;
+  color: #c8c8c8;
 }
