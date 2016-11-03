@@ -8,20 +8,20 @@ export default class Contact extends Component {
     }
   }
 
+  toggleHideDisplay() {
+    this.setState({
+      hideDisplay: !this.state.hideDisplay
+    })
+  }
+
   render() {
     const {contact}= this.props
     return(
-      <li className="single-contact">
+      <li className="single-contact"
+        onClick={this.toggleHideDisplay.bind(this)}
+        >
         <section>
-          <span>{contact.fullName}</span>
-          <button
-            className='show-more-button'
-            onClick={
-              ()=>this.setState({
-                hideDisplay: !this.state.hideDisplay
-              }
-            )}
-            >Show More </button>
+          <p>{contact.fullName}</p>
         </section>
 
         <ul className='hidden-contact-info' hidden={this.state.hideDisplay} className="show-contact-info">

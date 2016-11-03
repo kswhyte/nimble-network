@@ -17,7 +17,8 @@ export default class ContactForm extends Component {
       google: '',
       facebook: '',
       twitter: '',
-      github: ''      }
+      github: ''
+      }
     }
 
   pushContact(){

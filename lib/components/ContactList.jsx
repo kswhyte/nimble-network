@@ -5,11 +5,6 @@ import Contact from './Contact.jsx'
 
 
 export default class ContactList extends Component {
-  constructor(){
-    super()
-
-  }
-
   render(){
     const { contactList } = this.props
     return (
