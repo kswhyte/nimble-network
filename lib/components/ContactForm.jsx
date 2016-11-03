@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import ContactList from './ContactList.jsx'
 
 export default class ContactForm extends Component {
   constructor() {
     super()
     this.state = {
+      contactID: Date.now(),
       picture: null,
       fullName: '',
       company: '',
@@ -26,6 +28,7 @@ export default class ContactForm extends Component {
 
   render() {
     return (
+      <div>
       <form className="contact-form">
         <input
           className="full-name"
@@ -132,6 +135,10 @@ export default class ContactForm extends Component {
         >create contact
         </button>
       </form>
+      <ContactList
+        contactList={this.props.contactList}
+      />
+      </div>
       )
     }
   }
