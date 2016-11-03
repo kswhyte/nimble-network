@@ -3,20 +3,21 @@ import { map } from 'lodash'
 
 export default class ContactList extends Component {
 
-  constructor() {
-    super()
-    this.state = {
-      hideDisplay: true,
-    }
-  }
-
-  toggleContactDisplay() {
-    if(!this.state.hideDisplay){
-      this.setState({hideDisplay: true})
-    }else if (this.state.hideDisplay) {
-      this.setState({hideDisplay: false})
-    }
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     hideDisplay: true,
+  //   }
+  // }
+  //
+  // toggleContactDisplay(key) {
+  //   debugger;
+  //   if(!this.state.hideDisplay){
+  //     this.setState({hideDisplay: true})
+  //   } else if (this.state.hideDisplay) {
+  //     this.setState({hideDisplay: false})
+  //   }
+  // }
 
   render() {
     const { contactList } = this.props
@@ -30,13 +31,13 @@ export default class ContactList extends Component {
                   <span>{contact.fullName}</span>
                   <button
                     className='show-more-button'
-                    onClick={this.toggleContactDisplay.bind(this)}
+                    onClick={()=>this.props.toggleContactDisplay(contact.key)}
                     >Show More </button>
                 </section>
 
                 <ul
                   className='hidden-contact-info'
-                  hidden={this.state.hideDisplay} id={contact.contactID} className="show-contact-info">
+                  hidden={contact.hideDisplay} className="show-contact-info">
                   <li className='contact-display'>{contact.company}</li>
                   <li className='contact-display'>{contact.email1}</li>
                   <li className='contact-display'>{contact.email2}</li>

@@ -5,7 +5,6 @@ export default class ContactForm extends Component {
   constructor() {
     super()
     this.state = {
-      contactID: Date.now(),
       picture: null,
       fullName: '',
       company: '',
@@ -17,13 +16,33 @@ export default class ContactForm extends Component {
       google: '',
       facebook: '',
       twitter: '',
-      github: ''
+      github: '',
+      hideDisplay: true
       }
     }
 
   pushContact(){
     var newContact = this.state
     return(this.props.pushContact(newContact))
+  }
+
+
+  toggleContactDisplay(key) {
+    this.props.contactList.map(contact => {
+      if(key === contact.key){
+        this.showMore()
+      }else{
+        return
+      }
+    })
+  }
+
+  showMore(key){
+    if(!this.state.hideDisplay){
+      this.setState({hideDisplay: true})
+    } else if (this.state.hideDisplay) {
+      this.setState({hideDisplay: false})
+    }
   }
 
   render() {
@@ -137,9 +156,12 @@ export default class ContactForm extends Component {
           >Save Contact
           </button>
         </form>
+
         <ContactList
           contactList={this.props.contactList}
+          toggleContactDisplay={this.toggleContactDisplay.bind(this)}
         />
+
       </section>
       )
     }
