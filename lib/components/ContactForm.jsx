@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-// import ContactList from './ContactList.jsx'
-const { ContactList } = require ('./ContactList.jsx')
+import ContactList from './ContactList.jsx'
+// const { ContactList } = require ('./ContactList.jsx')
 
 export default class ContactForm extends Component {
   constructor() {
@@ -28,18 +28,6 @@ export default class ContactForm extends Component {
   }
 
 
-  toggleContactDisplay(key) {
-    this.props.contactList.map(contact => {
-      if(key === contact.key){
-        return contact.hideDisplay = false;
-        // this.setState({
-        //   hideDisplay: false
-        // })
-      }else{
-        return
-      }
-    })
-  }
 
   // showMore(){
   //   debugger
@@ -164,7 +152,7 @@ export default class ContactForm extends Component {
 
         <ContactList
           contactList={this.props.contactList}
-          toggleContactDisplay={this.toggleContactDisplay.bind(this)}
+          // toggleContactDisplay={this.toggleContactDisplay.bind(this)}
         />
 
       </section>
