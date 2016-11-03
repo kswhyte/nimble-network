@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import firebase, { signIn, signOut } from '../firebase';
+import firebase, { signIn, signOut } from '../firebase'
 
 export const LoginLogout = ({user}) => {
   return (
@@ -28,5 +28,5 @@ export const LoginLogout = ({user}) => {
         </button>
       }
     </section>
-  );
+  )
 }

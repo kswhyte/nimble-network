@@ -1,37 +1,19 @@
 import React, { Component } from 'react'
 import { map } from 'lodash'
 
-export default class ContactList extends Component {
-
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     hideDisplay: true,
-  //   }
-  // }
-  //
-  // toggleContactDisplay(key) {
-  //   debugger;
-  //   if(!this.state.hideDisplay){
-  //     this.setState({hideDisplay: true})
-  //   } else if (this.state.hideDisplay) {
-  //     this.setState({hideDisplay: false})
-  //   }
-  // }
-
-  render() {
-    const { contactList } = this.props
+export const ContactList = ({ contactList, toggleContactDisplay }) => {
     return (
       <ul
         className="contact-list">
           {contactList.map(contact => {
+            // debugger
             return(
               <li className="single-contact" key={contact.key}>
                 <section>
                   <span>{contact.fullName}</span>
                   <button
                     className='show-more-button'
-                    onClick={()=>this.props.toggleContactDisplay(contact.key)}
+                    onClick={()=>toggleContactDisplay(contact.key)}
                     >Show More </button>
                 </section>
 
@@ -55,4 +37,3 @@ export default class ContactList extends Component {
       </ul>
     )
   }
-}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import ContactList from './ContactList.jsx'
+// import ContactList from './ContactList.jsx'
+const { ContactList } = require ('./ContactList.jsx')
 
 export default class ContactForm extends Component {
   constructor() {
