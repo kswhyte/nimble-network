@@ -18,8 +18,8 @@ export default class ContactForm extends Component {
       google: '',
       facebook: '',
       twitter: '',
-      github: '',
-      hideDisplay: true
+      github: ''
+      // hideDisplay: true
       }
     }
 
@@ -27,17 +27,17 @@ export default class ContactForm extends Component {
     var newContact = this.state
     return(this.props.pushContact(newContact))
   }
-
-  toggleContactDisplay(key) {
-    const{uid}=this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key){
-        firebase.database().ref(`${uid}/${key}`).update({hideDisplay: !contact.hideDisplay})
-      }else{
-        return
-      }
-    })
-  }
+  //
+  // toggleContactDisplay(key) {
+  //   const{uid}=this.props.user
+  //   this.props.contactList.map(contact => {
+  //     if(key === contact.key){
+  //       firebase.database().ref(`${uid}/${key}`).update({hideDisplay: !contact.hideDisplay})
+  //     }else{
+  //       return
+  //     }
+  //   })
+  // }
 
   render() {
     return (
@@ -153,7 +153,7 @@ export default class ContactForm extends Component {
 
         <ContactList
           contactList={this.props.contactList}
-          toggleContactDisplay={this.toggleContactDisplay.bind(this)}
+          // toggleContactDisplay={this.toggleContactDisplay.bind(this)}
         />
 
       </section>
