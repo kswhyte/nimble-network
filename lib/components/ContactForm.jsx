@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import ContactList from './ContactList.jsx'
+import firebase, { reference } from '../firebase'
 
 export default class ContactForm extends Component {
   constructor() {
     super()
     this.state = {
-      contactID: Date.now(),
       picture: null,
       fullName: '',
       company: '',
@@ -17,8 +17,7 @@ export default class ContactForm extends Component {
       google: '',
       facebook: '',
       twitter: '',
-      github: ''
-      }
+      github: ''      }
     }
 
   pushContact(){
@@ -134,12 +133,14 @@ export default class ContactForm extends Component {
             className='save-contact-button'
             onClick={() =>
               this.pushContact()}
-          >Save Contact
+              >Save Contact
           </button>
         </form>
+
         <ContactList
           contactList={this.props.contactList}
         />
+
       </section>
       )
     }
