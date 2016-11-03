@@ -4,11 +4,13 @@ import { pick, map, extend, uniqBy } from 'lodash'
 
 import ContactForm from './ContactForm.jsx'
 const { LoginLogout } = require ('./LoginLogout.jsx')
+const { SearchBar } = require ('./SearchBar.jsx')
 
 export default class Application extends Component {
   constructor() {
     super()
     this.state = {
+      searchText: '',
       contactList: [],
       followUpContacts: [],
       user: null,
@@ -33,6 +35,10 @@ export default class Application extends Component {
     )
   }
 
+  updateSearch(e) {
+    this.setState({ searchText: e.target.value })
+  }
+
   createContact(newContact) {
     this.state.usersDatabase.push(newContact)
   }
@@ -40,13 +46,15 @@ export default class Application extends Component {
   render() {
     return (
       <section className='main-application'>
-        <LoginLogout
-          user={this.state.user}
+        <SearchBar
+          updateSearch={this.updateSearch.bind(this)}
         />
-
         <ContactForm
           pushContact={this.createContact.bind(this)}
           contactList={this.state.contactList}
+        />
+        <LoginLogout
+        user={this.state.user}
         />
       </section>
     )

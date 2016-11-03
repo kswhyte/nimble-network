@@ -1,11 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Roboto|Roboto+Condensed|Slabo+27px');
 @import 'reset';
-@import "variables";
-@import "mixin";
+@import 'variables';
+@import 'mixins';
 
-.log-in-out-bar {
-  display: block;
-  height: 20px;
+body {
+  font-family: $primary-font;
+  background-color: #212121;
+  color: #fff;
+}
+
+.search-bar-header {
+  @include flex-container;
+  margin: 20px;
+}
+
+.user-login-info {
+  @include flex-container;
   text-align: center;
   margin: 20px;
 }
@@ -13,6 +22,71 @@
 .welcome-contact {
   margin: 10px;
 }
-.sign-in-button, .sign-out-button {
 
+.nimble {
+  color: #09f4e6;
+}
+
+.network {
+  color: #f7c238;
+}
+
+.search-bar {
+  @include input-style;
+}
+
+.application-title {
+  font-size: 28px;
+}
+.user-name {
+  color: #e85637;
+}
+.user-email {
+  color: #c8c8c8;
+}
+
+h1 {
+  margin: 15px 0;
+}
+
+.login-btn, .logout-btn, .save-contact-button {
+  @include button-style;
+}
+
+.show-more-button {
+  @include button-style;
+  background-color: #212121;
+  color: #f7c238;
+}
+
+.show-more-button:hover {
+  background-color: #0a0a0a;
+}
+
+.contact-form {
+  @include form-style;
+}
+
+.input-form-field {
+  @include input-style;
+  width: 200px;
+  margin: 5px 20px;
+}
+
+.save-contact-button {
+  margin: 15px 0;
+}
+
+.single-contact {
+  @include flex-container;
+  margin: 15px 0;
+  color: #09f4e6;
+}
+
+.hidden-contact-info {
+  @include flex-container;
+}
+
+.contact-display {
+  @include contact-details-style;
 }

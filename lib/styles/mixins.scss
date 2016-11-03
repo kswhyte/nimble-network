@@ -1,0 +1,51 @@
+@import "variables";
+
+@mixin button-style {
+  font-family: $tertiary-font;
+  margin: 0 20px;
+  padding: 5px 13px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 3px;
+  background-color: #c8c8c8;
+  outline: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: #f7c238;
+  }
+}
+
+@mixin input-style {
+  font-family: $secondary-font;
+  font-size: 14px;
+  margin: 0 20px;
+  padding: 5px 13px;
+  border: solid 1px #212121;
+  border-radius: 3px;
+  &:hover {
+    background-color: #92f7f1;
+  }
+}
+
+@mixin form-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+@mixin contact-details-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+@mixin flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

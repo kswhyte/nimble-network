@@ -3,17 +3,20 @@ import firebase, { signIn, signOut } from '../firebase';
 
 export const LoginLogout = ({user}) => {
   return (
-    <section className="login-status">
+    <section className='login-status-bar'>
       {
         user ?
-        <section className="user-welcome">
+        <section className='user-login-info'>
           <p>Logged in as
             <span
-              className ='user-display'> {user.displayName}
-            </span> ({user.email})
+              className='user-name'> {user.displayName}
+            </span>
+            <span
+              className='user-email'> ({user.email})
+            </span>
           </p>
           <button
-            className='login-btn'
+            className='logout-btn'
             onClick={() =>
               signOut()}>Sign Out
           </button>
