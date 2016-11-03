@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import ContactList from './ContactList.jsx'
 import firebase, { reference } from '../firebase'
+
+import ContactList from './ContactList.jsx'
+import FollowUpContactList from './FollowUpContactList.jsx'
 
 export default class ContactForm extends Component {
   constructor() {
@@ -17,13 +19,30 @@ export default class ContactForm extends Component {
       google: '',
       facebook: '',
       twitter: '',
-      github: ''
-      }
+      github: '',
+      followUp: false
     }
+  }
 
   pushContact(){
     var newContact = this.state
     return(this.props.pushContact(newContact))
+  }
+
+  toggleFollowUp(key) {
+    const{uid}=this.props.user
+
+    this.setState({
+      followUp: !this.state.followUp
+    })
+
+    this.props.contactList.map(contact => {
+      if(key === contact.key) {
+        firebase.database().ref(`${uid}/${key}`).update({followUp: !contact.followUp})
+      } else {
+        return
+      }
+    })
   }
 
   render() {
@@ -138,8 +157,14 @@ export default class ContactForm extends Component {
           </button>
         </form>
 
+        <FollowUpContactList
+        contactList={this.props.contactList}
+        toggleFollowUp={this.toggleFollowUp.bind(this)}
+        />
+
         <ContactList
           contactList={this.props.contactList}
+          toggleFollowUp={this.toggleFollowUp.bind(this)}
         />
 
       </section>
