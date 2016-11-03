@@ -20,7 +20,6 @@ export default class ContactList extends Component {
 
   render() {
     const { contactList } = this.props
-
     return (
       <ul
         className="contact-list">
@@ -35,20 +34,20 @@ export default class ContactList extends Component {
                     >Show More </button>
                 </section>
 
-                <div
+                <ul
                   className='hidden-contact-info'
                   hidden={this.state.hideDisplay} id={contact.contactID} className="show-contact-info">
-                  <span className='contact-display'>{contact.company}</span>
-                  <span className='contact-display'>{contact.email1}</span>
-                  <span className='contact-display'>{contact.email2}</span>
-                  <span className='contact-display'>{contact.cell}</span>
-                  <span className='contact-display'>{contact.home}</span>
-                  <span className='contact-display'>{contact.work}</span>
-                  <span className='contact-display'>{contact.google}</span>
-                  <span className='contact-display'>{contact.facebook}</span>
-                  <span className='contact-display'>{contact.twitter}</span>
-                  <span className='contact-display'>{contact.github}</span>
-                </div>
+                  <li className='contact-display'>{contact.company}</li>
+                  <li className='contact-display'>{contact.email1}</li>
+                  <li className='contact-display'>{contact.email2}</li>
+                  <li className='contact-display'>{contact.cell}</li>
+                  <li className='contact-display'>{contact.home}</li>
+                  <li className='contact-display'>{contact.work}</li>
+                  <li className='contact-display'>{contact.google}</li>
+                  <li className='contact-display'>{contact.facebook}</li>
+                  <li className='contact-display'>{contact.twitter}</li>
+                  <li className='contact-display'>{contact.github}</li>
+                </ul>
               </li>
             )
         }) }
@@ -56,18 +55,3 @@ export default class ContactList extends Component {
     )
   }
 }
-
-// constructor() {
-//   super()
-//   this.state = {
-//     hideDisplay: true
-//   }
-// }
-//
-// toggleContactDisplay() {
-//   if(!this.state.hideDisplay){
-//   this.setState({hideDisplay: true})
-// } else if (this.state.hideDisplay) {
-//   this.setState({hideDisplay: false})
-//   }
-// }
