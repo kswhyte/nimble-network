@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ContactList from './ContactList.jsx'
-// const { ContactList } = require ('./ContactList.jsx')
 import firebase, { reference } from '../firebase'
 
 export default class ContactForm extends Component {
@@ -18,26 +17,13 @@ export default class ContactForm extends Component {
       google: '',
       facebook: '',
       twitter: '',
-      github: ''
-      // hideDisplay: true
-      }
+      github: ''      }
     }
 
   pushContact(){
     var newContact = this.state
     return(this.props.pushContact(newContact))
   }
-  //
-  // toggleContactDisplay(key) {
-  //   const{uid}=this.props.user
-  //   this.props.contactList.map(contact => {
-  //     if(key === contact.key){
-  //       firebase.database().ref(`${uid}/${key}`).update({hideDisplay: !contact.hideDisplay})
-  //     }else{
-  //       return
-  //     }
-  //   })
-  // }
 
   render() {
     return (
@@ -147,13 +133,12 @@ export default class ContactForm extends Component {
             className='save-contact-button'
             onClick={() =>
               this.pushContact()}
-          >Save Contact
+              >Save Contact
           </button>
         </form>
 
         <ContactList
           contactList={this.props.contactList}
-          // toggleContactDisplay={this.toggleContactDisplay.bind(this)}
         />
 
       </section>
