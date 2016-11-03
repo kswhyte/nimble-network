@@ -7,10 +7,10 @@ export default class ContactList extends Component {
   render() {
     const { contactList } = this.props
 
-    let newContactList = contactList.filter(contact =>
-      contact.followUp === false
+    let followUpContacts = contactList.filter(contact =>
+      contact.followUp === true
     )
-    let newContacts = newContactList.map(contact =>
+    let newFollowUpContacts = followUpContacts.map(contact =>
       <Contact
         key ={contact.key}
         toggleFollowUp={this.props.toggleFollowUp}
@@ -19,14 +19,14 @@ export default class ContactList extends Component {
     )
 
     return (
-      <section className='contact-section'>
-        <h1 className='contact-title'>
-          ~ Contacts ~
+      <section className='follow-up-contact-section'>
+        <h1 className='follow-up-contact-title'>
+          ~ Follow-up Contacts ~
         </h1>
-        <ul className="contact-list">
-          { newContacts }
+        <ul className='follow-up-contact-list'>
+          { newFollowUpContacts }
         </ul>
       </section>
-      )
-    }
+    )
   }
+}
