@@ -8,8 +8,8 @@ export default class ContactList extends Component {
     const { contactList } = this.props
 
     let followUpContacts = contactList.filter(contact =>
-      contact.followUp === true
-    )
+      contact.followUp === true)
+
     let newFollowUpContacts = followUpContacts.map(contact =>
       <Contact
         key ={contact.key}
@@ -19,13 +19,19 @@ export default class ContactList extends Component {
     )
 
     return (
-      <section className='follow-up-contact-section'>
-        <h1 className='follow-up-contact-title'>
+      <section
+        className='follow-up-contact-section'
+      >
+        <h1
+          className='follow-up-contact-title'>
           ~ Follow-up Contacts ~
         </h1>
-        <ul className='follow-up-contact-list'>
-          { newFollowUpContacts }
+
+        <ul
+          className='follow-up-contact-list'>
+          {newFollowUpContacts}
         </ul>
+
       </section>
     )
   }
