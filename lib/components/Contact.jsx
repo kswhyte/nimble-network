@@ -14,12 +14,6 @@ export default class Contact extends Component {
     })
   }
 
-  // toggleFollowUp() {
-  //   this.setState({
-  //     followUp: !this.state.followUp
-  //   })
-  // }
-
   render() {
     const {contact} = this.props
     return(
@@ -46,6 +40,7 @@ export default class Contact extends Component {
           <li className='contact-display'>{contact.facebook}</li>
           <li className='contact-display'>{contact.twitter}</li>
           <li className='contact-display'>{contact.github}</li>
+          <li className='contact-display'>{contact.notes}</li>
         </ul>
       </li>
     )

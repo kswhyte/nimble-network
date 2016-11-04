@@ -20,6 +20,7 @@ export default class ContactForm extends Component {
       facebook: '',
       twitter: '',
       github: '',
+      notes: '',
       followUp: false
     }
   }
@@ -32,9 +33,6 @@ export default class ContactForm extends Component {
   toggleFollowUp(key) {
     const{ uid } = this.props.user
 
-    // this.setState({
-    //   followUp: !this.state.followUp
-    // })
     console.log(key)
     this.props.contactList.map(contact => {
       if(key === contact.key) {
@@ -116,7 +114,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='social-media-input-form-field'
             placeholder='google+...'
             onChange={(e) =>
               this.setState({
@@ -125,7 +123,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='social-media-input-form-field'
             placeholder='facebook...'
             onChange={(e) =>
               this.setState({
@@ -134,7 +132,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='social-media-input-form-field'
             placeholder='twitter...'
             onChange={(e) =>
               this.setState({
@@ -143,7 +141,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='social-media-input-form-field'
             placeholder='github...'
             onChange={(e) =>
               this.setState({
@@ -151,6 +149,16 @@ export default class ContactForm extends Component {
               })
             }
           />
+          <textarea
+            className='notes-text-area'
+            placeholder='notes...'
+            onChange={(e) =>
+              this.setState({
+                notes: e.target.value
+              })
+            }
+          >
+          </textarea>
           <button
             className='save-contact-button'
             onClick={() =>
