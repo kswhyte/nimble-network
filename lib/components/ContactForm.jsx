@@ -9,6 +9,7 @@ export default class ContactForm extends Component {
     super()
     this.state = {
       picture: '../../images/avatar.png',
+      userImage: '',
       fullName: '',
       company: '',
       email1: '',
@@ -45,12 +46,37 @@ export default class ContactForm extends Component {
     })
   }
 
+  setImage(){
+    if(this.state.userImage.length > 0){
+      this.setState({
+        picture: this.state.userImage
+      })
+    }
+  }
+
   render() {
     return (
       <section className='contact-form-and-list'>
         <form className='contact-form'>
-          <h1 className='create-new-contact-title'>~ Create a New Contact ~</h1>
+          <h1 className='create-new-contact-title'>
+            ~ Create a New Contact ~
+          </h1>
+
           <img src={this.state.picture}/>
+
+          <input className='input-form-field'
+            placeholder='image...'
+            onChange={(e) =>
+              this.setState({
+                userImage: e.target.value
+              })
+            }
+          />
+
+          <button onClick={this.setImage()}>
+            upload image
+          </button>
+
           <input
             className='input-form-field'
             placeholder='full name...'
@@ -60,6 +86,7 @@ export default class ContactForm extends Component {
               })
             }
           />
+
           <input
             className='input-form-field'
             placeholder='company...'
