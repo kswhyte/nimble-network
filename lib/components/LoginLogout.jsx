@@ -7,7 +7,8 @@ export const LoginLogout = ({user}) => {
       {
         user ?
         <section className='user-login-info'>
-          <p>Logged in as
+          <p className='logged-in-text'>
+            Logged in as
             <span
               className='user-name'> {user.displayName}
             </span>

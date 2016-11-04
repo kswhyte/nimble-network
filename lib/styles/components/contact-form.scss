@@ -4,6 +4,8 @@
 
 .create-new-contact-title {
   margin: 15px 0;
+  font-family: $tertiary-font;
+  font-size: 21px;
 }
 
 .contact-form {
@@ -14,6 +16,30 @@
   @include input-style;
   width: 200px;
   margin: 5px 20px;
+}
+
+.social-media-input-form-field {
+  @include input-style;
+  width: 200px;
+  margin: 5px 20px;
+  background-color: #a12a23;
+}
+
+.social-media-input-form-field:hover {
+  background-color: #e84137;
+}
+
+.notes-text-area {
+  @include input-style
+  overflow: hidden;
+  margin: 5px 0;
+  width: 200px;
+  height: 100px;
+  background-color: #626262;
+}
+
+.notes-text-area:hover {
+  background-color: #393939;
 }
 
 .save-contact-button {
