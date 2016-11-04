@@ -73,7 +73,7 @@ export default class ContactForm extends Component {
             }
           />
 
-          <button onClick={this.setImage()}>
+        <button onClick={()=>this.setImage()}>
             upload image
           </button>
 

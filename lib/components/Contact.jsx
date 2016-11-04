@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PhoneContact from './PhoneContact.jsx'
 import EmailContact from './EmailContact.jsx'
+import SocialMedia from './SocialMedia.jsx'
 
 
 export default class Contact extends Component {
@@ -29,8 +30,7 @@ export default class Contact extends Component {
         </section>
         <button
           className='follow-up-button'
-          onClick={() => this.props.toggleFollowUp(contact.key)}
-        >
+          onClick={() => this.props.toggleFollowUp(contact.key)}>
           Follow-up
         </button>
         <ul className='hidden-contact-info'
@@ -43,23 +43,15 @@ export default class Contact extends Component {
           <EmailContact
             contact={contact}
           />
-        
+
           <PhoneContact
             contact={contact}
           />
 
-          <li className='contact-display'>
-            {contact.google}
-          </li>
-          <li className='contact-display'>
-            {contact.facebook}
-          </li>
-          <li className='contact-display'>
-            {contact.twitter}
-          </li>
-          <li className='contact-display'>
-            {contact.github}
-          </li>
+          <SocialMedia
+            contact={contact}
+          />
+
           <li className='contact-display'>
             {contact.notes}
           </li>
