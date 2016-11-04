@@ -8,7 +8,7 @@ export default class ContactForm extends Component {
   constructor() {
     super()
     this.state = {
-      picture: null,
+      picture: '../../images/avatar.png',
       fullName: '',
       company: '',
       email1: '',
@@ -50,6 +50,7 @@ export default class ContactForm extends Component {
       <section className='contact-form-and-list'>
         <form className='contact-form'>
           <h1 className='create-new-contact-title'>~ Create a New Contact ~</h1>
+          <img src={this.state.picture}/>
           <input
             className='input-form-field'
             placeholder='full name...'
