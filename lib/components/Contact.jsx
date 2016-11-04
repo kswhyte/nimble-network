@@ -19,24 +19,27 @@ export default class Contact extends Component {
   }
 
   render() {
-    const {contact} = this.props
+    const { contact } = this.props
     return(
       <li className='single-contact'>
-        <section>
-          <p
-            onClick={this.toggleHideDisplay.bind(this)}>
-            {contact.fullName}
-          </p>
-        </section>
-        <button
-          className='follow-up-button'
+
+        <p
+          onClick={this.toggleHideDisplay.bind(this)}>
+          {contact.fullName}
+        </p>
+
+        <button className='follow-up-button'
           onClick={() => this.props.toggleFollowUp(contact.key)}>
           Follow-up
         </button>
-        <ul className='hidden-contact-info'
+
+        <ul
+          className='hidden-contact-info'
           hidden={this.state.hideDisplay}
           className='show-contact-info'>
-          <li className='contact-display'>
+
+          <li
+            className='contact-display'>
             {contact.company}
           </li>
 
@@ -52,9 +55,11 @@ export default class Contact extends Component {
             contact={contact}
           />
 
-          <li className='contact-display'>
+          <li
+            className='contact-display'>
             {contact.notes}
           </li>
+
         </ul>
       </li>
     )

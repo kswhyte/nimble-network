@@ -17,16 +17,25 @@ export default class PhoneContact extends Component {
   render() {
     const { contact } = this.props
     return (
-      <li className='contact-display'
-        onClick={this.toggleHidePhoneDisplay.bind(this)}>
+      <li
+        className='contact-display'
+        onClick={this.toggleHidePhoneDisplay.bind(this)}
+      >
         {contact.cell}
-        <ul hidden={this.state.hidePhoneDisplay}>
-          <li className='contact-display'>
+
+        <ul
+           hidden={this.state.hidePhoneDisplay}
+        >
+          <li
+            className='contact-display'>
             {contact.home}
           </li>
-          <li className='contact-display'>
+
+          <li
+            className='contact-display'>
             {contact.work}
           </li>
+
         </ul>
       </li>
     )

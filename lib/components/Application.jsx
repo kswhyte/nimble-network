@@ -19,13 +19,13 @@ export default class Application extends Component {
   }
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => this.setState({ user }, ()=>this.setState({
-      usersDatabase: firebase.database().ref(user.uid)
-      },
+    firebase.auth().onAuthStateChanged(user => this.setState({ user },
+      ()=>this.setState({usersDatabase: firebase.database().ref(user.uid)},
       ()=>{ firebase.database().ref(user.uid).on('value',
         (snapshot) => {
             const contacts = snapshot.val() || {}
-            let currentContacts = map(contacts, (val, key) => extend(val, { key }))
+            let currentContacts = map(contacts,
+              (val, key) => extend(val, { key }))
             this.setState({
               contactList: currentContacts
             })
@@ -46,17 +46,21 @@ export default class Application extends Component {
   render() {
     return (
       <section className='main-application'>
+
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
         />
+
         <ContactForm
           pushContact={this.createContact.bind(this)}
           contactList={this.state.contactList}
           user={this.state.user}
         />
+
         <LoginLogout
         user={this.state.user}
         />
+
       </section>
     )
   }

@@ -17,13 +17,19 @@ export default class EmailContact extends Component {
   render() {
     const { contact } = this.props
     return (
-      <li className='contact-display'
+      <li
+        className='contact-display'
         onClick={this.toggleHideEmailDisplay.bind(this)}>
         {contact.email1}
-        <ul hidden={this.state.hideEmailDisplay}>
-          <li className='contact-display'>
+
+        <ul
+          hidden={this.state.hideEmailDisplay}
+        >
+          <li
+            className='contact-display'>
             {contact.email2}
           </li>
+
         </ul>
       </li>
     )

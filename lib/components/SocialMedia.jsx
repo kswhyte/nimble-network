@@ -17,19 +17,29 @@ export default class SocialMedia extends Component {
   render() {
     const { contact } = this.props
     return (
-      <li className='contact-display'
+      <li
+        className='contact-display'
         onClick={this.toggleSocialMediaDisplay.bind(this)}>
-          {contact.google}
-        <ul hidden={this.state.hideSocialMediaDisplay}>
-          <li className='contact-display'>
+        {contact.google}
+
+        <ul
+          hidden={this.state.hideSocialMediaDisplay}>
+
+          <li
+            className='contact-display'>
             {contact.facebook}
           </li>
-          <li className='contact-display'>
+
+          <li
+            className='contact-display'>
             {contact.twitter}
           </li>
-          <li className='contact-display'>
+
+          <li
+            className='contact-display'>
             {contact.github}
           </li>
+
         </ul>
       </li>
     )
