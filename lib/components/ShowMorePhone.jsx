@@ -9,7 +9,6 @@ export default class Contact extends Component {
   }
 
   toggleHidePhoneDisplay() {
-    // debugger
     this.setState({
       hidePhoneDisplay: !this.state.hidePhoneDisplay
     })

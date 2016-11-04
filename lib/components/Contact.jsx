@@ -32,7 +32,7 @@ export default class Contact extends Component {
           Follow-up
         </button>
         <ul className='hidden-contact-info'
-          // hidden={this.state.hideDisplay}
+          hidden={this.state.hideDisplay}
           className='show-contact-info'>
           <li className='contact-display'>
             {contact.company}
