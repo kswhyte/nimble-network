@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import ShowMorePhone from './ShowMorePhone.jsx'
+import PhoneContact from './PhoneContact.jsx'
+import EmailContact from './EmailContact.jsx'
+
 
 export default class Contact extends Component {
   constructor() {
@@ -37,14 +39,12 @@ export default class Contact extends Component {
           <li className='contact-display'>
             {contact.company}
           </li>
-          <li className='contact-display'>
-            {contact.email1}
-          </li>
-          <li className='contact-display'>
-            {contact.email2}
-          </li>
 
-          <ShowMorePhone
+          <EmailContact
+            contact={contact}
+          />
+        
+          <PhoneContact
             contact={contact}
           />
 
