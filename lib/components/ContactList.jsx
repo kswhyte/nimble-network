@@ -17,6 +17,7 @@ export default class ContactList extends Component {
         editCompany={this.props.editCompany}
         editName={this.props.editName}
         editEmail1={this.props.editEmail1}
+        editEmail2={this.props.editEmail2}
         contact={contact}
       />
     )

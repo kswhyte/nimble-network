@@ -38,11 +38,14 @@ export default class Contact extends Component {
 
   saveEdit() {
     this.setState({editable: false})
+    this.editCompany()
   }
 
   editCompany() {
     const { contact } = this.props
-    const newCompany = this.state.newCompany
+    let newComp = this.state.newCompany
+    let currentComp = contact.company
+    const newCompany = newComp?newComp:currentComp
     this.props.editCompany(contact.key, newCompany)
   }
 
@@ -56,6 +59,12 @@ export default class Contact extends Component {
     const { contact } = this.props
     const newEmail1 = this.state.newEmail1
     this.props.editEmail1(contact.key, newEmail1)
+  }
+
+  editEmail2() {
+    const { contact } = this.props
+    const newEmail2 = this.state.newEmail2
+    this.props.editEmail2(contact.key, newEmail2)
   }
 
   render() {
@@ -141,7 +150,6 @@ export default class Contact extends Component {
             placeholder={contact.company}
             value={this.state.newCompany}
             onChange={(e) => this.setState({newCompany: e.target.value})}
-            onBlur={() => this.editCompany()}
             />
 
           <input
@@ -150,6 +158,14 @@ export default class Contact extends Component {
             value={this.state.newEmail1}
             onChange={(e) => this.setState({newEmail1: e.target.value})}
             onBlur={() => this.editEmail1()}
+          />
+
+          <input
+            className='edit-email2'
+            placeholder={contact.email2}
+            value={this.state.newEmail2}
+            onChange={(e) => this.setState({newEmail2: e.target.value})}
+            onBlur={() => this.editEmail2()}
           />
 
           <PhoneContact
