@@ -13,6 +13,16 @@ export default class Contact extends Component {
       editable: false,
       newName: '',
       newCompany: '',
+      newEmail1: '',
+      newEmail2: '',
+      newCell: '',
+      home: '',
+      work: '',
+      google: '',
+      facebook: '',
+      twitter: '',
+      github: '',
+      notes: '',
     }
   }
 
@@ -40,6 +50,12 @@ export default class Contact extends Component {
     const { contact } = this.props
     const newName = this.state.newName
     this.props.editName(contact.key, newName)
+  }
+
+  editEmail1() {
+    const { contact } = this.props
+    const newEmail1 = this.state.newEmail1
+    this.props.editEmail1(contact.key, newEmail1)
   }
 
   render() {
@@ -95,11 +111,13 @@ export default class Contact extends Component {
       </li>
     )
   }
-  if (this.state.editable = true) {
+  else if (this.state.editable = true) {
     return(
       <li className='single-contact'>
 
-        <input placeholder={contact.fullName}
+        <input
+          className='edit-name'
+          placeholder={contact.fullName}
           value={this.state.newName}
           onChange={(e) => this.setState({newName: e.target.value})}
           onBlur={() => this.editName()}/>
@@ -119,15 +137,19 @@ export default class Contact extends Component {
           </button>
 
           <input
-            className="contact-display"
+            className="edit-company"
             placeholder={contact.company}
             value={this.state.newCompany}
             onChange={(e) => this.setState({newCompany: e.target.value})}
             onBlur={() => this.editCompany()}
             />
 
-          <EmailContact
-            contact={contact}
+          <input
+            className='edit-email1'
+            placeholder={contact.email1}
+            value={this.state.newEmail1}
+            onChange={(e) => this.setState({newEmail1: e.target.value})}
+            onBlur={() => this.editEmail1()}
           />
 
           <PhoneContact
@@ -140,7 +162,7 @@ export default class Contact extends Component {
 
         <input
             className='contact-display'
-            placeholder={contact.notes}
+            placeholder={contact.notes?contact.notes:"Notes"}
           />
 
         </ul>

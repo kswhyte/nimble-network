@@ -57,6 +57,20 @@ export default class ContactForm extends Component {
     })
   }
 
+  editEmail1(key, newEmail1) {
+    debugger;
+    const { uid } = this.props.user
+    this.props.contactList.map(contact => {
+      if(key === contact.key) {
+        firebase.database().ref(`${uid}/${key}`).update({
+          email1: newEmail1
+        })
+      } else {
+        return
+      }
+    })
+  }
+
   toggleFollowUp(key) {
     const { uid } = this.props.user
     this.props.contactList.map(contact => {
@@ -217,6 +231,7 @@ export default class ContactForm extends Component {
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           editCompany={this.editCompany.bind(this)}
           editName={this.editName.bind(this)}
+          editEmail1={this.editEmail1.bind(this)}
         />
 
         <ContactList
@@ -224,6 +239,7 @@ export default class ContactForm extends Component {
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           editCompany={this.editCompany.bind(this)}
           editName={this.editName.bind(this)}
+          editEmail1={this.editEmail1.bind(this)}
         />
 
       </section>
