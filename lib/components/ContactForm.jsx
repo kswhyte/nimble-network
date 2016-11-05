@@ -32,7 +32,6 @@ export default class ContactForm extends Component {
   }
 
   editName(key, newName) {
-    debugger;
     const { uid } = this.props.user
     this.props.contactList.map(contact => {
       if(key === contact.key) {
@@ -50,7 +49,7 @@ export default class ContactForm extends Component {
     this.props.contactList.map(contact => {
       if(key === contact.key) {
         firebase.database().ref(`${uid}/${key}`).update({
-          fullName: newName
+          company: newCompany
         })
       } else {
         return

@@ -11,7 +11,8 @@ export default class Contact extends Component {
     this.state = {
       hideDisplay: true,
       editable: false,
-      edit: ''
+      newName: '',
+      newCompany: '',
     }
   }
 
@@ -31,13 +32,13 @@ export default class Contact extends Component {
 
   editCompany() {
     const { contact } = this.props
-    const newCompany = this.state.edit
+    const newCompany = this.state.newCompany
     this.props.editCompany(contact.key, newCompany)
   }
 
   editName() {
     const { contact } = this.props
-    const newName = this.state.edit
+    const newName = this.state.newName
     this.props.editName(contact.key, newName)
   }
 
@@ -99,8 +100,8 @@ export default class Contact extends Component {
       <li className='single-contact'>
 
         <input placeholder={contact.fullName}
-          value={this.state.edit}
-          onChange={(e) => this.setState({edit: e.target.value})}
+          value={this.state.newName}
+          onChange={(e) => this.setState({newName: e.target.value})}
           onBlur={() => this.editName()}/>
 
         <button className='follow-up-button'
@@ -120,8 +121,8 @@ export default class Contact extends Component {
           <input
             className="contact-display"
             placeholder={contact.company}
-            value={this.state.edit}
-            onChange={(e) => this.setState({edit: e.target.value})}
+            value={this.state.newCompany}
+            onChange={(e) => this.setState({newCompany: e.target.value})}
             onBlur={() => this.editCompany()}
             />
 
