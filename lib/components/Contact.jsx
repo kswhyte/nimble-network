@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import PhoneContact from './PhoneContact.jsx'
 import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
+var contentEditable = require("react-contenteditable")
 
 
 export default class Contact extends Component {
   constructor() {
     super()
     this.state = {
-      hideDisplay: true
+      hideDisplay: true,
+      editable: false,
     }
   }
 
@@ -17,6 +19,12 @@ export default class Contact extends Component {
       hideDisplay: !this.state.hideDisplay
     })
   }
+
+  editContact() {
+    this.setState({editable: !this.state.editable})
+  }
+
+
 
   render() {
     const { contact } = this.props
@@ -38,8 +46,13 @@ export default class Contact extends Component {
           hidden={this.state.hideDisplay}
           className='show-contact-info'>
 
+          <button className='edit-button'
+            onClick={() => this.editContact()}>
+            Edit
+          </button>
+
           <li
-            className='contact-display'>
+            className="contact-display">
             {contact.company}
           </li>
 
