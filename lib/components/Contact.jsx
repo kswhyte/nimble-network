@@ -11,6 +11,7 @@ export default class Contact extends Component {
     this.state = {
       hideDisplay: true,
       editable: false,
+      edit: ''
     }
   }
 
@@ -21,7 +22,17 @@ export default class Contact extends Component {
   }
 
   editContact() {
-    this.setState({editable: !this.state.editable})
+    this.setState({editable: true})
+  }
+
+  saveEdit() {
+    this.setState({editable: false})
+  }
+
+  editCompany() {
+    const { contact } = this.props
+    const newCompany = this.state.edit
+    this.props.editCompany(contact.key, newCompany)
   }
 
   render() {
@@ -89,19 +100,21 @@ export default class Contact extends Component {
         </button>
 
         <ul
-          className='hidden-contact-info'
           hidden={false}
           className='show-contact-info'>
 
           <button className='save-button'
-            onClick={this.editContact.bind(this)}>
+            onClick={this.saveEdit.bind(this)}>
             Save
           </button>
 
-          <li
-            className="contact-display">
-            {contact.company}
-          </li>
+          <input
+            className="contact-display"
+            placeholder={contact.company}
+            value={this.state.edit}
+            onChange={(e) => this.setState({edit: e.target.value})}
+            onBlur={() => this.editCompany()}
+            />
 
           <EmailContact
             contact={contact}
@@ -115,10 +128,10 @@ export default class Contact extends Component {
             contact={contact}
           />
 
-          <li
-            className='contact-display'>
-            {contact.notes}
-          </li>
+        <input
+            className='contact-display'
+            placeholder={contact.notes}
+          />
 
         </ul>
       </li>
