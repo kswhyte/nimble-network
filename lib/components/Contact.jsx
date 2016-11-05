@@ -24,10 +24,10 @@ export default class Contact extends Component {
     this.setState({editable: !this.state.editable})
   }
 
-
-
   render() {
     const { contact } = this.props
+
+    if(this.state.editable === false) {
     return(
       <li className='single-contact'>
 
@@ -47,7 +47,7 @@ export default class Contact extends Component {
           className='show-contact-info'>
 
           <button className='edit-button'
-            onClick={() => this.editContact()}>
+            onClick={this.editContact.bind(this)}>
             Edit
           </button>
 
@@ -76,5 +76,54 @@ export default class Contact extends Component {
         </ul>
       </li>
     )
+  }
+  if (this.state.editable = true) {
+    return(
+      <li className='single-contact'>
+
+        <input placeholder={contact.fullName}/>
+
+        <button className='follow-up-button'
+          onClick={() => this.props.toggleFollowUp(contact.key)}>
+          Follow-up
+        </button>
+
+        <ul
+          className='hidden-contact-info'
+          hidden={false}
+          className='show-contact-info'>
+
+          <button className='save-button'
+            onClick={this.editContact.bind(this)}>
+            Save
+          </button>
+
+          <li
+            className="contact-display">
+            {contact.company}
+          </li>
+
+          <EmailContact
+            contact={contact}
+          />
+
+          <PhoneContact
+            contact={contact}
+          />
+
+          <SocialMedia
+            contact={contact}
+          />
+
+          <li
+            className='contact-display'>
+            {contact.notes}
+          </li>
+
+        </ul>
+      </li>
+
+    )
+  }
   }
 }
