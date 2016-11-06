@@ -15,8 +15,9 @@ export default class ContactList extends Component {
        this.filterContactbyCell(contact) ||
        this.filterContactbyEmail(contact)
      )
-    return filteredNewFollowUpContacts
+    return this.sortContactsAlphabetically(filteredNewFollowUpContacts)
   }
+  
   filterContactbyName(contact) {
     return(contact.props.contact.fullName.toLowerCase().indexOf(this.props.searchText.toLowerCase()) !== -1)
   }
@@ -28,6 +29,21 @@ export default class ContactList extends Component {
   }
   filterContactbyEmail(contact) {
     return(contact.props.contact.email1.toLowerCase().indexOf(this.props.searchText.toLowerCase()) !== -1)
+  }
+
+  sortContactsAlphabetically(filteredNewFollowUpContacts) {
+    let sortedContacts = filteredNewFollowUpContacts.sort(function(a, b) {
+      let nameA = a.props.contact.fullName.toLowerCase()
+      let nameB = b.props.contact.fullName.toLowerCase()
+      if (nameA < nameB) {
+        return -1
+      }
+      if (nameA > nameB) {
+        return 1
+      }
+      return 0
+    })
+    return sortedContacts
   }
 
   render() {
