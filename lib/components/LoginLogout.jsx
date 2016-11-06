@@ -10,17 +10,8 @@ export const LoginLogout = ({ user }) => {
           <p
             className='logged-in-text'>
             Logged in as
-
-            <span
-              className='user-name'>
-              {user.displayName}
-            </span>
-
-            <span
-              className='user-email'>
-              ({user.email})
-            </span>
-
+            <span className='user-name'> {user.displayName}</span>
+            <span className='user-email'> ({user.email})</span>
           </p>
 
           <button
