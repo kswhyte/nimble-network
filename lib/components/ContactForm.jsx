@@ -31,7 +31,7 @@ export default class ContactForm extends Component {
     return(this.props.pushContact(newContact))
   }
 
-  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork) {
+  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes) {
     const { uid } = this.props.user
     this.props.contactList.map(contact => {
       if(key === contact.key) {
@@ -43,6 +43,11 @@ export default class ContactForm extends Component {
           cell: newCell,
           home: newHome,
           work: newWork,
+          google: newGoogle,
+          facebook: newFacebook,
+          twitter: newTwitter,
+          github: newGithub,
+          notes: newNotes,
         })
       } else {
         return

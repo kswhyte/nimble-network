@@ -18,11 +18,11 @@ export default class Contact extends Component {
       newCell: '',
       newHome: '',
       newWork: '',
-      google: '',
-      facebook: '',
-      twitter: '',
-      github: '',
-      notes: '',
+      newGoogle: '',
+      newFacebook: '',
+      newTwitter: '',
+      newGithub: '',
+      newNotes: '',
     }
   }
 
@@ -53,7 +53,17 @@ export default class Contact extends Component {
     const newHome = editHome?editHome:contact.home
     let editWork = this.state.newWork
     const newWork = editWork?editWork:contact.work
-    this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork)
+    let editGoogle = this.state.newGoogle
+    const newGoogle = editGoogle?editGoogle:contact.google
+    let editFacebook = this.state.newFacebook
+    const newFacebook = editFacebook?editFacebook:contact.facebook
+    let editTwitter = this.state.editTwitter
+    const newTwitter = editTwitter?editTwitter:contact.twitter
+    let editGithub = this.state.newGithub
+    const newGithub = editGithub?editGithub:contact.github
+    let editNotes = this.state.newNotes
+    const newNotes = editNotes?editNotes:contact.notes 
+    this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes)
   }
 
 
@@ -137,53 +147,76 @@ export default class Contact extends Component {
 
           <input
             className="edit-company"
-            placeholder={contact.company}
+            placeholder={contact.company?contact.company:"Company"}
             value={this.state.newCompany}
             onChange={(e) => this.setState({newCompany: e.target.value})}
             />
 
           <input
             className='edit-email1'
-            placeholder={contact.email1}
+            placeholder={contact.email1?contact.email:"Email 1"}
             value={this.state.newEmail1}
             onChange={(e) => this.setState({newEmail1: e.target.value})}
           />
 
           <input
             className='edit-email2'
-            placeholder={contact.email2}
+            placeholder={contact.email2?contact.email2:"Email 2"}
             value={this.state.newEmail2}
             onChange={(e) => this.setState({newEmail2: e.target.value})}
           />
 
           <input
             className='edit-phonecell'
-            placeholder={contact.cell}
+            placeholder={contact.cell?contact.cell:"Cell Phone"}
             value={this.state.newCell}
             onChange={(e) => this.setState({newCell: e.target.value})}
           />
 
           <input
             className='edit-phonehome'
-            placeholder={contact.home}
+            placeholder={contact.home?contact.home:"Home Phone"}
             value={this.state.newHome}
             onChange={(e) => this.setState({newHome: e.target.value})}
           />
 
           <input
             className='edit-phonework'
-            placeholder={contact.work}
+            placeholder={contact.work?contact.work:"Work Phone"}
             value={this.state.newWork}
             onChange={(e) => this.setState({newWork: e.target.value})}
           />
 
-          <SocialMedia
-            contact={contact}
+          <input
+            className='edit-google'
+            placeholder={contact.google?contact.google:"Google"}
+            value={this.state.newGoogle}
+            onChange={(e) => this.setState({newGoogle: e.target.value})}
+          />
+          <input
+            className='edit-facebook'
+            placeholder={contact.facebook?contact.facebook:"Facebook"}
+            value={this.state.newFacebook}
+            onChange={(e) => this.setState({newFacebook: e.target.value})}
+          />
+          <input
+            className='edit-twitter'
+            placeholder={contact.twitter?contact.twitter:"Twitter"}
+            value={this.state.newTwitter}
+            onChange={(e) => this.setState({newTwitter: e.target.value})}
+          />
+          <input
+            className='edit-github'
+            placeholder={contact.github?contact.github:"Github"}
+            value={this.state.newGithub}
+            onChange={(e) => this.setState({newGithub: e.target.value})}
           />
 
         <input
-            className='contact-display'
+            className='edit-notes'
             placeholder={contact.notes?contact.notes:"Notes"}
+            value={this.state.newNotes}
+            onChange={(e) => this.setState({newNotes: e.target.value})}
           />
 
         </ul>
