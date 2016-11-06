@@ -92,7 +92,7 @@ export default class ContactForm extends Component {
           />
 
           <input
-            className='input-form-field'
+            className='input-form-field no-icon'
             placeholder='image...'
             onChange={(e) => this.setState({
                 userImage: e.target.value
@@ -101,12 +101,13 @@ export default class ContactForm extends Component {
           />
 
           <button
+            className='save-contact-button'
             onClick={()=>this.setImage()}>
             upload image
           </button>
 
           <input
-            className='input-form-field'
+            className='input-form-field no-icon'
             placeholder='full name...'
             onChange={(e) => this.setState({
                 fullName: e.target.value
@@ -115,53 +116,69 @@ export default class ContactForm extends Component {
           />
 
           <input
-            className='input-form-field'
+            className='input-form-field no-icon'
             placeholder='company...'
             onChange={(e) => this.setState({
                 company: e.target.value
               })
             }
           />
-          <input
-            className='input-form-field'
-            placeholder='email 1...'
-            onChange={(e) => this.setState({
-                email1: e.target.value
-              })
-            }
-          />
-          <input
-            className='input-form-field'
-            placeholder='email 2...'
-            onChange={(e) => this.setState({
-                email2: e.target.value
-              })
-            }
-          />
-          <input
-            className='input-form-field'
-            placeholder='cell number...'
-            onChange={(e) => this.setState({
-                cell: e.target.value
-              })
-            }
-          />
-          <input
-            className='input-form-field'
-            placeholder='home number...'
-            onChange={(e) => this.setState({
-                home: e.target.value
-              })
-            }
-          />
-          <input
-            className='input-form-field'
-            placeholder='work number...'
-            onChange={(e) => this.setState({
-                work: e.target.value
-              })
-            }
-          />
+        <div className='email-input'>
+              <img className='icon-email' src='../../../images/email.png'/>
+            <input
+              className='input-form-field email'
+              placeholder='email 1...'
+              onChange={(e) => this.setState({
+                  email1: e.target.value
+                })
+              }
+            />
+        </div>
+        <div className='email-input'>
+            <img className='icon-email' src='../../../images/email.png'/>
+            <input
+              className='input-form-field email'
+              placeholder='email 2...'
+              onChange={(e) => this.setState({
+                  email2: e.target.value
+                })
+              }
+            />
+        </div>
+        <div className='phone-input'>
+            <img className='icon-phone' src='../../../images/phone.png'/>
+            <input
+              className='input-form-field'
+              type='text'
+              placeholder='cell number...'
+              onChange={(e) => this.setState({
+                  cell: e.target.value
+                })
+              }
+            />
+          </div>
+          <div className='phone-input'>
+              <img className='icon-phone' src='../../../images/phone.png'/>
+            <input
+              className='input-form-field'
+              placeholder='home number...'
+              onChange={(e) => this.setState({
+                  home: e.target.value
+                })
+              }
+            />
+          </div>
+          <div className='phone-input'>
+              <img className='icon-phone' src='../../../images/phone.png'/>
+            <input
+              className='input-form-field'
+              placeholder='work number...'
+              onChange={(e) => this.setState({
+                  work: e.target.value
+                })
+              }
+            />
+          </div>
           <input
             className='social-media-input-form-field'
             placeholder='google+...'

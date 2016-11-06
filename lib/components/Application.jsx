@@ -46,6 +46,9 @@ export default class Application extends Component {
   render() {
     return (
       <section className='main-application'>
+        <LoginLogout
+          user={this.state.user}
+        />
 
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
@@ -55,10 +58,6 @@ export default class Application extends Component {
           pushContact={this.createContact.bind(this)}
           contactList={this.state.contactList}
           user={this.state.user}
-        />
-
-        <LoginLogout
-        user={this.state.user}
         />
 
       </section>

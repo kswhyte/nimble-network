@@ -6,6 +6,7 @@
   @include flex-container;
   text-align: center;
   margin: 20px;
+  line-height: 120%;
 }
 
 .user-name {
@@ -18,4 +19,8 @@
 .logged-in-text {
   font-family: $tertiary-font;
   font-size: 21px;
+}
+
+.login-btn {
+  margin: 30px 30px 0px 50px;
 }

@@ -1,6 +1,7 @@
 @import '../config/colors';
 @import '../config/fonts';
 @import '../config/mixins';
+// @import '../../../images/phone.png';
 
 .create-new-contact-title {
   margin: 15px 0;
@@ -18,9 +19,14 @@
   margin: 5px 20px;
 }
 
+.no-icon {
+  width: 220px;
+}
+
+
 .social-media-input-form-field {
   @include input-style;
-  width: 200px;
+  width: 220px;
   margin: 5px 20px;
   background-color: #a12a23;
 }
@@ -33,7 +39,7 @@
   @include input-style
   overflow: hidden;
   margin: 5px 0;
-  width: 200px;
+  width: 220px;
   height: 100px;
   background-color: #626262;
 }
@@ -49,4 +55,35 @@
 img{
   height: 100px;
   width: 90px;
+}
+
+.phone-input {
+  position: relative;
+}
+
+.phone-input input {
+  padding-left: 30px;
+}
+
+.phone-input img {
+  position: absolute;
+  padding: 10px 27px;
+  height: 20px;
+  width: 15px;
+}
+
+
+.email-input {
+  position: relative;
+}
+
+.email-input input {
+  padding-left: 30px;
+}
+
+.email-input img {
+  position: absolute;
+  padding: 14px 27px;
+  height: 15px;
+  width: 20px;
 }
