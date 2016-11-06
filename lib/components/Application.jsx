@@ -16,7 +16,7 @@ export default class Application extends Component {
       contactList: [],
       followUpContacts: [],
       user: null,
-      userDatabase: null,
+      userDatabase: null
     }
   }
 
@@ -30,6 +30,7 @@ export default class Application extends Component {
             const contacts = snapshot.val() || {}
             let currentContacts = map(contacts,
               (val, key) => extend(val, { key }))
+
             this.setState({
               contactList: currentContacts
             })
@@ -102,12 +103,14 @@ export default class Application extends Component {
           contactList={this.state.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
+          searchText={this.state.searchText}
         />
 
         <ContactList
           contactList={this.state.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
+          searchText={this.state.searchText}
         />
 
         <LoginLogout

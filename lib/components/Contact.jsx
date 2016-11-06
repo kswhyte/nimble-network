@@ -66,9 +66,9 @@ export default class Contact extends Component {
     this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes)
   }
 
-
   render() {
-    const { contact } = this.props
+    const { contact, searchText } = this.props
+
     if(this.state.editable === false) {
       return(
         <li className='single-contact'>
