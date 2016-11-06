@@ -16,8 +16,8 @@ export default class Contact extends Component {
       newEmail1: '',
       newEmail2: '',
       newCell: '',
-      home: '',
-      work: '',
+      newHome: '',
+      newWork: '',
       google: '',
       facebook: '',
       twitter: '',
@@ -39,32 +39,65 @@ export default class Contact extends Component {
   saveEdit() {
     this.setState({editable: false})
     this.editCompany()
+    this.editName()
+    this.editEmail1()
+    this.editEmail2()
   }
 
   editCompany() {
     const { contact } = this.props
-    let newComp = this.state.newCompany
-    let currentComp = contact.company
-    const newCompany = newComp?newComp:currentComp
+    let edit = this.state.newCompany
+    let current = contact.company
+    const newCompany = edit?edit:current
     this.props.editCompany(contact.key, newCompany)
   }
 
   editName() {
     const { contact } = this.props
-    const newName = this.state.newName
+    let edit = this.state.newName
+    let current = contact.fullName
+    const newName = edit?edit:current
     this.props.editName(contact.key, newName)
   }
 
   editEmail1() {
     const { contact } = this.props
-    const newEmail1 = this.state.newEmail1
+    let edit = this.state.newEmail1
+    let current = contact.email1
+    const newEmail1 = edit?edit:current
     this.props.editEmail1(contact.key, newEmail1)
   }
 
   editEmail2() {
     const { contact } = this.props
-    const newEmail2 = this.state.newEmail2
+    let edit = this.state.newEmail2
+    let current = contact.email2
+    const newEmail2 = edit?edit:current
     this.props.editEmail2(contact.key, newEmail2)
+  }
+
+  editCell() {
+    const { contact } = this.props
+    let edit = this.state.newCell
+    let current = contact.cell
+    const newCell = edit?edit:current
+    this.props.editCell(contact.key, newCell)
+  }
+
+  editHome() {
+    const { contact } = this.props
+    let edit = this.state.newHome
+    let current = contact.home
+    const newHome = edit?edit:current
+    this.props.editHome(contact.key, newHome)
+  }
+
+  editWork() {
+    const { contact } = this.props
+    let edit = this.state.newWork
+    let current = contact.work
+    const newWork = edit?edit:current
+    this.props.editWork(contact.key, newWork)
   }
 
   render() {
@@ -129,7 +162,7 @@ export default class Contact extends Component {
           placeholder={contact.fullName}
           value={this.state.newName}
           onChange={(e) => this.setState({newName: e.target.value})}
-          onBlur={() => this.editName()}/>
+          />
 
         <button className='follow-up-button'
           onClick={() => this.props.toggleFollowUp(contact.key)}>
@@ -157,7 +190,6 @@ export default class Contact extends Component {
             placeholder={contact.email1}
             value={this.state.newEmail1}
             onChange={(e) => this.setState({newEmail1: e.target.value})}
-            onBlur={() => this.editEmail1()}
           />
 
           <input
@@ -165,11 +197,27 @@ export default class Contact extends Component {
             placeholder={contact.email2}
             value={this.state.newEmail2}
             onChange={(e) => this.setState({newEmail2: e.target.value})}
-            onBlur={() => this.editEmail2()}
           />
 
-          <PhoneContact
-            contact={contact}
+          <input
+            className='edit-phonecell'
+            placeholder={contact.cell}
+            value={this.state.newCell}
+            onChange={(e) => this.setState({newCell: e.target.value})}
+          />
+
+          <input
+            className='edit-phonehome'
+            placeholder={contact.home}
+            value={this.state.newHome}
+            onChange={(e) => this.setState({newHome: e.target.value})}
+          />
+
+          <input
+            className='edit-phonework'
+            placeholder={contact.work}
+            value={this.state.newWork}
+            onChange={(e) => this.setState({newWork: e.target.value})}
           />
 
           <SocialMedia
