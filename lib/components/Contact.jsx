@@ -37,68 +37,25 @@ export default class Contact extends Component {
   }
 
   saveEdit() {
+    const { contact } = this.props
     this.setState({editable: false})
-    this.editCompany()
-    this.editName()
-    this.editEmail1()
-    this.editEmail2()
+    let editName = this.state.newName
+    const newName = editName?editName:contact.fullName
+    let editCompany = this.state.newCompany
+    const newCompany = editCompany?editCompany:contact.company
+    let editEmail1 = this.state.newEmail1
+    const newEmail1 = editEmail1?editEmail1:contact.email1
+    let editEmail2 = this.state.newEmail2
+    const newEmail2 = editEmail2?editEmail2:contact.email2
+    let editCell = this.state.newCell
+    const newCell = editCell?editCell:contact.cell
+    let editHome = this.state.newHome
+    const newHome = editHome?editHome:contact.home
+    let editWork = this.state.newWork
+    const newWork = editWork?editWork:contact.work
+    this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork)
   }
 
-  editCompany() {
-    const { contact } = this.props
-    let edit = this.state.newCompany
-    let current = contact.company
-    const newCompany = edit?edit:current
-    this.props.editCompany(contact.key, newCompany)
-  }
-
-  editName() {
-    const { contact } = this.props
-    let edit = this.state.newName
-    let current = contact.fullName
-    const newName = edit?edit:current
-    this.props.editName(contact.key, newName)
-  }
-
-  editEmail1() {
-    const { contact } = this.props
-    let edit = this.state.newEmail1
-    let current = contact.email1
-    const newEmail1 = edit?edit:current
-    this.props.editEmail1(contact.key, newEmail1)
-  }
-
-  editEmail2() {
-    const { contact } = this.props
-    let edit = this.state.newEmail2
-    let current = contact.email2
-    const newEmail2 = edit?edit:current
-    this.props.editEmail2(contact.key, newEmail2)
-  }
-
-  editCell() {
-    const { contact } = this.props
-    let edit = this.state.newCell
-    let current = contact.cell
-    const newCell = edit?edit:current
-    this.props.editCell(contact.key, newCell)
-  }
-
-  editHome() {
-    const { contact } = this.props
-    let edit = this.state.newHome
-    let current = contact.home
-    const newHome = edit?edit:current
-    this.props.editHome(contact.key, newHome)
-  }
-
-  editWork() {
-    const { contact } = this.props
-    let edit = this.state.newWork
-    let current = contact.work
-    const newWork = edit?edit:current
-    this.props.editWork(contact.key, newWork)
-  }
 
   render() {
     const { contact } = this.props

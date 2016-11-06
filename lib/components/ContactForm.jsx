@@ -31,12 +31,18 @@ export default class ContactForm extends Component {
     return(this.props.pushContact(newContact))
   }
 
-  editName(key, newName) {
+  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork) {
     const { uid } = this.props.user
     this.props.contactList.map(contact => {
       if(key === contact.key) {
         firebase.database().ref(`${uid}/${key}`).update({
-          fullName: newName
+          fullName: newName,
+          company: newCompany,
+          email1: newEmail1,
+          email2: newEmail2,
+          cell: newCell,
+          home: newHome,
+          work: newWork,
         })
       } else {
         return
@@ -44,46 +50,6 @@ export default class ContactForm extends Component {
     })
   }
 
-  editCompany(key, newCompany) {
-    const { uid } = this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({
-          company: newCompany
-        })
-      } else {
-        return
-      }
-    })
-  }
-
-  editEmail1(key, newEmail1) {
-    debugger;
-    const { uid } = this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({
-          email1: newEmail1
-        })
-      } else {
-        return
-      }
-    })
-  }
-
-  editEmail2(key, newEmail2) {
-    debugger;
-    const { uid } = this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({
-          email2: newEmail2
-        })
-      } else {
-        return
-      }
-    })
-  }
 
   toggleFollowUp(key) {
     const { uid } = this.props.user
@@ -243,19 +209,13 @@ export default class ContactForm extends Component {
         <FollowUpContactList
           contactList={this.props.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
-          editCompany={this.editCompany.bind(this)}
-          editName={this.editName.bind(this)}
-          editEmail1={this.editEmail1.bind(this)}
-          editEmail2={this.editEmail2.bind(this)}
+          saveEdit={this.saveEdit.bind(this)}
         />
 
         <ContactList
           contactList={this.props.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
-          editCompany={this.editCompany.bind(this)}
-          editName={this.editName.bind(this)}
-          editEmail1={this.editEmail1.bind(this)}
-          editEmail2={this.editEmail2.bind(this)}
+          saveEdit={this.saveEdit.bind(this)}
         />
 
       </section>

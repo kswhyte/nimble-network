@@ -14,10 +14,7 @@ export default class ContactList extends Component {
       <Contact
         key ={contact.key}
         toggleFollowUp={this.props.toggleFollowUp}
-        editCompany={this.props.editCompany}
-        editName={this.props.editName}
-        editEmail1={this.props.editEmail1}
-        editEmail2={this.props.editEmail2}
+        saveEdit={this.props.saveEdit}
         contact={contact}
       />
     )
