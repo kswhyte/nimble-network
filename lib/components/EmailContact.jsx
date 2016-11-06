@@ -4,7 +4,7 @@ export default class EmailContact extends Component {
   constructor() {
     super()
     this.state = {
-      hideEmailDisplay: true
+      hideEmailDisplay: true,
     }
   }
 
