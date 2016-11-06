@@ -31,6 +31,31 @@ export default class ContactForm extends Component {
     return(this.props.pushContact(newContact))
   }
 
+  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes) {
+    const { uid } = this.props.user
+    this.props.contactList.map(contact => {
+      if(key === contact.key) {
+        firebase.database().ref(`${uid}/${key}`).update({
+          fullName: newName,
+          company: newCompany,
+          email1: newEmail1,
+          email2: newEmail2,
+          cell: newCell,
+          home: newHome,
+          work: newWork,
+          google: newGoogle,
+          facebook: newFacebook,
+          twitter: newTwitter,
+          github: newGithub,
+          notes: newNotes,
+        })
+      } else {
+        return
+      }
+    })
+  }
+
+
   toggleFollowUp(key) {
     const { uid } = this.props.user
     this.props.contactList.map(contact => {
@@ -189,11 +214,13 @@ export default class ContactForm extends Component {
         <FollowUpContactList
           contactList={this.props.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
+          saveEdit={this.saveEdit.bind(this)}
         />
 
         <ContactList
           contactList={this.props.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
+          saveEdit={this.saveEdit.bind(this)}
         />
 
       </section>
