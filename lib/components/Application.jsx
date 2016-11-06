@@ -3,8 +3,10 @@ import firebase, { reference, signIn, signOut } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
 import ContactForm from './ContactForm.jsx'
-const { LoginLogout } = require ('./LoginLogout.jsx')
-const { SearchBar } = require ('./SearchBar.jsx')
+const { SearchBar } = require('./SearchBar.jsx')
+import ContactList from './ContactList.jsx'
+import FollowUpContactList from './FollowUpContactList.jsx'
+const { LoginLogout } = require('./LoginLogout.jsx')
 
 export default class Application extends Component {
   constructor() {
@@ -14,14 +16,16 @@ export default class Application extends Component {
       contactList: [],
       followUpContacts: [],
       user: null,
-      userDatabase: null
+      userDatabase: null,
     }
   }
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user },
-      ()=>this.setState({usersDatabase: firebase.database().ref(user.uid)},
-      ()=>{ firebase.database().ref(user.uid).on('value',
+      () => this.setState({
+        usersDatabase: firebase.database().ref(user.uid
+      )},
+      () => { firebase.database().ref(user.uid).on('value',
         (snapshot) => {
             const contacts = snapshot.val() || {}
             let currentContacts = map(contacts,
@@ -43,6 +47,43 @@ export default class Application extends Component {
     this.state.usersDatabase.push(newContact)
   }
 
+  toggleFollowUp(key) {
+    const { uid } = this.state.user
+    this.state.contactList.map(contact => {
+      if(key === contact.key) {
+        firebase.database().ref(`${uid}/${key}`).update({
+          followUp: !contact.followUp
+        })
+      } else {
+        return
+      }
+    })
+  }
+
+  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes) {
+    const { uid } = this.state.user
+    this.state.contactList.map(contact => {
+      if(key === contact.key) {
+        firebase.database().ref(`${uid}/${key}`).update({
+          fullName: newName,
+          company: newCompany,
+          email1: newEmail1,
+          email2: newEmail2,
+          cell: newCell,
+          home: newHome,
+          work: newWork,
+          google: newGoogle,
+          facebook: newFacebook,
+          twitter: newTwitter,
+          github: newGithub,
+          notes: newNotes,
+        })
+      } else {
+        return
+      }
+    })
+  }
+
   render() {
     return (
       <section className='main-application'>
@@ -60,6 +101,18 @@ export default class Application extends Component {
           user={this.state.user}
         />
 
+        <FollowUpContactList
+          contactList={this.state.contactList}
+          toggleFollowUp={this.toggleFollowUp.bind(this)}
+          saveEdit={this.saveEdit.bind(this)}
+        />
+
+        <ContactList
+          contactList={this.state.contactList}
+          toggleFollowUp={this.toggleFollowUp.bind(this)}
+          saveEdit={this.saveEdit.bind(this)}
+        />
+      
       </section>
     )
   }

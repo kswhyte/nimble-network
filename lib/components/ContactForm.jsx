@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import firebase, { reference } from '../firebase'
 
-import ContactList from './ContactList.jsx'
-import FollowUpContactList from './FollowUpContactList.jsx'
+// import ContactList from './ContactList.jsx'
+// import FollowUpContactList from './FollowUpContactList.jsx'
+// import ImageUpload from './ImageUpload.jsx'
 
 export default class ContactForm extends Component {
   constructor() {
     super()
     this.state = {
-      picture: '../../images/avatar.png',
-      userImage: '',
       fullName: '',
       company: '',
       email1: '',
@@ -29,52 +28,6 @@ export default class ContactForm extends Component {
   pushContact() {
     var newContact = this.state
     return(this.props.pushContact(newContact))
-  }
-
-  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes) {
-    const { uid } = this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({
-          fullName: newName,
-          company: newCompany,
-          email1: newEmail1,
-          email2: newEmail2,
-          cell: newCell,
-          home: newHome,
-          work: newWork,
-          google: newGoogle,
-          facebook: newFacebook,
-          twitter: newTwitter,
-          github: newGithub,
-          notes: newNotes,
-        })
-      } else {
-        return
-      }
-    })
-  }
-
-
-  toggleFollowUp(key) {
-    const { uid } = this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({
-          followUp: !contact.followUp
-        })
-      } else {
-        return
-      }
-    })
-  }
-
-  setImage(){
-    if(this.state.userImage.length > 0){
-      this.setState({
-        picture: this.state.userImage
-      })
-    }
   }
 
   render() {
@@ -108,7 +61,7 @@ export default class ContactForm extends Component {
 
           <input
             className='input-form-field no-icon'
-            placeholder='full name...'
+            placeholder='full name ...'
             onChange={(e) => this.setState({
                 fullName: e.target.value
               })
@@ -117,95 +70,104 @@ export default class ContactForm extends Component {
 
           <input
             className='input-form-field no-icon'
-            placeholder='company...'
+            placeholder='company ...'
             onChange={(e) => this.setState({
                 company: e.target.value
               })
             }
           />
+
         <div className='email-input'>
-              <img className='icon-email' src='../../../images/email.png'/>
+            <img className='icon-email' src='../../../images/email.png'/>
             <input
               className='input-form-field email'
-              placeholder='email 1...'
+              placeholder='email 1 ...'
               onChange={(e) => this.setState({
                   email1: e.target.value
                 })
               }
             />
         </div>
+
         <div className='email-input'>
             <img className='icon-email' src='../../../images/email.png'/>
             <input
               className='input-form-field email'
-              placeholder='email 2...'
+              placeholder='email 2 ...'
               onChange={(e) => this.setState({
                   email2: e.target.value
                 })
               }
             />
         </div>
+
         <div className='phone-input'>
             <img className='icon-phone' src='../../../images/phone.png'/>
             <input
               className='input-form-field'
               type='text'
-              placeholder='cell number...'
+              placeholder='cell number ...'
               onChange={(e) => this.setState({
                   cell: e.target.value
                 })
               }
             />
           </div>
+
           <div className='phone-input'>
               <img className='icon-phone' src='../../../images/phone.png'/>
             <input
               className='input-form-field'
-              placeholder='home number...'
+              placeholder='home number ...'
               onChange={(e) => this.setState({
                   home: e.target.value
                 })
               }
             />
           </div>
+
           <div className='phone-input'>
               <img className='icon-phone' src='../../../images/phone.png'/>
             <input
               className='input-form-field'
-              placeholder='work number...'
+              placeholder='work number ...'
               onChange={(e) => this.setState({
                   work: e.target.value
                 })
               }
             />
           </div>
+
           <input
             className='social-media-input-form-field'
-            placeholder='google+...'
+            placeholder='google+ ...'
             onChange={(e) => this.setState({
                 google: e.target.value
               })
             }
           />
+
           <input
             className='social-media-input-form-field'
-            placeholder='facebook...'
+            placeholder='facebook ...'
             onChange={(e) => this.setState({
                 facebook: e.target.value
               })
             }
           />
+
           <input
             className='social-media-input-form-field'
-            placeholder='twitter...'
+            placeholder='twitter ...'
             onChange={(e) => this.setState({
                 twitter: e.target.value
               })
             }
           />
+
           <input
             className='social-media-input-form-field'
-            placeholder='github...'
+            placeholder='github ...'
             onChange={(e) => this.setState({
                 github: e.target.value
               })
@@ -213,7 +175,7 @@ export default class ContactForm extends Component {
           />
           <textarea
             className='notes-text-area'
-            placeholder='notes...'
+            placeholder='notes ...'
             onChange={(e) => this.setState({
                 notes: e.target.value
               })
@@ -225,20 +187,7 @@ export default class ContactForm extends Component {
             onClick={() => this.pushContact()}
             >Save Contact
           </button>
-
         </form>
-
-        <FollowUpContactList
-          contactList={this.props.contactList}
-          toggleFollowUp={this.toggleFollowUp.bind(this)}
-          saveEdit={this.saveEdit.bind(this)}
-        />
-
-        <ContactList
-          contactList={this.props.contactList}
-          toggleFollowUp={this.toggleFollowUp.bind(this)}
-          saveEdit={this.saveEdit.bind(this)}
-        />
 
       </section>
       )
