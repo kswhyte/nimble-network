@@ -8,7 +8,7 @@ body {
   color: #fff;
 }
 
-.login-btn, .logout-btn, .save-contact-button {
+button {
   @include button-style;
 }
 
