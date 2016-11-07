@@ -30,77 +30,60 @@ describe('ContactForm | Unit Test', () => {
 describe('ContactForm | Feature Test', () => {
   it('should change the "fullName" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.full-name')
     messageInput.simulate('change', {target: {value: 'First Last Name'} })
-    setTimeout(() => {
-      assert.equal(wrapper.state('fullName'), ('First Last Name'))
-    }, 5000)
+    assert.equal(wrapper.state('fullName'), ('First Last Name'))
+
   })
   it('should change the "company" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.company')
     messageInput.simulate('change', {target: {value: 'company name'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('company'), ('company name'))
-    }, 5000)
   })
   it('should change the "email1" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.email1')
     messageInput.simulate('change', {target: {value: 'emailaddress1'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('email1'), ('emailaddress1'))
-    }, 5000)
   })
   it('should change the "email2" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.email2')
     messageInput.simulate('change', {target: {value: 'emailaddress2'} })
-    setTimeout(() => {
-      assert.equal(wrapper.state('email2'), ('emailaddress2'))
-    }, 5000)
+    assert.equal(wrapper.state('email2'), ('emailaddress2'))
   })
   it('should change the "cell" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.cell')
     messageInput.simulate('change', {target: {value: '303-349-8791'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('cell'), ('303-349-8791'))
-    }, 5000)
   })
   it('should change the "home" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.home')
     messageInput.simulate('change', {target: {value: '303-349-8791'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('home'), ('303-349-8791'))
-    }, 5000)
   })
   it('should change the "work" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.work')
     messageInput.simulate('change', {target: {value: '303-349-8791'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('work'), ('303-349-8791'))
-    }, 5000)
   })
   it('should change the "google" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.google')
     messageInput.simulate('change', {target: {value: 'username'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('google'), ('username'))
-    }, 5000)
   })
   it('should change the "facebook" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.facebook')
     messageInput.simulate('change', {target: {value: 'username'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('facebook'), ('username'))
-    }, 5000)
   })
-  it.only('should change the "twitter" state with new contact info', () => {
+  it('should change the "twitter" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
     const messageInput = wrapper.find('.twitter')
     messageInput.simulate('change', {target: {value: 'username'} })
@@ -109,28 +92,21 @@ describe('ContactForm | Feature Test', () => {
   })
   it('should change the "github" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.github')
     messageInput.simulate('change', {target: {value: 'username'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('github'), ('username'))
-    }, 5000)
   })
   it('should change the "notes" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.notes-text-area')
     messageInput.simulate('change', {target: {value: 'best friend ever'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('notes'), ('best friend ever'))
-    }, 5000)
   })
   xit('can render a new contact when "Save Contact" button is clicked"', () => {
     const wrapper = mount(<Application />)
     const messageInput = wrapper.find('.contact-form')
-
     messageInput.simulate('change', {target: {value: 'goodmorning'} })
     wrapper.find('.save-contact-button').simulate('click')
-    setTimeout(() => {
       assert.equal(wrapper.text(), ('goodmorning'))
-    }, 5000)
   })
 })

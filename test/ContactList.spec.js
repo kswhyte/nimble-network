@@ -14,7 +14,7 @@ describe('ContactList | Unit Tests', () => {
   it('can mount with no properties', () => {
     const wrapper = shallow(<ContactList contactList={contactList} />)
   })
-  it.only('renders a "contact-list" ', () => {
+  it('renders a "contact-list" ', () => {
     const wrapper = shallow(<ContactList contactList={contactList} />)
     assert(wrapper.find('.contact-list'))
   })

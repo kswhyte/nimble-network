@@ -37,7 +37,7 @@ export default class ContactForm extends Component {
 
         <form className='contact-form'>
           <input
-            className='input-form-field'
+            className='input-form-field full-name'
             placeholder='full name ...'
             onChange={(e) => this.setState({
                 fullName: e.target.value
@@ -46,7 +46,7 @@ export default class ContactForm extends Component {
           />
 
           <input
-            className='input-form-field'
+            className='input-form-field company'
             placeholder='company ...'
             onChange={(e) => this.setState({
                 company: e.target.value
@@ -54,7 +54,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='input-form-field email1'
             placeholder='email 1 ...'
             onChange={(e) => this.setState({
                 email1: e.target.value
@@ -62,7 +62,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='input-form-field email2'
             placeholder='email 2 ...'
             onChange={(e) => this.setState({
                 email2: e.target.value
@@ -70,7 +70,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='input-form-field cell'
             placeholder='cell number ...'
             onChange={(e) => this.setState({
                 cell: e.target.value
@@ -78,7 +78,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='input-form-field home'
             placeholder='home number ...'
             onChange={(e) => this.setState({
                 home: e.target.value
@@ -86,7 +86,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='input-form-field'
+            className='input-form-field work'
             placeholder='work number ...'
             onChange={(e) => this.setState({
                 work: e.target.value
@@ -94,7 +94,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='social-media-input-form-field'
+            className='social-media-input-form-field google'
             placeholder='google+ ...'
             onChange={(e) => this.setState({
                 google: e.target.value
@@ -102,7 +102,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='social-media-input-form-field'
+            className='social-media-input-form-field facebook'
             placeholder='facebook ...'
             onChange={(e) => this.setState({
                 facebook: e.target.value
@@ -110,7 +110,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='twitter'
+            className='social-media-input-form-field twitter'
             placeholder='twitter ...'
             onChange={(e) => this.setState({
                 twitter: e.target.value
@@ -118,7 +118,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='social-media-input-form-field'
+            className='social-media-input-form-field github'
             placeholder='github ...'
             onChange={(e) => this.setState({
                 github: e.target.value
