@@ -57,6 +57,7 @@ export default class ContactList extends Component {
         toggleFollowUp={this.props.toggleFollowUp}
         saveEdit={this.props.saveEdit}
         contact={contact}
+        user={this.props.user}
       />
     )
 

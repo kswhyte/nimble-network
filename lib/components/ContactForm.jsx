@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import firebase, { reference } from '../firebase'
 
-// import ContactList from './ContactList.jsx'
-// import FollowUpContactList from './FollowUpContactList.jsx'
 import ImageUpload from './ImageUpload.jsx'
 
 export default class ContactForm extends Component {
@@ -28,10 +26,9 @@ export default class ContactForm extends Component {
   }
 
   pushContact(e) {
-    e.preventDefault()
-    // var newContact = this.state
+    // e.preventDefault()
     let newContact = {
-      name:     this.state.fullName,
+      fullName: this.state.fullName,
       company:  this.state.company,
       email1:   this.state.email1,
       email2:   this.state.email2,
@@ -51,7 +48,6 @@ export default class ContactForm extends Component {
   }
 
   uploadImage(imageUpload) {
-    console.log(imageUpload)
     this.setState({ userImage: imageUpload[0] })
   }
 

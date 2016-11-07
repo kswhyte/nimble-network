@@ -22,6 +22,7 @@ export default class Contact extends Component {
       newTwitter: '',
       newGithub: '',
       newNotes: '',
+      userImgSource: null
     }
   }
 
@@ -35,7 +36,7 @@ export default class Contact extends Component {
 
   getUserImgSource() {
   this.props.imgStorage.child(
-    `${this.props.user.uid}/${this.props.imgKey}.jpg`).getDownloadURL()
+    `${this.props.user.uid}/${this.props.contact.imgKey}.jpg`).getDownloadURL()
     .then((url) => {
       this.setState({ userImgSource: url })
     })
@@ -44,12 +45,12 @@ export default class Contact extends Component {
   }
 
   editContact() {
-    this.setState({editable: true})
+    this.setState({ editable: true })
   }
 
   saveEdit() {
     const { contact } = this.props
-    this.setState({editable: false})
+    this.setState({ editable: false })
     let editName = this.state.newName
     const newName = editName ? editName: contact.fullName
     let editCompany = this.state.newCompany
@@ -83,7 +84,6 @@ export default class Contact extends Component {
     if(this.state.editable === false) {
       return(
         <li className='single-contact'>
-
           <p
             onClick={this.toggleHideDisplay.bind(this)}>
             {contact.fullName}
@@ -103,6 +103,12 @@ export default class Contact extends Component {
               onClick={this.editContact.bind(this)}>
               Edit
             </button>
+
+            <img
+              alt='user-image'
+              className='contact-image'
+              src={this.state.userImgSource}
+            />
 
             <li
               className="contact-display">
@@ -131,6 +137,14 @@ export default class Contact extends Component {
     } else if (this.state.editable = true) {
         return(
           <li className='single-contact'>
+            <input
+              className='update-image-button'
+              type='file'
+              accept='image/*'
+              onChange={(e) =>
+                this.props.uploadImage(e.target.files)}
+            >
+            </input>
 
             <input
               className='edit-name'

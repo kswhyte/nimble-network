@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import firebase, { reference, signIn, signOut } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
-// import ImageUpload from './ImageUpload.jsx'
 import ContactForm from './ContactForm.jsx'
 const { SearchBar } = require('./SearchBar.jsx')
 import ContactList from './ContactList.jsx'
@@ -24,23 +23,22 @@ export default class Application extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user },
-      () => { this.setState({
+      () => this.setState({
         usersDatabase: firebase.database().ref(user.uid),
         imgStorage: firebase.storage().ref()
-        })
       },
-      () => { firebase.database().ref(user.uid).on('value',
+      () => {firebase.database().ref(user.uid).on('value',
         (snapshot) => {
-            const contacts = snapshot.val() || {}
-            let currentContacts = map(contacts,
-              (val, key) => extend(val, { key }))
+          const contacts = snapshot.val() || {}
+          let currentContacts = map(contacts,
+            (val, key) => extend(val, { key }))
 
-            this.setState({
-              contactList: currentContacts
-            })
+          this.setState({
+            contactList: currentContacts
           })
         })
-      )
+      })
+    ))
   }
 
   updateSearch(e) {
@@ -49,7 +47,7 @@ export default class Application extends Component {
 
   createContact(newContact, userImage, imgKey) {
     this.state.usersDatabase.push(newContact)
-    console.log(userImage, imgKey, this.state.usersDatabase)
+    if(userImage !== '../../images/avatar.png')
     this.state.imgStorage.child(`${this.state.user.uid}/${imgKey}.jpg`).put(userImage);
   }
 
@@ -115,12 +113,12 @@ export default class Application extends Component {
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
+          user={this.state.user}
         />
 
         <LoginLogout
           user={this.state.user}
         />
-
       </section>
     )
   }
