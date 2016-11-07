@@ -3,42 +3,50 @@
 @import '../config/mixins';
 
 .single-contact {
-  @include flex-container;
   margin: 15px 0;
   color: #09f4e6;
-}
-
-.hidden-contact-info {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.contact-display {
-  @include contact-details-style;
   text-align: left;
-  color: #c8c8c8;
+  height: 100%;
+  width: 350px;
+  border: 2px solid $primary-turqoise;
+  margin: 10px auto;
+  padding: 10px 10px 15px 10px;
+  line-height: 150%;
 }
 
 .follow-up-button {
   @include button-style;
 }
 
-// .show-more-button {
-//   @include button-style;
-//   background-color: #212121;
-//   color: $primary-yellow;
-// }
-
-// .show-more-button:hover {
-//   background-color: #212121;
-//   color: $yellow-hover;
-// }
+.show-contact-info {
+  margin: auto;
+}
 
 input {
   display: block;
 }
+
 button {
   display: block;
+  margin: 5px auto;
+}
 
+.expand {
+  width: 40px;
+  height: 40px;
+  float: right;
+}
+
+.contact-name {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.follow-up-button {
+  margin: 0 0 0 -1px;
+  display: inline-block;
+}
+
+textarea {
+  margin: auto;
 }

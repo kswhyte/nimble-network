@@ -2,6 +2,10 @@
 @import '../config/fonts';
 @import '../config/mixins';
 
+* {
+  font-family: $primary-font;
+}
+
 body {
   font-family: $primary-font;
   background-color: #212121;

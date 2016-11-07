@@ -16,7 +16,7 @@
 .input-form-field {
   @include input-style;
   width: 200px;
-  margin: 5px 20px;
+  margin: 5px auto;
 }
 
 .no-icon {
@@ -35,9 +35,9 @@
 }
 
 .notes-text-area {
-  @include input-style
-  overflow: hidden;
-  margin: 5px 0;
+  @include input-style;
+  // overflow: hidden;
+  // margin: 5px 0;
   width: 220px;
   height: 100px;
   background-color: #525151;
@@ -51,7 +51,7 @@
   margin: 15px 0;
 }
 
-img{
+img {
   height: 100px;
   width: 90px;
 }

@@ -73,25 +73,27 @@ export default class Contact extends Component {
       return(
         <li className='single-contact'>
 
-          <p
-            onClick={this.toggleHideDisplay.bind(this)}>
-            {contact.fullName}
-          </p>
-
-          <button className='follow-up-button'
+          <button
+            className='follow-up-button'
             onClick={() => this.props.toggleFollowUp(contact.key)}>
             Follow-up
           </button>
+
+          <img
+            className='expand'
+            onClick={this.toggleHideDisplay.bind(this)}
+            src='../../../images/arrow-down.png'/>
+
+          <p
+            className='contact-name'>
+            {contact.fullName}
+          </p>
 
           <ul
             className='hidden-contact-info'
             hidden={this.state.hideDisplay}
             className='show-contact-info'
           >
-            <button className='edit-button'
-              onClick={this.editContact.bind(this)}>
-              Edit
-            </button>
 
             <li
               className="contact-display">
@@ -114,32 +116,32 @@ export default class Contact extends Component {
               className='contact-display'>
               {contact.notes}
             </li>
+
+            <button
+              className='edit-button'
+              onClick={this.editContact.bind(this)}>
+              Edit Contact
+            </button>
           </ul>
         </li>
       )
     } else if (this.state.editable = true) {
         return(
           <li className='single-contact edit-form'>
-
-            {/* <button className='follow-up-button'
-              onClick={() => this.props.toggleFollowUp(contact.key)}>
-              Follow-up
-            </button> */}
-
             <ul
               hidden={false}
               className='show-contact-info'
             >
 
               <input
-                className='edit-name input-form-field no-icon'
+                className='edit-name input-form-field'
                 placeholder={contact.fullName}
                 value={this.state.newName}
                 onChange={(e) => this.setState({newName: e.target.value})}
               />
 
               <input
-                className="edit-company input-form-field no-icon"
+                className="edit-company input-form-field"
                 placeholder={contact.company ? contact.company: "Company"}
                 value={this.state.newCompany}
                 onChange={(e) => this.setState({newCompany:  e.target.value})}
@@ -220,7 +222,6 @@ export default class Contact extends Component {
                 onClick={this.saveEdit.bind(this)}>
                 Update Contact
               </button>
-
             </ul>
           </li>
       )
