@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import firebase, { reference, signIn, signOut } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
+import ImageUpload from './ImageUpload.jsx'
 import ContactForm from './ContactForm.jsx'
 const { SearchBar } = require('./SearchBar.jsx')
 import ContactList from './ContactList.jsx'
@@ -16,7 +17,7 @@ export default class Application extends Component {
       contactList: [],
       followUpContacts: [],
       user: null,
-      userDatabase: null,
+      userDatabase: null
     }
   }
 
@@ -30,6 +31,7 @@ export default class Application extends Component {
             const contacts = snapshot.val() || {}
             let currentContacts = map(contacts,
               (val, key) => extend(val, { key }))
+
             this.setState({
               contactList: currentContacts
             })
@@ -87,10 +89,14 @@ export default class Application extends Component {
   render() {
     return (
       <section className='main-application'>
+        <ImageUpload
+        user={this.state.user}
+        />
 
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
         />
+
 
         <ContactForm
           pushContact={this.createContact.bind(this)}
@@ -102,16 +108,18 @@ export default class Application extends Component {
           contactList={this.state.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
+          searchText={this.state.searchText}
         />
 
         <ContactList
           contactList={this.state.contactList}
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
+          searchText={this.state.searchText}
         />
 
         <LoginLogout
-        user={this.state.user}
+          user={this.state.user}
         />
 
       </section>

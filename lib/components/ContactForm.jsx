@@ -30,7 +30,6 @@ export default class ContactForm extends Component {
     return(this.props.pushContact(newContact))
   }
 
-  // <ImageUpload />
   render() {
     return (
       <section className='contact-form-and-list'>
