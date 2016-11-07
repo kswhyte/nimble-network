@@ -4,8 +4,6 @@ import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
 import firebase, { reference, getDownloadURL, child } from '../firebase'
 
-// var contentEditable = require('react-contenteditable')
-
 export default class Contact extends Component {
   constructor() {
     super()
@@ -37,19 +35,20 @@ export default class Contact extends Component {
   }
 
   getUserImgSource() {
-    
-  console.log(this.props.imgStorage)
-    // console.log(this.state.userImgSource)
-  this.props.imgStorage.child(
-    `${this.props.user.uid}/${this.props.contact.imgKey}.jpg`).getDownloadURL()
-    .then((url) => {
-      this.setState({ userImgSource: url })
-    })
-    console.log(url)
-    .catch(() => {
-    })
+    console.log(this.props.user.uid)
+    console.log(this.props.contact.imgKey)
+    console.log()
+    this.props.imgStorage.child(
+      `${this.props.user.uid}/${this.props.contact.imgKey}.jpg`).getDownloadURL()
+      .then((url) => {
+        this.setState({ userImgSource: url })
+      })
+      .catch(() => {
+      })
   }
 
+//nimblenetwork-d13c3.appspot.com/o/CNpRujzHbsUld51UzSFlVh32BJJ3%2F1478549243775.jpg
+//nimblenetwork-d13c3.appspot.com/o/CNpRujzHbsUld51UzSFlVh32BJJ3/1478540968482.jpg
   editContact() {
     this.setState({ editable: true })
   }

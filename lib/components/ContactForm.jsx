@@ -21,12 +21,12 @@ export default class ContactForm extends Component {
       notes: '',
       followUp: false,
       userImage: '../../images/avatar.png',
-      imgKey: Date.now()
+      imgKey: ''
     }
   }
 
   pushContact(e) {
-    // e.preventDefault()
+    e.preventDefault()
     let newContact = {
       fullName: this.state.fullName,
       company:  this.state.company,
@@ -41,9 +41,10 @@ export default class ContactForm extends Component {
       github:   this.state.github,
       notes:    this.state.notes,
       followUp: this.state.followUp,
+      imgKey:   Date.now()
     }
     return(this.props.createContact(
-      newContact, this.state.userImage, this.state.imgKey
+      newContact, this.state.userImage, newContact.imgKey
     ))
   }
 
@@ -57,7 +58,6 @@ export default class ContactForm extends Component {
         <ImageUpload
           userImage={this.state.userImage}
           uploadImage={this.uploadImage.bind(this)}
-          imgKey={this.state.imgKey}
           user={this.props.user}
         />
 

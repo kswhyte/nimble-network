@@ -47,8 +47,9 @@ export default class Application extends Component {
 
   createContact(newContact, userImage, imgKey) {
     this.state.usersDatabase.push(newContact)
-    if(userImage !== '../../images/avatar.png')
-    this.state.imgStorage.child(`${this.state.user.uid}/${imgKey}.jpg`).put(userImage);
+    if (userImage !== '../../images/avatar.png') {
+      this.state.imgStorage.child(`${this.state.user.uid}/${imgKey}.jpg`).put(userImage)
+    }
   }
 
   toggleFollowUp(key) {
