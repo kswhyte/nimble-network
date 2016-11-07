@@ -2,13 +2,18 @@
 @import '../config/fonts';
 @import '../config/mixins';
 
+* {
+  font-family: $primary-font;
+  font-size: 18px;
+}
+
 body {
   font-family: $primary-font;
   background-color: #212121;
   color: #fff;
 }
 
-.login-btn, .logout-btn, .save-contact-button {
+button {
   @include button-style;
 }
 

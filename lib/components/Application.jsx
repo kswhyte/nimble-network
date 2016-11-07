@@ -89,8 +89,12 @@ export default class Application extends Component {
   render() {
     return (
       <section className='main-application'>
+        <LoginLogout
+          user={this.state.user}
+          />
+
         <ImageUpload
-        user={this.state.user}
+          user={this.state.user}
         />
 
         <SearchBar
@@ -117,11 +121,6 @@ export default class Application extends Component {
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
         />
-
-        <LoginLogout
-          user={this.state.user}
-        />
-
       </section>
     )
   }

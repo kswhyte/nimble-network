@@ -14,13 +14,25 @@ export default class EmailContact extends Component {
     })
   }
 
+  toggleEmailArrowButton() {
+    if (this.state.hideEmailDisplay === true){
+      return '../../../images/down-arrow-icon.png'
+    }else{
+      return '../../../images/up-arrow-icon.png'
+    }
+  }
+
   render() {
     const { contact } = this.props
     return (
       <li
-        className='contact-display'
-        onClick={this.toggleHideEmailDisplay.bind(this)}>
+        className='contact-display'>
         {contact.email1}
+
+        <img
+          className='email-expand'
+          onClick={this.toggleHideEmailDisplay.bind(this)}
+          src={this.toggleEmailArrowButton()}/>
 
         <ul
           hidden={this.state.hideEmailDisplay}

@@ -32,6 +32,18 @@ export default class Contact extends Component {
     })
   }
 
+  toggleArrowButton() {
+    if (this.state.hideDisplay === true){
+      return '../../../images/down-arrow-icon.png'
+    }else{
+      return '../../../images/up-arrow-icon.png'
+    }
+  }
+  //
+  // removeContact() {
+  //   this.props.contact.remove;
+  // }
+
   editContact() {
     this.setState({editable: true})
   }
@@ -73,25 +85,33 @@ export default class Contact extends Component {
       return(
         <li className='single-contact'>
 
+          <img
+            className='follow-up-button'
+            onClick={() => this.props.toggleFollowUp(contact.key)}
+            src='../../../images/follow-up-icon.png'
+          />
+
+          <img
+            className='remove'
+            // onClick={() => this.removeContact()}
+            src='../../../images/remove-icon.png'
+          />
+
+          <img
+            className='expand'
+            onClick={this.toggleHideDisplay.bind(this)}
+            src={this.toggleArrowButton()}/>
+
           <p
-            onClick={this.toggleHideDisplay.bind(this)}>
+            className='contact-name'>
             {contact.fullName}
           </p>
-
-          <button className='follow-up-button'
-            onClick={() => this.props.toggleFollowUp(contact.key)}>
-            Follow-up
-          </button>
 
           <ul
             className='hidden-contact-info'
             hidden={this.state.hideDisplay}
             className='show-contact-info'
           >
-            <button className='edit-button'
-              onClick={this.editContact.bind(this)}>
-              Edit
-            </button>
 
             <li
               className="contact-display">
@@ -114,106 +134,115 @@ export default class Contact extends Component {
               className='contact-display'>
               {contact.notes}
             </li>
+
+            <button
+              className='edit-button'
+              onClick={this.editContact.bind(this)}>
+              Edit Contact
+            </button>
           </ul>
         </li>
       )
     } else if (this.state.editable = true) {
         return(
-          <li className='single-contact'>
-
-            <input
-              className='edit-name'
-              placeholder={contact.fullName}
-              value={this.state.newName}
-              onChange={(e) => this.setState({newName: e.target.value})}
-              />
-
-            <button className='follow-up-button'
-              onClick={() => this.props.toggleFollowUp(contact.key)}>
-              Follow-up
-            </button>
-
+          <li className='single-contact edit-form'>
             <ul
               hidden={false}
               className='show-contact-info'
             >
-              <button className='save-button'
-                onClick={this.saveEdit.bind(this)}>
-                Save
-              </button>
 
               <input
-                className="edit-company"
+                className='edit-name input-form-field'
+                placeholder={contact.fullName}
+                value={this.state.newName}
+                onChange={(e) => this.setState({newName: e.target.value})}
+              />
+
+              <input
+                className="edit-company input-form-field"
                 placeholder={contact.company ? contact.company: "Company"}
                 value={this.state.newCompany}
                 onChange={(e) => this.setState({newCompany:  e.target.value})}
-                />
+              />
+
               <input
-                className='edit-email1'
+                className='edit-email1 input-form-field email'
                 placeholder={contact.email1 ? contact.email: "Email 1"}
                 value={this.state.newEmail1}
                 onChange={(e) => this.setState({newEmail1:  e.target.value})}
               />
+
               <input
-                className='edit-email2'
+                className='edit-email2 input-form-field email'
                 placeholder={contact.email2 ? contact.email2: "Email 2"}
                 value={this.state.newEmail2}
                 onChange={(e) => this.setState({newEmail2:  e.target.value})}
               />
+
               <input
-                className='edit-phonecell'
+                className='edit-phonecell input-form-field email'
                 placeholder={contact.cell ? contact.cell: "Cell Phone"}
                 value={this.state.newCell}
                 onChange={(e) => this.setState({newCell:  e.target.value})}
               />
+
               <input
-                className='edit-phonehome'
+                className='edit-phonehome input-form-field email'
                 placeholder={contact.home ? contact.home: "Home Phone"}
                 value={this.state.newHome}
                 onChange={(e) => this.setState({newHome:  e.target.value})}
               />
+
               <input
-                className='edit-phonework'
+                className='edit-phonework input-form-field email'
                 placeholder={contact.work ? contact.work: "Work Phone"}
                 value={this.state.newWork}
                 onChange={(e) => this.setState({newWork:  e.target.value})}
               />
 
               <input
-                className='edit-google'
+                className='edit-google input-form-field email'
                 placeholder={contact.google ? contact.google: "Google"}
                 value={this.state.newGoogle}
                 onChange={(e) => this.setState({newGoogle:  e.target.value})}
               />
+
               <input
-                className='edit-facebook'
+                className='edit-facebook input-form-field email'
                 placeholder={contact.facebook ? contact.facebook: "Facebook"}
                 value={this.state.newFacebook}
                 onChange={(e) => this.setState({newFacebook:  e.target.value})}
               />
+
               <input
-                className='edit-twitter'
+                className='edit-twitter input-form-field email'
                 placeholder={contact.twitter ? contact.twitter: "Twitter"}
                 value={this.state.newTwitter}
                 onChange={(e) => this.setState({newTwitter:  e.target.value})}
               />
+
               <input
-                className='edit-github'
+                className='edit-github input-form-field email'
                 placeholder={contact.github ? contact.github: "Github"}
                 value={this.state.newGithub}
                 onChange={(e) => this.setState({newGithub:  e.target.value})}
               />
 
               <textarea
-                className='edit-notes'
+                className='edit-notes input-form-field notes'
                 placeholder={contact.notes ? contact.notes: "Notes"}
                 value={this.state.newNotes}
-                onChange={(e) => this.setState({newNotes:  e.target.value})}
-              >
+                onChange={(e) => this.setState({newNotes:  e.target.value})}>
               </textarea>
+
+              <button
+                className='save-button'
+                onClick={this.saveEdit.bind(this)}>
+                Update Contact
+              </button>
             </ul>
           </li>
-        )
+      )
     }
   }
 }
