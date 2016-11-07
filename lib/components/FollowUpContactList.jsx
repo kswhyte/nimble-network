@@ -58,6 +58,8 @@ export default class FollowUpContactList extends Component {
         toggleFollowUp={this.props.toggleFollowUp}
         saveEdit={this.props.saveEdit}
         contact={contact}
+        user={this.props.user}
+        imgStorage={this.props.imgStorage}
         deleteContact={this.props.deleteContact}
       />
     )
@@ -65,19 +67,15 @@ export default class FollowUpContactList extends Component {
     let filteredFollowUpContacts = this.filterContactsBySearch(newFollowUpContacts)
 
     return (
-      <section
-        className='follow-up-contact-section'
-      >
+      <section className='follow-up-contact-section'>
         <h1
           className='follow-up-contact-title'>
           ~ Follow-up Contacts ~
         </h1>
-
         <ul
           className='follow-up-contact-list'>
           { filteredFollowUpContacts }
         </ul>
-
       </section>
     )
   }
