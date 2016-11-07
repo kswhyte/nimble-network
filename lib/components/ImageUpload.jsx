@@ -1,67 +1,66 @@
 import React, { Component } from 'react'
 import { map } from 'lodash'
 
-// import Contact from './Contact.jsx'
-
 export default class ImageUpload extends Component {
   constructor() {
     super()
     this.state = {
-      picture: '../../images/avatar.png',
-      userImage: null
+      file: '',
+      imagePreviewUrl: ''
     }
   }
 
-  updateImage(key) {
-    const { uid } = this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({
-          followUp: !contact.followUp
-        })
-      } else {
-        return
-      }
-    })
-  }
+  handleImageChange(e) {
+    e.preventDefault();
 
-  setImage(){
-    if(this.state.userImage.length > 0){
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
       this.setState({
-        picture: this.state.userImage
-      })
+        file: file,
+        imagePreviewUrl: reader.result
+      });
     }
+    reader.readAsDataURL(file)
+    this.props.uploadImage(e.target.files)
   }
-
-  // (e) => this.setState({
-  //   userImage: e.target.value
 
   render() {
-    return (
-      <form className='contact-form'>
 
-        <h1
+    let { imagePreviewUrl } = this.state
+    let imagePreview
+
+    if (imagePreviewUrl) {
+      imagePreview = (<img src={imagePreviewUrl} />);
+    } else {
+      imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+    }
+
+    return (
+      <section className='upload-image-form'>
+        <form onSubmit={(e) =>
+          this.props.uploadImage(e.target.files)}
+        >
+          <h1
           className='create-new-contact-title'>
           ~ Create a New Contact ~
-        </h1>
+          </h1>
 
-        <img
-          src={this.state.picture}
-        />
+          <input
+            className='update-image-button'
+            type='file'
+            accept='image/*'
+            onChange={(e) =>
+              this.handleImageChange(e)}
+          >
+          </input>
 
-        <input
-          className='input-form-field'
-          placeholder='image ...'
-          onChange={this.updateImage.bind(this)}
-            }
-          }
-        />
-
-        <button
-          onClick={()=>this.setImage()}>
-          upload image
-        </button>
-      </form>
+          <div className="imgPreview">
+          { imagePreview }
+          </div>
+        </form>
+      </section>
     )
   }
 }

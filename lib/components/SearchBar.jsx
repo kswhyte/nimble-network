@@ -6,7 +6,6 @@ export const SearchBar = ({ updateSearch }) => {
 
       <p
         className='application-title'>
-        <span className='my'>My </span>
         <span className='nimble'>Nimble</span>
         <span className='network'>Network</span>
       </p>
