@@ -89,14 +89,18 @@ export default class Application extends Component {
   render() {
     return (
       <section className='main-application'>
-        <ImageUpload
-        user={this.state.user}
-        />
+        <LoginLogout
+          user={this.state.user}
+          />
+
 
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
         />
 
+        <ImageUpload
+          user={this.state.user}
+        />
 
         <ContactForm
           pushContact={this.createContact.bind(this)}
@@ -117,11 +121,6 @@ export default class Application extends Component {
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
         />
-
-        <LoginLogout
-          user={this.state.user}
-        />
-
       </section>
     )
   }
