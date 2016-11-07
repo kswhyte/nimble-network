@@ -144,41 +144,53 @@ export default class ContactForm extends Component {
             />
           </div>
 
-          <input
-            className='social-media-input-form-field'
-            placeholder='google+ ...'
-            onChange={(e) => this.setState({
-                google: e.target.value
-              })
-            }
-          />
+          <div className='google-input'>
+            <img className='icon-google' src='../../../images/google-icon.png'/>
+            <input
+              className='social-media-input-form-field'
+              placeholder='google+ ...'
+              onChange={(e) => this.setState({
+                  google: e.target.value
+                })
+              }
+            />
+          </div>
 
-          <input
-            className='social-media-input-form-field'
-            placeholder='facebook ...'
-            onChange={(e) => this.setState({
-                facebook: e.target.value
-              })
-            }
-          />
+          <div className='facebook-input'>
+            <img className='icon-facebook' src='../../../images/facebook-icon.png'/>
+            <input
+              className='social-media-input-form-field'
+              placeholder='facebook ...'
+              onChange={(e) => this.setState({
+                  facebook: e.target.value
+                })
+              }
+            />
+          </div>
 
-          <input
-            className='social-media-input-form-field'
-            placeholder='twitter ...'
-            onChange={(e) => this.setState({
-                twitter: e.target.value
-              })
-            }
-          />
+          <div className='twitter-input'>
+            <img className='icon-twitter' src='../../../images/twitter-icon.png'/>
+            <input
+              className='social-media-input-form-field'
+              placeholder='twitter ...'
+              onChange={(e) => this.setState({
+                  twitter: e.target.value
+                })
+              }
+            />
+          </div>
 
-          <input
-            className='social-media-input-form-field'
-            placeholder='github ...'
-            onChange={(e) => this.setState({
-                github: e.target.value
-              })
-            }
-          />
+          <div className='github-input'>
+            <img className='icon-github' src='../../../images/github-icon.png'/>
+            <input
+              className='social-media-input-form-field'
+              placeholder='github ...'
+              onChange={(e) => this.setState({
+                  github: e.target.value
+                })
+              }
+            />
+          </div>
 
           <div className='notes-input'>
             <img className='icon-notes' src='../../../images/notes-icon.png'/>

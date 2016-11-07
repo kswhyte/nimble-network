@@ -8,11 +8,8 @@ export const LoginLogout = ({ user }) => {
       {user ?
         <section className='user-login-info'>
           <section className='logged-in-text'>
-            Logged in as
-
-            <h3 className='user-name'> {user.displayName} </h3>
-
-            <h4 className='user-email'> {user.email} </h4>
+            <h3>Currently signed in as:  </h3>
+            <h3 className='user-name'>{user.displayName} </h3>
           </section>
 
           <button

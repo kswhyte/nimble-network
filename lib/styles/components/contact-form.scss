@@ -25,7 +25,7 @@
 
 .social-media-input-form-field {
   @include input-style;
-  width: 220px;
+  width: 200px;
   margin: 5px 20px;
   background-color: #a12a23;
 }
@@ -127,6 +127,66 @@ img {
 .company-input img {
   position: absolute;
   padding: 11px 0 0 7px;
+  height: 20px;
+  width: 20px;
+}
+
+.google-input {
+  position: relative;
+}
+
+.google-input input {
+  padding-left: 30px;
+}
+
+.google-input img {
+  position: absolute;
+  padding: 11px 0 0 25px;
+  height: 20px;
+  width: 20px;
+}
+
+.facebook-input {
+  position: relative;
+}
+
+.facebook-input input {
+  padding-left: 30px;
+}
+
+.facebook-input img {
+  position: absolute;
+  padding: 11px 0 0 25px;
+  height: 20px;
+  width: 20px;
+}
+
+.twitter-input {
+  position: relative;
+}
+
+.twitter-input input {
+  padding-left: 30px;
+}
+
+.twitter-input img {
+  position: absolute;
+  padding: 11px 0 0 25px;
+  height: 20px;
+  width: 20px;
+}
+
+.github-input {
+  position: relative;
+}
+
+.github-input input {
+  padding-left: 30px;
+}
+
+.github-input img {
+  position: absolute;
+  padding: 11px 0 0 25px;
   height: 20px;
   width: 20px;
 }

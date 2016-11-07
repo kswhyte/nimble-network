@@ -85,12 +85,6 @@ export default class Contact extends Component {
       return(
         <li className='single-contact'>
 
-          {/* <button
-            className='follow-up-button'
-            onClick={() => this.props.toggleFollowUp(contact.key)}>
-            Follow-up
-          </button> */}
-
           <img
             className='follow-up-button'
             onClick={() => this.props.toggleFollowUp(contact.key)}
