@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import firebase, { reference, signIn, signOut, remove } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
-import ImageUpload from './ImageUpload.jsx'
 import ContactForm from './ContactForm.jsx'
 const { SearchBar } = require('./SearchBar.jsx')
 import ContactList from './ContactList.jsx'
@@ -17,36 +16,40 @@ export default class Application extends Component {
       contactList: [],
       followUpContacts: [],
       user: null,
-      userDatabase: null
+      usersDatabase: null,
+      imgStorage: null
     }
   }
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user },
       () => this.setState({
-        usersDatabase: firebase.database().ref(user.uid
-      )},
-      () => { firebase.database().ref(user.uid).on('value',
+        usersDatabase: firebase.database().ref(user.uid),
+        imgStorage: firebase.storage().ref()
+      },
+      () => {firebase.database().ref(user.uid).on('value',
         (snapshot) => {
-            const contacts = snapshot.val() || {}
-            let currentContacts = map(contacts,
-              (val, key) => extend(val, { key }))
+          const contacts = snapshot.val() || {}
+          let currentContacts = map(contacts,
+            (val, key) => extend(val, { key }))
 
-              this.setState({
-                contactList: currentContacts
-            })
+          this.setState({
+            contactList: currentContacts
           })
         })
-      )
-    )
+      })
+    ))
   }
 
   updateSearch(e) {
     this.setState({ searchText: e.target.value })
   }
 
-  createContact(newContact) {
+  createContact(newContact, userImage, imgKey) {
     this.state.usersDatabase.push(newContact)
+    if (userImage !== '../../images/avatar.png') {
+      this.state.imgStorage.child(`${this.state.user.uid}/${imgKey}.jpg`).put(userImage)
+    }
   }
 
   deleteContact(key) {
@@ -110,12 +113,8 @@ export default class Application extends Component {
           updateSearch={this.updateSearch.bind(this)}
         />
 
-        <ImageUpload
-          user={this.state.user}
-        />
-
         <ContactForm
-          pushContact={this.createContact.bind(this)}
+          createContact={this.createContact.bind(this)}
           contactList={this.state.contactList}
           user={this.state.user}
         />
@@ -133,6 +132,8 @@ export default class Application extends Component {
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
+          user={this.state.user}
+          imgStorage={this.state.imgStorage}
           deleteContact={this.deleteContact.bind(this)}
         />
       </section>

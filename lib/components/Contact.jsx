@@ -3,6 +3,8 @@ import PhoneContact from './PhoneContact.jsx'
 import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
 
+import firebase, { reference, getDownloadURL, child } from '../firebase'
+
 export default class Contact extends Component {
   constructor() {
     super()
@@ -21,6 +23,7 @@ export default class Contact extends Component {
       newTwitter: '',
       newGithub: '',
       newNotes: '',
+      userImgSource: null
     }
   }
 
@@ -28,6 +31,20 @@ export default class Contact extends Component {
     this.setState({
       hideDisplay: !this.state.hideDisplay
     })
+    this.getUserImgSource()
+  }
+
+  getUserImgSource() {
+    console.log(this.props.user.uid)
+    console.log(this.props.contact.imgKey)
+    console.log()
+    this.props.imgStorage.child(
+      `${this.props.user.uid}/${this.props.contact.imgKey}.jpg`).getDownloadURL()
+      .then((url) => {
+        this.setState({ userImgSource: url })
+      })
+      .catch(() => {
+      })
   }
 
   toggleArrowButton() {
@@ -46,7 +63,7 @@ export default class Contact extends Component {
 
   saveEdit() {
     const { contact } = this.props
-    this.setState({editable: false})
+    this.setState({ editable: false })
     let editName = this.state.newName
     const newName = editName ? editName: contact.fullName
     let editCompany = this.state.newCompany
@@ -117,6 +134,12 @@ export default class Contact extends Component {
             className='show-contact-info'
           >
 
+            <img
+              alt='user-image'
+              className='contact-image'
+              src={this.state.userImgSource}
+            />
+
             <li
               className="contact-display">
               {contact.company}
@@ -147,13 +170,26 @@ export default class Contact extends Component {
           </ul>
         </li>
       )
-    } else if (this.state.editable = true) {
+    } else if (this.state.editable === true) {
         return(
           <li className='single-contact edit-form'>
+            <button className='follow-up-button'
+              onClick={() => this.props.toggleFollowUp(contact.key)}>
+              Follow-up
+            </button>
+
             <ul
               hidden={false}
               className='show-contact-info'
             >
+              <input
+                className='update-image-button'
+                type='file'
+                accept='image/*'
+                onChange={(e) =>
+                  this.props.uploadImage(e.target.files)}
+              >
+              </input>
 
               <input
                 className='edit-name input-form-field'

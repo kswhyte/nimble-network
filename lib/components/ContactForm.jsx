@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import firebase, { reference } from '../firebase'
-import Contact from './Contact.jsx'
+
+import ImageUpload from './ImageUpload.jsx'
 
 export default class ContactForm extends Component {
   constructor() {
@@ -19,38 +20,48 @@ export default class ContactForm extends Component {
       github: '',
       notes: '',
       followUp: false,
+      userImage: '../../images/avatar.png',
+      imgKey: ''
     }
   }
 
-  pushContact() {
-    var newContact = this.state
-    return(this.props.pushContact(newContact))
+  pushContact(e) {
+    e.preventDefault()
+    let newContact = {
+      fullName: this.state.fullName,
+      company:  this.state.company,
+      email1:   this.state.email1,
+      email2:   this.state.email2,
+      cell:     this.state.cell,
+      home:     this.state.home,
+      work:     this.state.work,
+      google:   this.state.google,
+      facebook: this.state.facebook,
+      twitter:  this.state.twitter,
+      github:   this.state.github,
+      notes:    this.state.notes,
+      followUp: this.state.followUp,
+      imgKey:   Date.now()
+    }
+    return(this.props.createContact(
+      newContact, this.state.userImage, newContact.imgKey
+    ))
+  }
+
+  uploadImage(imageUpload) {
+    this.setState({ userImage: imageUpload[0] })
   }
 
   render() {
-
-    <Contact
-      followUp = {this.state.followUp}
-    />
-
     return (
       <section className='contact-form-and-list'>
+        <ImageUpload
+          userImage={this.state.userImage}
+          uploadImage={this.uploadImage.bind(this)}
+          user={this.props.user}
+        />
+
         <form className='contact-form'>
-          <input
-            className='input-form-field'
-            placeholder='image...'
-            onChange={(e) => this.setState({
-                userImage: e.target.value
-              })
-            }
-          />
-
-          <button
-            className='save-contact-button'
-            onClick={()=>this.setImage()}>
-            upload image
-          </button>
-
           <div className='user-input'>
             <img className='icon-user' src='../../../images/avatar.png'/>
             <input
@@ -198,7 +209,7 @@ export default class ContactForm extends Component {
 
             <button
               className='save-contact-button'
-              onClick={() => this.pushContact()}
+              onClick={(e) => this.pushContact(e)}
               >Save Contact
             </button>
         </form>
