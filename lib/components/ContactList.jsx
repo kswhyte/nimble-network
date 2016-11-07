@@ -59,6 +59,7 @@ export default class ContactList extends Component {
         contact={contact}
         user={this.props.user}
         imgStorage={this.props.imgStorage}
+        deleteContact={this.props.deleteContact}
       />
     )
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import firebase, { reference, signIn, signOut } from '../firebase'
+import firebase, { reference, signIn, signOut, remove } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
 import ContactForm from './ContactForm.jsx'
@@ -52,6 +52,19 @@ export default class Application extends Component {
     }
   }
 
+  deleteContact(key) {
+      const { uid } = this.state.user
+      this.state.contactList.map(contact => {
+        if(key === contact.key) {
+          this.setState({
+            userDatabase: firebase.database().ref(`${uid}/${key}`).remove()
+          })
+        } else {
+          return
+        }
+    })
+  }
+
   toggleFollowUp(key) {
     const { uid } = this.state.user
     this.state.contactList.map(contact => {
@@ -92,6 +105,10 @@ export default class Application extends Component {
   render() {
     return (
       <section className='main-application'>
+        <LoginLogout
+          user={this.state.user}
+        />
+
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
         />
@@ -107,6 +124,7 @@ export default class Application extends Component {
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
+          deleteContact={this.deleteContact.bind(this)}
         />
 
         <ContactList
@@ -116,10 +134,7 @@ export default class Application extends Component {
           searchText={this.state.searchText}
           user={this.state.user}
           imgStorage={this.state.imgStorage}
-        />
-
-        <LoginLogout
-          user={this.state.user}
+          deleteContact={this.deleteContact.bind(this)}
         />
       </section>
     )

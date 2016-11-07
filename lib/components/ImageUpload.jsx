@@ -25,7 +25,7 @@ export default class ImageUpload extends Component {
     reader.readAsDataURL(file)
     this.props.uploadImage(e.target.files)
   }
-  //
+
   render() {
 
     let { imagePreviewUrl } = this.state
