@@ -32,13 +32,17 @@ export default class Contact extends Component {
     })
   }
 
-  toggleArrowButton(){
+  toggleArrowButton() {
     if (this.state.hideDisplay === true){
-      return '../../../images/arrow-down.png'
+      return '../../../images/down-arrow-icon.png'
     }else{
-      return '../../../images/arrow-up.png'
+      return '../../../images/up-arrow-icon.png'
     }
   }
+  //
+  // removeContact() {
+  //   this.props.contact.remove;
+  // }
 
   editContact() {
     this.setState({editable: true})
@@ -81,11 +85,23 @@ export default class Contact extends Component {
       return(
         <li className='single-contact'>
 
-          <button
+          {/* <button
             className='follow-up-button'
             onClick={() => this.props.toggleFollowUp(contact.key)}>
             Follow-up
-          </button>
+          </button> */}
+
+          <img
+            className='follow-up-button'
+            onClick={() => this.props.toggleFollowUp(contact.key)}
+            src='../../../images/follow-up-icon.png'
+          />
+
+          <img
+            className='remove'
+            // onClick={() => this.removeContact()}
+            src='../../../images/remove-icon.png'
+          />
 
           <img
             className='expand'

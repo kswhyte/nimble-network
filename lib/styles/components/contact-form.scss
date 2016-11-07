@@ -36,9 +36,9 @@
 
 .notes-text-area {
   @include input-style;
-  // overflow: hidden;
-  // margin: 5px 0;
-  width: 220px;
+  overflow: hidden;
+  margin: 5px 0;
+  width: 200px;
   height: 100px;
   background-color: #525151;
 }
@@ -66,11 +66,10 @@ img {
 
 .phone-input img {
   position: absolute;
-  padding: 10px 27px;
+  padding: 11px 0 0 7px;
   height: 20px;
-  width: 15px;
+  width: 20px;
 }
-
 
 .email-input {
   position: relative;
@@ -82,7 +81,52 @@ img {
 
 .email-input img {
   position: absolute;
-  padding: 14px 27px;
-  height: 15px;
+  padding: 11px 0 0 7px;
+  height: 20px;
+  width: 20px;
+}
+
+.notes-input {
+  position: relative;
+}
+
+.notes-input textarea {
+  padding-left: 30px;
+}
+
+.notes-input img {
+  position: absolute;
+  padding: 11px 0 0 7px;
+  height: 20px;
+  width: 20px;
+}
+
+.user-input {
+  position: relative;
+}
+
+.user-input input {
+  padding-left: 30px;
+}
+
+.user-input img {
+  position: absolute;
+  padding: 11px 0 0 7px;
+  height: 20px;
+  width: 20px;
+}
+
+.company-input {
+  position: relative;
+}
+
+.company-input input {
+  padding-left: 30px;
+}
+
+.company-input img {
+  position: absolute;
+  padding: 11px 0 0 7px;
+  height: 20px;
   width: 20px;
 }

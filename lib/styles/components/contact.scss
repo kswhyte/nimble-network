@@ -15,7 +15,10 @@
 }
 
 .follow-up-button {
-  @include button-style;
+  width: 30px;
+  height: 30px;
+  margin: 0 0 0 -1px;
+  display: inline-block;
 }
 
 .show-contact-info {
@@ -32,9 +35,17 @@ button {
 }
 
 .expand {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   float: right;
+  margin-right: 10px;
+}
+
+.remove {
+  width: 20px;
+  height: 20px;
+  float: right;
+  margin-top: 5px;
 }
 
 .contact-name {
@@ -42,11 +53,12 @@ button {
   margin-top: 10px;
 }
 
-.follow-up-button {
-  margin: 0 0 0 -1px;
-  display: inline-block;
-}
-
 textarea {
   margin: auto;
+}
+
+.email-expand {
+  height: 15px;
+  width: 15px;
+  padding: 0 10px;
 }

@@ -44,14 +44,14 @@ export default class ContactForm extends Component {
             src={this.state.picture}
           />
 
-          <input
-            className='input-form-field no-icon'
-            placeholder='image...'
-            onChange={(e) => this.setState({
-                userImage: e.target.value
-              })
-            }
-          />
+            <input
+              className='input-form-field'
+              placeholder='image...'
+              onChange={(e) => this.setState({
+                  userImage: e.target.value
+                })
+              }
+            />
 
           <button
             className='save-contact-button'
@@ -59,26 +59,32 @@ export default class ContactForm extends Component {
             upload image
           </button>
 
-          <input
-            className='input-form-field no-icon'
-            placeholder='full name ...'
-            onChange={(e) => this.setState({
-                fullName: e.target.value
-              })
-            }
-          />
+          <div className='user-input'>
+            <img className='icon-user' src='../../../images/user-icon.png'/>
+            <input
+              className='input-form-field'
+              placeholder='full name ...'
+              onChange={(e) => this.setState({
+                  fullName: e.target.value
+                })
+              }
+            />
+          </div>
 
-          <input
-            className='input-form-field no-icon'
-            placeholder='company ...'
-            onChange={(e) => this.setState({
-                company: e.target.value
-              })
-            }
-          />
+          <div className='company-input'>
+            <img className='icon-company' src='../../../images/company-icon.png'/>
+            <input
+              className='input-form-field'
+              placeholder='company ...'
+              onChange={(e) => this.setState({
+                  company: e.target.value
+                })
+              }
+            />
+        </div>
 
         <div className='email-input'>
-            <img className='icon-email' src='../../../images/email.png'/>
+            <img className='icon-email' src='../../../images/email-icon.png'/>
             <input
               className='input-form-field email'
               placeholder='email 1 ...'
@@ -90,7 +96,7 @@ export default class ContactForm extends Component {
         </div>
 
         <div className='email-input'>
-            <img className='icon-email' src='../../../images/email.png'/>
+            <img className='icon-email' src='../../../images/email-icon.png'/>
             <input
               className='input-form-field email'
               placeholder='email 2 ...'
@@ -102,7 +108,7 @@ export default class ContactForm extends Component {
         </div>
 
         <div className='phone-input'>
-            <img className='icon-phone' src='../../../images/phone.png'/>
+            <img className='icon-phone' src='../../../images/phone-icon.png'/>
             <input
               className='input-form-field'
               type='text'
@@ -115,7 +121,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='phone-input'>
-              <img className='icon-phone' src='../../../images/phone.png'/>
+              <img className='icon-phone' src='../../../images/phone-icon.png'/>
             <input
               className='input-form-field'
               placeholder='home number ...'
@@ -127,7 +133,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='phone-input'>
-              <img className='icon-phone' src='../../../images/phone.png'/>
+              <img className='icon-phone' src='../../../images/phone-icon.png'/>
             <input
               className='input-form-field'
               placeholder='work number ...'
@@ -173,15 +179,19 @@ export default class ContactForm extends Component {
               })
             }
           />
-          <textarea
-            className='notes-text-area'
-            placeholder='notes ...'
-            onChange={(e) => this.setState({
-                notes: e.target.value
-              })
-            }
-          >
-          </textarea>
+
+          <div className='notes-input'>
+            <img className='icon-notes' src='../../../images/notes-icon.png'/>
+            <textarea
+              className='notes-text-area'
+              placeholder='notes ...'
+              onChange={(e) => this.setState({
+                  notes: e.target.value
+                })
+              }>
+            </textarea>
+          </div>
+
           <button
             className='save-contact-button'
             onClick={() => this.pushContact()}
