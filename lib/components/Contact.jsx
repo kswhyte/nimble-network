@@ -185,8 +185,7 @@ export default class Contact extends Component {
                 accept='image/*'
                 onChange={(e) =>
                   this.props.uploadImage(e.target.files)}
-              >
-              </input>
+              />
 
               <input
                 className='edit-name input-form-field'
