@@ -4,7 +4,6 @@ import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
 // var contentEditable = require('react-contenteditable')
 
-
 export default class Contact extends Component {
   constructor() {
     super()
@@ -29,6 +28,18 @@ export default class Contact extends Component {
   toggleHideDisplay() {
     this.setState({
       hideDisplay: !this.state.hideDisplay
+    })
+    //load image
+    this.getUserImgSource()
+  }
+
+  getUserImgSource() {
+  this.props.imgStorage.child(
+    `${this.props.user.uid}/${this.props.imgKey}.jpg`).getDownloadURL()
+    .then((url) => {
+      this.setState({ userImgSource: url })
+    })
+    .catch(() => {
     })
   }
 

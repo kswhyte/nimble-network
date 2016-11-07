@@ -7,40 +7,12 @@ export default class ImageUpload extends Component {
   constructor() {
     super()
     this.state = {
-      imgURL: '../../images/avatar.png',
-      userImage: null
+      userImgSource: null
     }
   }
 
-  updateImage(key) {
-    const { uid } = this.props.user
-    this.props.contactList.map(contact => {
-      if(key === contact.key) {
-        firebase.database().ref(`${uid}/${key}`).update({
-          imgURL: this.state.userImage
-        })
-      } else {
-        return
-      }
-    })
-  }
-
-  setImage(e){
-    (e) => this.setState({
-      userImage: e.target.value
-    })
-  }
-
-    // if(this.state.userImage.length > 0){
-    //   this.setState({
-    //     imgURL: this.state.userImage
-    // }
-
-  deleteImage() {
-    this.setState({
-      imgURL: '../../images/avatar.png'
-    })
-  }
+  // retreive
+    // use a file reader
 
   render() {
     return (
@@ -52,27 +24,33 @@ export default class ImageUpload extends Component {
         </h1>
 
         <section>
-          { this.state.imgURL ?
+          { this.props.userImage ?
             <section>
               <img
-                alt='img URL'
+                alt='user-image'
                 className='contact-image'
-                src={this.state.imgURL}
+                src={this.state.userImgSource}
               />
-              <button
-                onClick={() => this.deleteImage()}
-              >Delete Image
-              </button>
+              <input
+                className='update-image-button'
+                placeholder='update image'
+                type='file'
+                accept='image/*'
+                onChange={(e) =>
+                  this.props.uploadImage(e.target.files)}
+              >
+              </input>
             </section> :
 
             <section>
-              <button
+              <input
                 className='add-image-button'
                 type='file'
-                onChange={this.updateImage.bind(this)}
                 accept='image/*'
-              >Add Contact Image
-              </button>
+                onChange={(e) =>
+                  this.props.uploadImage(e.target)}
+              >
+              </input>
             </section>
           }
         </section>

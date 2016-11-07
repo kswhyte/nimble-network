@@ -3,7 +3,7 @@ import firebase, { reference } from '../firebase'
 
 // import ContactList from './ContactList.jsx'
 // import FollowUpContactList from './FollowUpContactList.jsx'
-// import ImageUpload from './ImageUpload.jsx'
+import ImageUpload from './ImageUpload.jsx'
 
 export default class ContactForm extends Component {
   constructor() {
@@ -21,18 +21,49 @@ export default class ContactForm extends Component {
       twitter: '',
       github: '',
       notes: '',
-      followUp: false
+      followUp: false,
+      userImage: '../../images/avatar.png',
+      imgKey: Date.now()
     }
   }
 
-  pushContact() {
-    var newContact = this.state
-    return(this.props.pushContact(newContact))
+  pushContact(e) {
+    e.preventDefault()
+    // var newContact = this.state
+    let newContact = {
+      name:     this.state.fullName,
+      company:  this.state.company,
+      email1:   this.state.email1,
+      email2:   this.state.email2,
+      cell:     this.state.cell,
+      home:     this.state.home,
+      work:     this.state.work,
+      google:   this.state.google,
+      facebook: this.state.facebook,
+      twitter:  this.state.twitter,
+      github:   this.state.github,
+      notes:    this.state.notes,
+      followUp: this.state.followUp,
+    }
+    return(this.props.createContact(
+      newContact, this.state.userImage, this.state.imgKey
+    ))
+  }
+
+  uploadImage(imageUpload) {
+    console.log(imageUpload)
+    this.setState({ userImage: imageUpload[0] })
   }
 
   render() {
     return (
       <section className='contact-form-and-list'>
+        <ImageUpload
+          userImage={this.state.userImage}
+          uploadImage={this.uploadImage.bind(this)}
+          imgKey={this.state.imgKey}
+          user={this.props.user}
+        />
 
         <form className='contact-form'>
           <input
@@ -135,7 +166,7 @@ export default class ContactForm extends Component {
           </textarea>
           <button
             className='save-contact-button'
-            onClick={() => this.pushContact()}
+            onClick={(e) => this.pushContact(e)}
             >Save Contact
           </button>
         </form>
