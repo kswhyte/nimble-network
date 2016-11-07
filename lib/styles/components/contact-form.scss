@@ -116,5 +116,8 @@ img {
 }
 
 .notes-input img {
-  @include input-icon-style;
+  position: absolute;
+  padding: 10px 0 0 8px;
+  height: 20px;
+  width: 20px;
 }

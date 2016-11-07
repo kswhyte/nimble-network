@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import PhoneContact from './PhoneContact.jsx'
 import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
-// var contentEditable = require('react-contenteditable')
-
 
 export default class Contact extends Component {
   constructor() {
@@ -41,7 +39,9 @@ export default class Contact extends Component {
   }
 
   editContact() {
-    this.setState({editable: true})
+    this.setState({
+      editable: true
+    })
   }
 
   saveEdit() {
@@ -84,7 +84,7 @@ export default class Contact extends Component {
           <img
             className='follow-up-button'
             onClick={() => this.props.toggleFollowUp(contact.key)}
-            src='../../../images/follow-up-icon.png'
+            src='../../../images/svg/'
           />
 
           <img

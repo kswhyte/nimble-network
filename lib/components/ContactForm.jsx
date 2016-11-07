@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import firebase, { reference } from '../firebase'
 
-// import ContactList from './ContactList.jsx'
-// import FollowUpContactList from './FollowUpContactList.jsx'
-// import ImageUpload from './ImageUpload.jsx'
-
 export default class ContactForm extends Component {
   constructor() {
     super()
@@ -50,7 +46,7 @@ export default class ContactForm extends Component {
           </button>
 
           <div className='user-input'>
-            <img className='icon-user' src='../../../images/user-icon.png'/>
+            <img className='icon-user' src='../../../images/avatar.png'/>
             <input
               className='input-form-field'
               placeholder='full name ...'
@@ -62,7 +58,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='company-input'>
-            <img className='icon-company' src='../../../images/company-icon.png'/>
+            <img className='icon-company' src='../../../images/svg/business.svg'/>
             <input
               className='input-form-field'
               placeholder='company ...'
@@ -74,7 +70,7 @@ export default class ContactForm extends Component {
         </div>
 
         <div className='email-input'>
-            <img className='icon-email' src='../../../images/email-icon.png'/>
+            <img className='icon-email' src='../../../images/svg/close-envelope.svg'/>
             <input
               className='input-form-field email'
               placeholder='email 1 ...'
@@ -86,7 +82,7 @@ export default class ContactForm extends Component {
         </div>
 
         <div className='email-input'>
-            <img className='icon-email' src='../../../images/email-icon.png'/>
+            <img className='icon-email' src='../../../images/svg/close-envelope.svg'/>
             <input
               className='input-form-field email'
               placeholder='email 2 ...'
@@ -98,7 +94,7 @@ export default class ContactForm extends Component {
         </div>
 
         <div className='phone-input'>
-            <img className='icon-phone' src='../../../images/phone-icon.png'/>
+            <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
             <input
               className='input-form-field'
               type='text'
@@ -111,7 +107,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='phone-input'>
-              <img className='icon-phone' src='../../../images/phone-icon.png'/>
+              <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
             <input
               className='input-form-field'
               placeholder='home number ...'
@@ -123,7 +119,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='phone-input'>
-              <img className='icon-phone' src='../../../images/phone-icon.png'/>
+              <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
             <input
               className='input-form-field'
               placeholder='work number ...'
@@ -183,7 +179,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='notes-input'>
-            <img className='icon-notes' src='../../../images/notes-icon.png'/>
+            <img className='icon-notes' src='../../../images/svg/notes.svg'/>
             <textarea
               className='notes-text-area'
               placeholder='notes ...'
