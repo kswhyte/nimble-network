@@ -1,16 +1,37 @@
 import React from 'react'
 
 import { shallow, mount, render } from 'enzyme'
-import { assert } from 'chai'
+import { assert, expect } from 'chai'
 
 import Application from '../lib/components/Application'
 
 const sinon = require('sinon')
 
-describe('Application | Unit Test', () => {
+describe('Application', () => {
   it('can mount with no properties', () => {
     const wrapper = shallow(<Application />)
-  })
+});
+  it('has constructor that sets state of searchText to an empty string', function() {
+  const wrapper = shallow(<Application />);
+  expect(wrapper.state('searchText')).deep.equal('');
+});
+  it('has constructor that sets state of contactList to an empty array', function() {
+  const wrapper = shallow(<Application />);
+  expect(wrapper.state('contactList')).deep.equal([]);
+});
+  it('has constructor that sets state of followUpContacts to an empty array', function() {
+  const wrapper = shallow(<Application />);
+  expect(wrapper.state('followUpContacts')).deep.equal([]);
+});
+  it('has constructor that sets state of user to null', function() {
+  const wrapper = shallow(<Application />);
+  expect(wrapper.state('user')).deep.equal(null);
+});
+  it('has constructor that sets state of userDatabase to null', function() {
+    const wrapper = shallow(<Application />);
+    expect(wrapper.state('userDatabase')).deep.equal(null);
+});
+
   it('renders as a <section>', () => {
     const wrapper = shallow(<Application />)
     assert.equal(wrapper.type(), 'section')
