@@ -35,9 +35,6 @@ export default class Contact extends Component {
   }
 
   getUserImgSource() {
-    console.log(this.props.user.uid)
-    console.log(this.props.contact.imgKey)
-    console.log()
     this.props.imgStorage.child(
       `${this.props.user.uid}/${this.props.contact.imgKey}.jpg`).getDownloadURL()
       .then((url) => {
