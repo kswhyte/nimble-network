@@ -30,7 +30,6 @@ export default class Contact extends Component {
     this.setState({
       hideDisplay: !this.state.hideDisplay
     })
-    //load image
     this.getUserImgSource()
   }
 
