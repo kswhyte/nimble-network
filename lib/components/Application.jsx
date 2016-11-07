@@ -104,8 +104,7 @@ export default class Application extends Component {
       <section className='main-application'>
         <LoginLogout
           user={this.state.user}
-          />
-
+        />
 
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
@@ -126,6 +125,7 @@ export default class Application extends Component {
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
+          deleteContact={this.deleteContact.bind(this)}
         />
 
         <ContactList
