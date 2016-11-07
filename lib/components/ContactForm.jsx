@@ -27,6 +27,7 @@ export default class ContactForm extends Component {
 
   pushContact(e) {
     e.preventDefault()
+
     let newContact = {
       fullName: this.state.fullName,
       company:  this.state.company,
@@ -44,8 +45,32 @@ export default class ContactForm extends Component {
       imgKey:   Date.now()
     }
     return(this.props.createContact(
-      newContact, this.state.userImage, newContact.imgKey
-    ))
+      newContact,
+      this.state.userImage,
+      newContact.imgKey,
+    ),
+    this.setInitialState()
+    )
+  }
+
+  setInitialState() {
+    this.setState ({
+      fullName: '',
+      company: '',
+      email1: '',
+      email2: '',
+      cell: '',
+      home: '',
+      work: '',
+      google: '',
+      facebook: '',
+      twitter: '',
+      github: '',
+      notes: '',
+      followUp: false,
+      userImage: '../../images/avatar.png',
+      imgKey: ''
+    })
   }
 
   uploadImage(imageUpload) {
@@ -62,9 +87,12 @@ export default class ContactForm extends Component {
         />
 
         <form className='contact-form'>
+
           <div className='user-input'>
-            <img className='icon-user' src='../../../images/avatar.png'/>
+            <img className='icon-user'
+              src='../../../images/avatar.png'/>
             <input
+              value={this.state.fullName}
               className='input-form-field'
               placeholder='full name ...'
               onChange={(e) => this.setState({
@@ -77,6 +105,7 @@ export default class ContactForm extends Component {
           <div className='company-input'>
             <img className='icon-company' src='../../../images/svg/business.svg'/>
             <input
+              value={this.state.company}
               className='input-form-field'
               placeholder='company ...'
               onChange={(e) => this.setState({
@@ -89,6 +118,7 @@ export default class ContactForm extends Component {
           <div className='email-input'>
             <img className='icon-email' src='../../../images/svg/close-envelope.svg'/>
             <input
+              value={this.state.email1}
               className='input-form-field email'
               placeholder='email 1 ...'
               onChange={(e) => this.setState({
@@ -101,6 +131,7 @@ export default class ContactForm extends Component {
           <div className='email-input'>
             <img className='icon-email' src='../../../images/svg/close-envelope.svg'/>
             <input
+              value={this.state.email2}
               className='input-form-field email'
               placeholder='email 2 ...'
               onChange={(e) => this.setState({
@@ -113,6 +144,7 @@ export default class ContactForm extends Component {
           <div className='phone-input'>
               <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
               <input
+                value={this.state.cell}
                 className='input-form-field'
                 type='text'
                 placeholder='cell number ...'
@@ -126,6 +158,7 @@ export default class ContactForm extends Component {
             <div className='phone-input'>
               <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
               <input
+                value={this.state.home}
                 className='input-form-field'
                 placeholder='home number ...'
                 onChange={(e) => this.setState({
@@ -138,6 +171,7 @@ export default class ContactForm extends Component {
             <div className='phone-input'>
               <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
               <input
+                value={this.state.work}
                 className='input-form-field'
                 placeholder='work number ...'
                 onChange={(e) => this.setState({
@@ -150,6 +184,7 @@ export default class ContactForm extends Component {
             <div className='google-input'>
               <img className='icon-google' src='../../../images/svg/google-plus-logo.svg'/>
               <input
+                value={this.state.google}
                 className='social-media-input-form-field'
                 placeholder='google+ ...'
                 onChange={(e) => this.setState({
@@ -162,6 +197,7 @@ export default class ContactForm extends Component {
             <div className='facebook-input'>
               <img className='icon-facebook' src='../../../images/svg/facebook-logo.svg'/>
               <input
+                value={this.state.facebook}
                 className='social-media-input-form-field'
                 placeholder='facebook ...'
                 onChange={(e) => this.setState({
@@ -174,6 +210,7 @@ export default class ContactForm extends Component {
             <div className='twitter-input'>
               <img className='icon-twitter' src='../../../images/svg/twitter-logo.svg'/>
               <input
+                value={this.state.twitter}
                 className='social-media-input-form-field'
                 placeholder='twitter ...'
                 onChange={(e) => this.setState({
@@ -186,6 +223,7 @@ export default class ContactForm extends Component {
             <div className='github-input'>
               <img className='icon-github' src='../../../images/svg/github-sign.svg'/>
               <input
+                value={this.state.github}
                 className='social-media-input-form-field'
                 placeholder='github ...'
                 onChange={(e) => this.setState({
@@ -198,6 +236,7 @@ export default class ContactForm extends Component {
             <div className='notes-input'>
               <img className='icon-notes' src='../../../images/svg/notes.svg'/>
               <textarea
+                value={this.state.notes}
                 className='notes-text-area'
                 placeholder='notes ...'
                 onChange={(e) => this.setState({
