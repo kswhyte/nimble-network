@@ -34,16 +34,6 @@ export default class ContactForm extends Component {
     return (
       <section className='contact-form-and-list'>
         <form className='contact-form'>
-
-          <h1
-            className='create-new-contact-title'>
-            ~ Create a New Contact ~
-          </h1>
-
-          <img
-            src={this.state.picture}
-          />
-
             <input
               className='input-form-field'
               placeholder='image...'

@@ -93,14 +93,14 @@ export default class Application extends Component {
           user={this.state.user}
           />
 
-        <ImageUpload
-          user={this.state.user}
-        />
 
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
         />
 
+        <ImageUpload
+          user={this.state.user}
+        />
 
         <ContactForm
           pushContact={this.createContact.bind(this)}
