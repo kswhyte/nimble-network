@@ -229,11 +229,13 @@ export default class Contact extends Component {
               />
 
               <textarea
-                className='edit-notes input-form-field email'
+                className='edit-notes input-form-field notes'
                 placeholder={contact.notes ? contact.notes: "Notes"}
                 value={this.state.newNotes}
                 onChange={(e) => this.setState({newNotes:  e.target.value})}>
               </textarea>
+
+
 
               <button
                 className='save-button'
