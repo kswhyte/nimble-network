@@ -13,7 +13,7 @@ describe('ContactForm | Unit Test', () => {
   it('can mount with no properties', () => {
     const wrapper = shallow(<ContactForm />)
   })
-  xit('renders a "contact-form-and-list" ', () => {
+  it('renders a "contact-form-and-list" ', () => {
     const wrapper = mount(<ContactForm />)
     assert(wrapper.find('.contact-form-and-list'))
   })

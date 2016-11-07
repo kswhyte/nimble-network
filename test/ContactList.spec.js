@@ -36,11 +36,9 @@ describe('ContactList | Unit Tests', () => {
 describe('ContactList | Feature Test', () => {
   it.skip('should change the "hideDisplay" state with true/false', () => {
     const wrapper = mount(<ContactList />)
-    const messageInput = wrapper.find('.contact-form-and-list')
+    const searchBar = wrapper.find('.')
 
     messageInput.simulate('change', {target: {value: 'true'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('hideDisplay'), ('true'))
-    }, 5000)
   })
 })

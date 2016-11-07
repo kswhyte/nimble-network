@@ -2,12 +2,12 @@ import React from 'react'
 
 import { shallow, mount, render } from 'enzyme'
 import { assert, expect } from 'chai'
-
 import Application from '../lib/components/Application'
+import ContactForm from '../lib/components/ContactForm'
 
 const sinon = require('sinon')
 
-describe('Application', () => {
+describe('Application | Unit Tests', () => {
   it('can mount with no properties', () => {
     const wrapper = shallow(<Application />)
 });
@@ -45,6 +45,7 @@ describe('Application', () => {
     const wrapper = render(<Application />)
     assert.equal(wrapper.find('.search-bar-header').length, 1)
   })
+
   it('should have a contact form and list with 1 prop', function(){
     const wrapper = render(<Application />)
     assert.equal(wrapper.find('.contact-form-and-list').length, 1)
@@ -58,4 +59,33 @@ describe('Application', () => {
     const wrapper = mount(<Application />)
     assert.equal(Application.prototype.render.calledOnce, true)
   })
+  it.skip('renders the SearchBar component', () => {
+    const wrapper = mount(<Application />)
+  })
+  it.skip('renders the ContactForm component', () => {
+    const wrapper = shallow(<Application />)
+    assert.equal(wrapper.find(<ContactForm />).length, 1)
+  })
+  it.skip('renders the FollowUpContactList component', () => {
+    const wrapper = mount(<Application />)
+  })
+  it.skip('renders the ContactList component', () => {
+    const wrapper = mount(<Application />)
+  })
+  it.skip('renders the LoginLogout component', () => {
+    const wrapper = mount(<Application />)
+    })
+  })
+
+describe('Application | Feature Tests', () => {
+  it('sets the searchText state to the value entered in the search bar', () => {
+    const wrapper = mount(<Application />)
+    const searchInput = wrapper.find('.search-bar')
+    searchInput.simulate('change', {target: {value: 'Kristen'} })
+    assert.equal(wrapper.state('searchText'), ('Kristen'))
+});
+ it.skip('updates the state of userDatabase when a new contact is created', () => {
+   const wrapper = mount(<Application />)
+   const fullName = wrapper.find()
+ })
 })
