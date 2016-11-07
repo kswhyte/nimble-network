@@ -4,10 +4,10 @@
 
 .single-contact {
   margin: 15px 0;
-  color: #09f4e6;
+  color: $primary-turqoise;
   text-align: left;
   height: 100%;
-  width: 350px;
+  width: 400px;
   border: 2px solid $primary-turqoise;
   margin: 10px auto;
   padding: 10px 10px 15px 10px;
@@ -15,28 +15,16 @@
 }
 
 .follow-up-button {
-  width: 30px;
-  height: 30px;
+  @include contact-button-icons;
   margin: 0 0 0 -1px;
-  display: inline-block;
 }
 
 .show-contact-info {
   margin: auto;
 }
 
-input {
-  display: block;
-}
-
-button {
-  display: block;
-  margin: 5px auto;
-}
-
 .expand {
-  width: 30px;
-  height: 30px;
+  @include contact-button-icons;
   float: right;
   margin-right: 10px;
 }
@@ -53,8 +41,17 @@ button {
   margin-top: 10px;
 }
 
-.email-expand {
+.email-expand, .phone-expand {
   height: 15px;
   width: 15px;
   padding: 0 10px;
+}
+
+input {
+  display: block;
+}
+
+button {
+  display: block;
+  margin: 5px auto;
 }

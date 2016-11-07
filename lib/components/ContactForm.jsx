@@ -135,7 +135,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='google-input'>
-            <img className='icon-google' src='../../../images/google-icon.png'/>
+            <img className='icon-google' src='../../../images/svg/google-plus-logo.svg'/>
             <input
               className='social-media-input-form-field'
               placeholder='google+ ...'
@@ -147,7 +147,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='facebook-input'>
-            <img className='icon-facebook' src='../../../images/facebook-icon.png'/>
+            <img className='icon-facebook' src='../../../images/svg/facebook-logo.svg'/>
             <input
               className='social-media-input-form-field'
               placeholder='facebook ...'
@@ -159,7 +159,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='twitter-input'>
-            <img className='icon-twitter' src='../../../images/twitter-icon.png'/>
+            <img className='icon-twitter' src='../../../images/svg/twitter-logo.svg'/>
             <input
               className='social-media-input-form-field'
               placeholder='twitter ...'
@@ -171,7 +171,7 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='github-input'>
-            <img className='icon-github' src='../../../images/github-icon.png'/>
+            <img className='icon-github' src='../../../images/svg/github-sign.svg'/>
             <input
               className='social-media-input-form-field'
               placeholder='github ...'

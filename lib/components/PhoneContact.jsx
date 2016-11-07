@@ -30,7 +30,7 @@ export default class PhoneContact extends Component {
         {contact.cell}
 
         <img
-          className='email-expand'
+          className='phone-expand'
           onClick={this.toggleHidePhoneDisplay.bind(this)}
           src={this.togglePhoneArrowButton()}/>
 

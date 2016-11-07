@@ -1,15 +1,10 @@
 @import '../config/colors';
 @import '../config/fonts';
 @import '../config/mixins';
-// @import '../../../images/phone.png';
 
 .create-new-contact-title {
   margin: 15px 0;
   font-family: $tertiary-font;
-}
-
-input {
-  font-size: 30px;
 }
 
 .contact-form {
@@ -18,13 +13,11 @@ input {
 
 .input-form-field {
   @include input-style;
-  width: 300px;
   margin: 5px;
 }
 
 .social-media-input-form-field {
   @include input-style;
-  width: 300px;
   margin: 5px 20px;
   background-color: #a12a23;
 }
@@ -37,7 +30,6 @@ input {
   @include input-style;
   overflow: hidden;
   margin: 5px 0;
-  width: 300px;
   height: 100px;
   background-color: #525151;
 }
@@ -46,155 +38,83 @@ input {
   background-color: #626262;
 }
 
-.save-contact-button {
-  margin: 15px 0;
-}
-
 img {
   height: 100px;
   width: 90px;
 }
 
-.phone-input {
-  position: relative;
-}
-
-.phone-input input {
-  padding-left: 30px;
-  font-size: 15px;
-}
-
-.phone-input img {
-  position: absolute;
-  padding: 11px 0 0 10px;
-  height: 20px;
-  width: 20px;
-}
-
-.email-input {
-  position: relative;
-}
-
-.email-input input {
-  padding-left: 30px;
-  font-size: 15px;
-}
-
-.email-input img {
-  position: absolute;
-  padding: 13px 0 0 10px;
-  height: 20px;
-  width: 20px;
-}
-
-.notes-input {
-  position: relative;
-}
-
-.notes-input textarea {
-  padding-left: 30px;
-  font-size: 15px;
-}
-
-.notes-input img {
-  position: absolute;
-  padding: 13px 0 0 8px;
-  height: 15px;
-  width: 15px;
-}
-
-.user-input {
+.phone-input .email-input .notes-input .user-input .company-input .google-input .twitter-input .github-input .facebook-input {
   position: relative;
 }
 
 .user-input input {
-  padding-left: 30px;
-  font-size: 15px;
-}
-
-.user-input img {
-  position: absolute;
-  padding: 11px 0 0 10px;
-  height: 20px;
-  width: 20px;
-}
-
-.company-input {
-  position: relative;
+  @include input-text-style;
 }
 
 .company-input input {
-  padding-left: 30px;
-  font-size: 15px;
+  @include input-text-style;
 }
 
-.company-input img {
-  position: absolute;
-  padding: 11px 0 0 10px;
-  height: 20px;
-  width: 20px;
+.email-input input {
+  @include input-text-style;
 }
 
-.google-input {
-  position: relative;
+.phone-input input {
+  @include input-text-style;
 }
 
 .google-input input {
-  padding-left: 30px;
-  font-size: 15px;
-}
-
-.google-input img {
-  position: absolute;
-  padding: 11px 0 0 25px;
-  height: 20px;
-  width: 20px;
-}
-
-.facebook-input {
-  position: relative;
+  @include input-text-style;
 }
 
 .facebook-input input {
-  padding-left: 30px;
-  font-size: 15px;
-}
-
-.facebook-input img {
-  position: absolute;
-  padding: 11px 0 0 25px;
-  height: 20px;
-  width: 20px;
-}
-
-.twitter-input {
-  position: relative;
+  @include input-text-style;
 }
 
 .twitter-input input {
-  padding-left: 30px;
-  font-size: 15px;
-}
-
-.twitter-input img {
-  position: absolute;
-  padding: 11px 0 0 25px;
-  height: 20px;
-  width: 20px;
-}
-
-.github-input {
-  position: relative;
+  @include input-text-style;
 }
 
 .github-input input {
-  padding-left: 30px;
-  font-size: 15px;
+  @include input-text-style;
+}
+
+.notes-input textarea {
+  @include input-text-style;
+}
+
+.user-input img {
+  @include input-icon-style;
+}
+
+.company-input img {
+  @include input-icon-style;
+}
+
+.email-input img {
+  @include input-icon-style;
+}
+
+.phone-input img {
+  @include input-icon-style;
+}
+
+.google-input img {
+  @include social-media-icon-stle;
+}
+
+.facebook-input img {
+  @include social-media-icon-stle;
+}
+
+.twitter-input img {
+  @include social-media-icon-stle;
 }
 
 .github-input img {
-  position: absolute;
-  padding: 11px 0 0 25px;
-  height: 20px;
-  width: 20px;
+  @include social-media-icon-stle;
+}
+
+.notes-input img {
+  @include input-icon-style;
 }
