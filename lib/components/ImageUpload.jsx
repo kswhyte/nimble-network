@@ -59,6 +59,7 @@ export default class ImageUpload extends Component {
                 className='contact-image'
                 src={this.state.imgURL}
               />
+
               <button
                 onClick={() => this.deleteImage()}
               >Delete Image

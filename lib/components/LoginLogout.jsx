@@ -7,12 +7,10 @@ export const LoginLogout = ({ user }) => {
 
       {user ?
         <section className='user-login-info'>
-          <p
-            className='logged-in-text'>
-            Logged in as
-            <span className='user-name'> {user.displayName}</span>
-            <span className='user-email'> ({user.email})</span>
-          </p>
+          <section className='logged-in-text'>
+            <h3>Currently signed in as:  </h3>
+            <h3 className='user-name'>{user.displayName} </h3>
+          </section>
 
           <button
             className='logout-btn'

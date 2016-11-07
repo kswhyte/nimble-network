@@ -5,7 +5,6 @@
 .create-new-contact-title {
   margin: 15px 0;
   font-family: $tertiary-font;
-  font-size: 21px;
 }
 
 .contact-form {
@@ -14,13 +13,11 @@
 
 .input-form-field {
   @include input-style;
-  width: 200px;
-  margin: 5px 20px;
+  margin: 5px;
 }
 
 .social-media-input-form-field {
   @include input-style;
-  width: 200px;
   margin: 5px 20px;
   background-color: #a12a23;
 }
@@ -30,10 +27,9 @@
 }
 
 .notes-text-area {
-  @include input-style
+  @include input-style;
   overflow: hidden;
   margin: 5px 0;
-  width: 200px;
   height: 100px;
   background-color: #525151;
 }
@@ -42,11 +38,83 @@
   background-color: #626262;
 }
 
-.save-contact-button {
-  margin: 15px 0;
-}
-
-img{
+img {
   height: 100px;
   width: 90px;
+}
+
+.phone-input .email-input .notes-input .user-input .company-input .google-input .twitter-input .github-input .facebook-input {
+  position: relative;
+}
+
+.user-input input {
+  @include input-text-style;
+}
+
+.company-input input {
+  @include input-text-style;
+}
+
+.email-input input {
+  @include input-text-style;
+}
+
+.phone-input input {
+  @include input-text-style;
+}
+
+.google-input input {
+  @include input-text-style;
+}
+
+.facebook-input input {
+  @include input-text-style;
+}
+
+.twitter-input input {
+  @include input-text-style;
+}
+
+.github-input input {
+  @include input-text-style;
+}
+
+.notes-input textarea {
+  @include input-text-style;
+}
+
+.user-input img {
+  @include input-icon-style;
+}
+
+.company-input img {
+  @include input-icon-style;
+}
+
+.email-input img {
+  @include input-icon-style;
+}
+
+.phone-input img {
+  @include input-icon-style;
+}
+
+.google-input img {
+  @include social-media-icon-stle;
+}
+
+.facebook-input img {
+  @include social-media-icon-stle;
+}
+
+.twitter-input img {
+  @include social-media-icon-stle;
+}
+
+.github-input img {
+  @include social-media-icon-stle;
+}
+
+.notes-input img {
+  @include input-icon-style;
 }
