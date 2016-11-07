@@ -100,13 +100,12 @@ describe('ContactForm | Feature Test', () => {
       assert.equal(wrapper.state('facebook'), ('username'))
     }, 5000)
   })
-  it('should change the "twitter" state with new contact info', () => {
+  it.only('should change the "twitter" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)
-    const messageInput = wrapper.find('.contact-form')
+    const messageInput = wrapper.find('.twitter')
     messageInput.simulate('change', {target: {value: 'username'} })
-    setTimeout(() => {
       assert.equal(wrapper.state('twitter'), ('username'))
-    }, 5000)
+      console.log(wrapper.state('twitter'))
   })
   it('should change the "github" state with new contact info', () => {
     const wrapper = mount(<ContactForm />)

@@ -110,7 +110,7 @@ export default class ContactForm extends Component {
             }
           />
           <input
-            className='social-media-input-form-field'
+            className='twitter'
             placeholder='twitter ...'
             onChange={(e) => this.setState({
                 twitter: e.target.value
