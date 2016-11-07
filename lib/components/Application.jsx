@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import firebase, { reference, signIn, signOut } from '../firebase'
+import firebase, { reference, signIn, signOut, remove } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
 import ImageUpload from './ImageUpload.jsx'
@@ -32,8 +32,8 @@ export default class Application extends Component {
             let currentContacts = map(contacts,
               (val, key) => extend(val, { key }))
 
-            this.setState({
-              contactList: currentContacts
+              this.setState({
+                contactList: currentContacts
             })
           })
         })
@@ -47,6 +47,19 @@ export default class Application extends Component {
 
   createContact(newContact) {
     this.state.usersDatabase.push(newContact)
+  }
+
+  deleteContact(key) {
+      const { uid } = this.state.user
+      this.state.contactList.map(contact => {
+        if(key === contact.key) {
+          this.setState({
+            userDatabase: firebase.database().ref(`${uid}/${key}`).remove()
+          })
+        } else {
+          return
+        }
+    })
   }
 
   toggleFollowUp(key) {
@@ -120,6 +133,7 @@ export default class Application extends Component {
           toggleFollowUp={this.toggleFollowUp.bind(this)}
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
+          deleteContact={this.deleteContact.bind(this)}
         />
       </section>
     )

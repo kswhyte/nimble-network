@@ -39,10 +39,6 @@ export default class Contact extends Component {
       return '../../../images/up-arrow-icon.png'
     }
   }
-  //
-  // removeContact() {
-  //   this.props.contact.remove;
-  // }
 
   editContact() {
     this.setState({editable: true})
@@ -93,7 +89,7 @@ export default class Contact extends Component {
 
           <img
             className='remove'
-            // onClick={() => this.removeContact()}
+            onClick={() => this.props.deleteContact(contact.key)}
             src='../../../images/remove-icon.png'
           />
 
