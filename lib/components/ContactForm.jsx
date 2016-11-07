@@ -87,7 +87,6 @@ export default class ContactForm extends Component {
         />
 
         <form className='contact-form'>
-
           <div className='user-input'>
             <img className='icon-user'
               src='../../../images/avatar.png'/>
