@@ -114,6 +114,7 @@ export default class Application extends Component {
           saveEdit={this.saveEdit.bind(this)}
           searchText={this.state.searchText}
           user={this.state.user}
+          imgStorage={this.state.imgStorage}
         />
 
         <LoginLogout

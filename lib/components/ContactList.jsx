@@ -58,6 +58,7 @@ export default class ContactList extends Component {
         saveEdit={this.props.saveEdit}
         contact={contact}
         user={this.props.user}
+        imgStorage={this.props.imgStorage}
       />
     )
 

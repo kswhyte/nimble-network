@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PhoneContact from './PhoneContact.jsx'
 import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
+import firebase, { reference, getDownloadURL, child } from '../firebase'
+
 // var contentEditable = require('react-contenteditable')
 
 export default class Contact extends Component {
@@ -35,11 +37,15 @@ export default class Contact extends Component {
   }
 
   getUserImgSource() {
+    
+  console.log(this.props.imgStorage)
+    // console.log(this.state.userImgSource)
   this.props.imgStorage.child(
     `${this.props.user.uid}/${this.props.contact.imgKey}.jpg`).getDownloadURL()
     .then((url) => {
       this.setState({ userImgSource: url })
     })
+    console.log(url)
     .catch(() => {
     })
   }
