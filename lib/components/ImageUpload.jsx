@@ -28,13 +28,13 @@ export default class ImageUpload extends Component {
   setImage(e){
     (e) => this.setState({
       userImage: e.target.value
+    })
+  }
 
     // if(this.state.userImage.length > 0){
     //   this.setState({
     //     imgURL: this.state.userImage
-    //   })
     // }
-  }
 
   deleteImage() {
     this.setState({
@@ -51,26 +51,31 @@ export default class ImageUpload extends Component {
           ~ Create a New Contact ~
         </h1>
 
-        { this.state.imgURL ?
-          <img
-            alt='img URL'
-            className='contact-image'
-            src={this.state.imgURL}
-          />
-          <button
-            onClick={() => this.deleteImage()}
-          >Delete Image
-          </button> :
+        <section>
+          { this.state.imgURL ?
+            <section>
+              <img
+                alt='img URL'
+                className='contact-image'
+                src={this.state.imgURL}
+              />
+              <button
+                onClick={() => this.deleteImage()}
+              >Delete Image
+              </button>
+            </section> :
 
-          <button
-            className='add-image-button'
-            type='file'
-            onChange={this.updateImage.bind(this)}
-            accept='image/*'
-          >Add Contact Image
-          </button>
-        }
-
+            <section>
+              <button
+                className='add-image-button'
+                type='file'
+                onChange={this.updateImage.bind(this)}
+                accept='image/*'
+              >Add Contact Image
+              </button>
+            </section>
+          }
+        </section>
       </form>
     )
   }

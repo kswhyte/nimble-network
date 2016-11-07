@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import firebase, { reference, signIn, signOut } from '../firebase'
 import { pick, map, extend, uniqBy } from 'lodash'
 
+import ImageUpload from './ImageUpload.jsx'
 import ContactForm from './ContactForm.jsx'
 const { SearchBar } = require('./SearchBar.jsx')
 import ContactList from './ContactList.jsx'
@@ -85,12 +86,12 @@ export default class Application extends Component {
     })
   }
 
-  // <ImageUpload
-  //   user={this.state.user}
-  // />
   render() {
     return (
       <section className='main-application'>
+        <ImageUpload
+        user={this.state.user}
+        />
 
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
