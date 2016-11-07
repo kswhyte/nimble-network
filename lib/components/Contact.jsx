@@ -32,6 +32,14 @@ export default class Contact extends Component {
     })
   }
 
+  toggleArrowButton(){
+    if (this.state.hideDisplay === true){
+      return '../../../images/arrow-down.png'
+    }else{
+      return '../../../images/arrow-up.png'
+    }
+  }
+
   editContact() {
     this.setState({editable: true})
   }
@@ -82,7 +90,7 @@ export default class Contact extends Component {
           <img
             className='expand'
             onClick={this.toggleHideDisplay.bind(this)}
-            src='../../../images/arrow-down.png'/>
+            src={this.toggleArrowButton()}/>
 
           <p
             className='contact-name'>
