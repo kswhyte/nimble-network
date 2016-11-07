@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import PhoneContact from './PhoneContact.jsx'
 import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
-// var contentEditable = require('react-contenteditable')
-
 
 export default class Contact extends Component {
   constructor() {
@@ -39,13 +37,11 @@ export default class Contact extends Component {
       return '../../../images/up-arrow-icon.png'
     }
   }
-  //
-  // removeContact() {
-  //   this.props.contact.remove;
-  // }
 
   editContact() {
-    this.setState({editable: true})
+    this.setState({
+      editable: true
+    })
   }
 
   saveEdit() {
@@ -78,8 +74,16 @@ export default class Contact extends Component {
     this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes)
   }
 
+  toggleFollowUpIcon(contact) {
+    if (contact.followUp === true){
+      return '../../../images/svg/communications.svg'
+    }else{
+      return '../../../images/svg/communications-grey.svg'
+    }
+  }
+
   render() {
-    const { contact, searchText } = this.props
+    const { contact, searchText, followUp } = this.props
 
     if(this.state.editable === false) {
       return(
@@ -88,12 +92,12 @@ export default class Contact extends Component {
           <img
             className='follow-up-button'
             onClick={() => this.props.toggleFollowUp(contact.key)}
-            src='../../../images/follow-up-icon.png'
+            src={this.toggleFollowUpIcon(contact)}
           />
 
           <img
             className='remove'
-            // onClick={() => this.removeContact()}
+            onClick={() => this.props.deleteContact(contact.key)}
             src='../../../images/remove-icon.png'
           />
 

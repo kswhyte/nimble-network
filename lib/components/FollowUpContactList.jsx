@@ -3,7 +3,7 @@ import { map } from 'lodash'
 
 import Contact from './Contact.jsx'
 
-export default class ContactList extends Component {
+export default class FollowUpContactList extends Component {
   constructor() {
     super()
   }
@@ -17,7 +17,7 @@ export default class ContactList extends Component {
      )
     return this.sortContactsAlphabetically(filteredNewFollowUpContacts)
   }
-  
+
   filterContactbyName(contact) {
     return(contact.props.contact.fullName.toLowerCase().indexOf(this.props.searchText.toLowerCase()) !== -1)
   }
@@ -58,6 +58,7 @@ export default class ContactList extends Component {
         toggleFollowUp={this.props.toggleFollowUp}
         saveEdit={this.props.saveEdit}
         contact={contact}
+        deleteContact={this.props.deleteContact}
       />
     )
 
