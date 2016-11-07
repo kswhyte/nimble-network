@@ -204,7 +204,7 @@ export default class Contact extends Component {
 
               <input
                 className='edit-email1 input-form-field email'
-                placeholder={contact.email1 ? contact.email: "Email 1"}
+                placeholder={contact.email1 ? contact.email1: "Email 1"}
                 value={this.state.newEmail1}
                 onChange={(e) => this.setState({newEmail1:  e.target.value})}
               />
