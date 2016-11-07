@@ -7,7 +7,7 @@ export default class ImageUpload extends Component {
   constructor() {
     super()
     this.state = {
-      picture: '../../images/avatar.png',
+      imgURL: '../../images/avatar.png',
       userImage: null
     }
   }
@@ -17,7 +17,7 @@ export default class ImageUpload extends Component {
     this.props.contactList.map(contact => {
       if(key === contact.key) {
         firebase.database().ref(`${uid}/${key}`).update({
-          followUp: !contact.followUp
+          imgURL: this.state.userImage
         })
       } else {
         return
@@ -25,16 +25,22 @@ export default class ImageUpload extends Component {
     })
   }
 
-  setImage(){
-    if(this.state.userImage.length > 0){
-      this.setState({
-        picture: this.state.userImage
-      })
-    }
+  setImage(e){
+    (e) => this.setState({
+      userImage: e.target.value
+
+    // if(this.state.userImage.length > 0){
+    //   this.setState({
+    //     imgURL: this.state.userImage
+    //   })
+    // }
   }
 
-  // (e) => this.setState({
-  //   userImage: e.target.value
+  deleteImage() {
+    this.setState({
+      imgURL: '../../images/avatar.png'
+    })
+  }
 
   render() {
     return (
@@ -45,22 +51,26 @@ export default class ImageUpload extends Component {
           ~ Create a New Contact ~
         </h1>
 
-        <img
-          src={this.state.picture}
-        />
+        { this.state.imgURL ?
+          <img
+            alt='img URL'
+            className='contact-image'
+            src={this.state.imgURL}
+          />
+          <button
+            onClick={() => this.deleteImage()}
+          >Delete Image
+          </button> :
 
-        <input
-          className='input-form-field'
-          placeholder='image ...'
-          onChange={this.updateImage.bind(this)}
-            }
-          }
-        />
+          <button
+            className='add-image-button'
+            type='file'
+            onChange={this.updateImage.bind(this)}
+            accept='image/*'
+          >Add Contact Image
+          </button>
+        }
 
-        <button
-          onClick={()=>this.setImage()}>
-          upload image
-        </button>
       </form>
     )
   }

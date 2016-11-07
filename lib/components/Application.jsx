@@ -85,6 +85,9 @@ export default class Application extends Component {
     })
   }
 
+  // <ImageUpload
+  //   user={this.state.user}
+  // />
   render() {
     return (
       <section className='main-application'>
@@ -92,6 +95,7 @@ export default class Application extends Component {
         <SearchBar
           updateSearch={this.updateSearch.bind(this)}
         />
+
 
         <ContactForm
           pushContact={this.createContact.bind(this)}
@@ -114,7 +118,7 @@ export default class Application extends Component {
         />
 
         <LoginLogout
-        user={this.state.user}
+          user={this.state.user}
         />
 
       </section>
