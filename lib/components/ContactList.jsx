@@ -17,6 +17,7 @@ export default class ContactList extends Component {
      )
     return this.sortContactsAlphabetically(filteredNewContacts)
   }
+  
   filterContactbyName(contact) {
     return(contact.props.contact.fullName.toLowerCase().indexOf(this.props.searchText.toLowerCase()) !== -1)
   }
@@ -76,6 +77,6 @@ export default class ContactList extends Component {
           { filteredContacts }
         </ul>
       </section>
-      )
-    }
+    )
   }
+}
