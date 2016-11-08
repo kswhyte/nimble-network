@@ -36,10 +36,16 @@ export default class EmailContact extends Component {
         <ul className='indent-info'
           hidden={this.state.hideEmailDisplay}
         >
-          <li
-            className='contact-display'>
+
+          <li className='contact-display'>
             {contact.email1}
+            <img
+              className='primary'
+              alt="primary email"
+              src='../../../images/primary.png'
+              />
           </li>
+
 
           <li
             className='contact-display'>

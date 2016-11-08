@@ -37,9 +37,13 @@ export default class PhoneContact extends Component {
            hidden={this.state.hidePhoneDisplay}
         >
 
-          <li
-            className='contact-display'>
+          <li className='contact-display'>
             {contact.cell}
+            <img
+              className='primary'
+              alt="primary email"
+              src='../../../images/primary.png'
+              />
           </li>
 
           <li
