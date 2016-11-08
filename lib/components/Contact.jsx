@@ -57,7 +57,6 @@ export default class Contact extends Component {
     this.setState({
       editable: true
     })
-    // this.props.
   }
 
   saveEdit() {
@@ -235,7 +234,7 @@ export default class Contact extends Component {
                 <input
                   className='input-form-field email email1'
                   aria-label='edit contact primary email'
-                  placeholder={contact.email1 ? contact.email1: "Email 1"}
+                  placeholder={contact.email1 ? contact.email1: "Primary Email"}
                   value={this.state.newEmail1}
                   onChange={(e) => this.setState({
                     newEmail1: e.target.value
@@ -249,7 +248,7 @@ export default class Contact extends Component {
                 <input
                   className='input-form-field email email2'
                   aria-label='edit contact secondary email'
-                  placeholder={contact.email2 ? contact.email2: "Email 2"}
+                  placeholder={contact.email2 ? contact.email2: "Primary Email"}
                   value={this.state.newEmail2}
                   onChange={(e) => this.setState({
                     newEmail2: e.target.value
@@ -263,7 +262,7 @@ export default class Contact extends Component {
                 <input
                   className='input-form-field cell'
                   aria-label='edit contact cell phone number'
-                  placeholder={contact.cell ? contact.cell: "Cell Phone"}
+                  placeholder={contact.cell ? contact.cell: "Primary Phone"}
                   value={this.state.newCell}
                   onChange={(e) => this.setState({
                     newCell: e.target.value
@@ -277,7 +276,7 @@ export default class Contact extends Component {
                 <input
                   className='input-form-field home'
                   aria-label='edit contact home phone number'
-                  placeholder={contact.home ? contact.home: "Home Phone"}
+                  placeholder={contact.home ? contact.home: "Secondary Phone"}
                   value={this.state.newHome}
                   onChange={(e) => this.setState({
                     newHome: e.target.value
@@ -291,7 +290,7 @@ export default class Contact extends Component {
                 <input
                   className='input-form-field work'
                   aria-label='edit contact work phone number'
-                  placeholder={contact.work ? contact.work: "Work Phone"}
+                  placeholder={contact.work ? contact.work: "Tertiary Phone"}
                   value={this.state.newWork}
                   onChange={(e) => this.setState({
                     newWork: e.target.value

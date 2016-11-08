@@ -174,7 +174,7 @@ export default class ContactForm extends Component {
               className='input-form-field email email2'
               value={this.state.email2}
               aria-label="secondary email"
-              placeholder='email ...'
+              placeholder='secondary email ...'
               onChange={(e) => this.setState({
                   email2: e.target.value
                 })
@@ -206,7 +206,7 @@ export default class ContactForm extends Component {
               className='input-form-field home'
               value={this.state.home}
               aria-label="home phone number"
-              placeholder='phone ...'
+              placeholder='secondary phone ...'
               onChange={(e) => this.setState({
                   home: e.target.value
                 })
@@ -221,7 +221,7 @@ export default class ContactForm extends Component {
               className='input-form-field work'
               value={this.state.work}
               aria-label="work phone number"
-              placeholder='phone ...'
+              placeholder='tertiary phone ...'
               onChange={(e) => this.setState({
                   work: e.target.value
                 })
