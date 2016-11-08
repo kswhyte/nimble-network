@@ -25,7 +25,9 @@ export default class SocialMedia extends Component {
   render() {
     const { contact } = this.props
     return (
-      <li className='contact-display'>
+      <li className='contact-display'
+        onClick={this.toggleSocialMediaDisplay.bind(this)}
+        src={this.toggleSocialMediaArrowButton()}>
         Social media
 
         <img
