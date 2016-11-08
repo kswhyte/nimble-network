@@ -2,11 +2,6 @@
 @import '../config/fonts';
 @import '../config/mixins';
 
-.create-new-contact-title {
-  margin: 15px 0;
-  font-family: $tertiary-font;
-}
-
 .contact-form {
   @include form-style;
 }

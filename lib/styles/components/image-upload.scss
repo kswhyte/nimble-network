@@ -1,0 +1,44 @@
+@import '../config/colors';
+@import '../config/fonts';
+@import '../config/mixins';
+
+.create-new-contact-title {
+  margin: 15px auto;
+  font-family: $tertiary-font;
+  text-align: center;
+  font-size: 21px;
+}
+
+.update-image-button {
+  display: none;
+}
+
+.file-instructions {
+  text-align: center;
+  margin: 10px auto;
+  font-family: $tertiary-font;
+  cursor: pointer;
+  color: #d73d34;
+}
+
+.update-image-button::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.previewText {
+  display: none;
+}
+
+.image-upload-container {
+  @include flex-container;
+  flex-direction: column;
+}
+
+.user-icon-pic {
+  width: 110px;
+  height: 150px;
+  cursor: pointer;
+  padding: 0 10px;
+  margin: 0 auto;
+
+}
