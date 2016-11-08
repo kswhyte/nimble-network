@@ -18,7 +18,7 @@ export default class Contact extends Component {
       newCell: '',
       newHome: '',
       newWork: '',
-      newGoogle: '',
+      newlinkedIn: '',
       newFacebook: '',
       newTwitter: '',
       newGithub: '',
@@ -75,8 +75,8 @@ export default class Contact extends Component {
     const newHome = editHome ? editHome: contact.home
     let editWork = this.state.newWork
     const newWork = editWork ? editWork: contact.work
-    let editGoogle = this.state.newGoogle
-    const newGoogle = editGoogle ? editGoogle: contact.google
+    let editlinkedIn = this.state.newlinkedIn
+    const newlinkedIn = editlinkedIn ? editlinkedIn: contact.linkedIn
     let editFacebook = this.state.newFacebook
     const newFacebook = editFacebook ? editFacebook: contact.facebook
     let editTwitter = this.state.editTwitter
@@ -85,7 +85,7 @@ export default class Contact extends Component {
     const newGithub = editGithub ? editGithub: contact.github
     let editNotes = this.state.newNotes
     const newNotes = editNotes ? editNotes: contact.notes
-    this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes)
+    this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newlinkedIn, newFacebook, newTwitter, newGithub, newNotes)
   }
 
   toggleFollowUpIcon(contact) {
@@ -173,10 +173,19 @@ export default class Contact extends Component {
     } else if (this.state.editable === true) {
         return(
           <li className='single-contact edit-form'>
-            <button className='follow-up-button'
-              onClick={() => this.props.toggleFollowUp(contact.key)}>
-              Follow-up
-            </button>
+            <img
+              className='follow-up-button'
+              alt="button to toggle follow up property for contact"
+              onClick={() => this.props.toggleFollowUp(contact.key)}
+              src={this.toggleFollowUpIcon(contact)}
+            />
+
+            <img
+              className='remove'
+              alt="button to delete this contact"
+              onClick={() => this.props.deleteContact(contact.key)}
+              src='../../../images/remove-icon.png'
+            />
 
             <ul
               hidden={false}
@@ -202,7 +211,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className="edit-company input-form-field"
+                className="edit-company input-form-field company"
                 aria-label='edit contact company name'
                 placeholder={contact.company ? contact.company: "Company"}
                 value={this.state.newCompany}
@@ -212,7 +221,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-email1 input-form-field email'
+                className='edit-email1 input-form-field email email1'
                 aria-label='edit contact primary email'
                 placeholder={contact.email1 ? contact.email1: "Email 1"}
                 value={this.state.newEmail1}
@@ -222,7 +231,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-email2 input-form-field email'
+                className='edit-email2 input-form-field email email2'
                 aria-label='edit contact secondary email'
                 placeholder={contact.email2 ? contact.email2: "Email 2"}
                 value={this.state.newEmail2}
@@ -232,7 +241,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-phonecell input-form-field cell'
+                className='edit-phone cell input-form-field cell'
                 aria-label='edit contact cell phone number'
                 placeholder={contact.cell ? contact.cell: "Cell Phone"}
                 value={this.state.newCell}
@@ -262,12 +271,12 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-google input-form-field google'
-                aria-label='edit contact google plus user name'
-                placeholder={contact.google ? contact.google: "Google"}
-                value={this.state.newGoogle}
+                className='edit-linkedIn input-form-field linkedIn'
+                aria-label='edit contact linkedIn plus user name'
+                placeholder={contact.linkedIn ? contact.linkedIn: "linkedIn"}
+                value={this.state.newlinkedIn}
                 onChange={(e) => this.setState({
-                  newGoogle: e.target.value
+                  newlinkedIn: e.target.value
                 })}
               />
 

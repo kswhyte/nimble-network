@@ -4,7 +4,7 @@ export default class SocialMedia extends Component {
   constructor() {
     super()
     this.state = {
-      // hideSocialMediaDisplay: true
+      hideSocialMediaDisplay: true
     }
   }
 
@@ -14,23 +14,38 @@ export default class SocialMedia extends Component {
     })
   }
 
+  toggleSocialMediaArrowButton() {
+    if (this.state.hideSocialMediaDisplay === true){
+      return '../../../images/down-arrow-icon.png'
+    }else{
+      return '../../../images/up-arrow-icon.png'
+    }
+  }
+
   render() {
     const { contact } = this.props
     return (
-      // <li
-      //   className='contact-display'
-      //   onClick={this.toggleSocialMediaDisplay.bind(this)}>
-      //   {contact.google}
+      <li className='contact-display'>
+        Social media
 
-        <ul>
-           {/* hidden={this.state.hideSocialMediaDisplay}> */}
+        <img
+          className='expand-social-media'
+          alt="button to view full social media information"
+          onClick={this.toggleSocialMediaDisplay.bind(this)}
+          src={this.toggleSocialMediaArrowButton()}
+        />
+
+        <ul className='indent-info'
+          hidden={this.state.hideSocialMediaDisplay}
+          >
+
           <li className='contact-display'>
-            {contact.google ?
-              <div className = "google">
-               <a href={contact.google}>{contact.google}</a>
+            {contact.linkedIn ?
+              <div className = "linkedIn">
+               <a href={contact.linkedIn}>{contact.linkedIn}</a>
              </div> :
                <div className="companyName">
-                 {contact.google}
+                 {contact.linkedIn}
                </div>}
             </li>
 
@@ -62,7 +77,7 @@ export default class SocialMedia extends Component {
           </li>
 
         </ul>
-      // </li>
+      </li>
     )
   }
 }
