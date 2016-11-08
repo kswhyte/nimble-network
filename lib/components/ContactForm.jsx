@@ -75,6 +75,14 @@ export default class ContactForm extends Component {
     this.setState({ isImgUploaded: false })
   }
 
+  toggleSaveButton () {
+    if(this.state.fullName.length > 1){
+      return false
+    }else{
+      return true
+    }
+  }
+
   uploadImage(imageUpload) {
     this.setState({ userImage: imageUpload[0] })
   }
@@ -138,7 +146,7 @@ export default class ContactForm extends Component {
               value={this.state.email1}
               className='input-form-field email email1'
               aria-label="primary email"
-              placeholder='email 1 ...'
+              placeholder='primary email ...'
               onChange={(e) => this.setState({
                   email1: e.target.value
                 })
@@ -148,12 +156,13 @@ export default class ContactForm extends Component {
 
           <div className='email-input'>
             <img className='icon-email'
-              role="none" src='../../../images/svg/close-envelope.svg'/>
+              role="none" src='../../../images/svg/close-envelope.svg'
+              />
             <input
               value={this.state.email2}
               className='input-form-field email email2'
               aria-label="secondary email"
-              placeholder='email 2 ...'
+              placeholder='email ...'
               onChange={(e) => this.setState({
                   email2: e.target.value
                 })
@@ -163,13 +172,14 @@ export default class ContactForm extends Component {
 
           <div className='phone-input'>
             <img className='icon-phone'
-              role="none" src='../../../images/svg/whatsapp-logo.svg'/>
+              role="none" src='../../../images/svg/whatsapp-logo.svg'
+              />
             <input
               value={this.state.cell}
               className='input-form-field cell'
               aria-label="cell phone number"
               type='text'
-              placeholder='cell number ...'
+              placeholder='primary phone ...'
               onChange={(e) => this.setState({
                   cell: e.target.value
                 })
@@ -184,7 +194,7 @@ export default class ContactForm extends Component {
               value={this.state.home}
               className='input-form-field home'
               aria-label="home phone number"
-              placeholder='home number ...'
+              placeholder='phone ...'
               onChange={(e) => this.setState({
                   home: e.target.value
                 })
@@ -199,7 +209,7 @@ export default class ContactForm extends Component {
               value={this.state.work}
               className='input-form-field work'
               aria-label="work phone number"
-              placeholder='work number ...'
+              placeholder='phone ...'
               onChange={(e) => this.setState({
                   work: e.target.value
                 })
@@ -283,6 +293,7 @@ export default class ContactForm extends Component {
           </div>
 
           <button
+            disabled={this.toggleSaveButton()}
             className='save-contact-button'
             onClick={(e) => this.pushContact(e)}
             >Save Contact

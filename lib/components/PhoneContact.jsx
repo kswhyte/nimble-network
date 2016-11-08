@@ -25,7 +25,9 @@ export default class PhoneContact extends Component {
   render() {
     const { contact } = this.props
     return (
-      <li className='contact-display'>
+      <li className='contact-display'
+        onClick={this.toggleHidePhoneDisplay.bind(this)}
+        src={this.togglePhoneArrowButton()}>
         Phone
 
         <img
@@ -37,9 +39,13 @@ export default class PhoneContact extends Component {
            hidden={this.state.hidePhoneDisplay}
         >
 
-          <li
-            className='contact-display'>
+          <li className='contact-display'>
             {contact.cell}
+            <img
+              className='primary'
+              alt="primary email"
+              src='../../../images/primary.png'
+              />
           </li>
 
           <li

@@ -43,7 +43,7 @@ export default class Contact extends Component {
       })
       .catch(() => {
       })
-  }
+    }
 
   toggleArrowButton() {
     if (this.state.hideDisplay === true){
@@ -125,7 +125,9 @@ export default class Contact extends Component {
             src={this.toggleArrowButton()}/>
 
           <p
-            className='contact-name'>
+            className='contact-name'
+            onClick={this.toggleHideDisplay.bind(this)}
+            src={this.toggleArrowButton()}>
             {contact.fullName}
           </p>
 
