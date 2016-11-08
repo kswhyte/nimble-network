@@ -140,11 +140,6 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='email-input'>
-            <img
-              className='icon-email pimary-input primary'
-              alt="primary email"
-              src='../../../images/primary.png'
-              />
             <img className='icon-email'
               role="none" src='../../../images/svg/close-envelope.svg'/>
             <input
@@ -161,7 +156,8 @@ export default class ContactForm extends Component {
 
           <div className='email-input'>
             <img className='icon-email'
-              role="none" src='../../../images/svg/close-envelope.svg'/>
+              role="none" src='../../../images/svg/close-envelope.svg'
+              />
             <input
               value={this.state.email2}
               className='input-form-field email email2'
@@ -175,11 +171,6 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='phone-input'>
-            <img
-              className='pimary-input'
-              alt="primary phone"
-              src='../../../images/primary.png'
-              />
             <img className='icon-phone'
               role="none" src='../../../images/svg/whatsapp-logo.svg'
               />
