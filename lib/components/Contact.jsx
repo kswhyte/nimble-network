@@ -43,7 +43,7 @@ export default class Contact extends Component {
       })
       .catch(() => {
       })
-  }
+    }
 
   toggleArrowButton() {
     if (this.state.hideDisplay === true){
