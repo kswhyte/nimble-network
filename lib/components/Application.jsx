@@ -78,7 +78,7 @@ export default class Application extends Component {
     })
   }
 
-  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes) {
+  saveEdit(key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newlinkedIn, newFacebook, newTwitter, newGithub, newNotes) {
     const { uid } = this.state.user
     this.state.contactList.map(contact => {
       if(key === contact.key) {
@@ -90,7 +90,7 @@ export default class Application extends Component {
           cell: newCell,
           home: newHome,
           work: newWork,
-          google: newGoogle,
+          linkedIn: newlinkedIn,
           facebook: newFacebook,
           twitter: newTwitter,
           github: newGithub,

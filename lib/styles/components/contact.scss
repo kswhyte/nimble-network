@@ -7,7 +7,7 @@
   color: $primary-turqoise;
   text-align: left;
   height: 100%;
-  width: 400px;
+  width: 350px;
   border: 2px solid $primary-turqoise;
   margin: 10px auto;
   padding: 10px 10px 15px 10px;
@@ -27,21 +27,21 @@
 .expand {
   @include contact-button-icons;
   float: right;
-  margin-right: 10px;
+  margin: 8px;
 }
 
 .remove {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   float: right;
-  margin-top: 5px;
+  margin: 13px 5px;
 }
 
 .contact-image {
   width: 150px;
   height: 150px;
   border-radius: 25px;
-  margin: 0 auto;
+  text-align: center;
 }
 
 .editable-contact-image {
@@ -52,9 +52,10 @@
 }
 
 .contact-name {
-  font-size: 21px;
-  margin: 10px 0;
+  font-size: 25px;
+  margin: 10px;
   font-family: $primary-font;
+  display: inline-block;
 }
 
 .contact-display {
@@ -70,7 +71,16 @@ a:hover {
   color: #fff;
 }
 
-.email-expand, .phone-expand {
+.indent-info {
+  margin: 5px 10px;
+  color: #bebebe;
+}
+
+.indent-info li:hover {
+  color: #fff;
+}
+
+.email-expand, .phone-expand, .expand-social-media {
   height: 15px;
   width: 15px;
   padding: 0 10px;
@@ -91,21 +101,27 @@ button {
   color: #f7c238;
 }
 
-@media (max-width: 500px) {
-  .single-contact {
-    width: 350px;
-  }
+textarea.edit-notes {
+  height: 100px;
+  margin-left: 10px;
 }
 
-@media (max-width: 440px) {
-  .single-contact {
-    width: 300px;
-  }
-}
+
+// @media (max-width: 500px) {
+//   .single-contact {
+//     width: 400px;
+//   }
+// }
+//
+// @media (max-width: 440px) {
+//   .single-contact {
+//     width: 400px;
+//   }
+// }
 
 @media (max-width: 400px) {
   .single-contact {
-    width: 250px;
+    width: 350px;
   }
   .contact-image {
     width: 100px;
