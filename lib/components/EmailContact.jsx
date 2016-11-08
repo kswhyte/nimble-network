@@ -25,7 +25,9 @@ export default class EmailContact extends Component {
   render() {
     const { contact } = this.props
     return (
-      <li className='contact-display'>
+      <li className='contact-display'
+        onClick={this.toggleHideEmailDisplay.bind(this)}
+        src={this.toggleEmailArrowButton()}>
         Email
 
         <img
