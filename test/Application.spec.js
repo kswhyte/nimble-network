@@ -29,7 +29,7 @@ describe('Application | Unit Tests', () => {
 });
   it('has constructor that sets state of userDatabase to null', function() {
     const wrapper = shallow(<Application />);
-    expect(wrapper.state('userDatabase')).deep.equal(null);
+    expect(wrapper.state('usersDatabase')).to.equal(null);
 });
 
   it('renders as a <section>', () => {
@@ -45,36 +45,35 @@ describe('Application | Unit Tests', () => {
     const wrapper = render(<Application />)
     assert.equal(wrapper.find('.search-bar-header').length, 1)
   })
-
-  it('should have a contact form and list with 1 prop', function(){
-    const wrapper = render(<Application />)
-    assert.equal(wrapper.find('.contact-form-and-list').length, 1)
+  it('should have a login/logout button', function(){
+    const wrapper = mount(<Application />)
+    assert.equal(wrapper.find('.login-btn').length, 1)
   })
-  it('should have login buttons with 1 prop', function(){
-    const wrapper = render(<Application />)
-    assert.equal(wrapper.find('.login-status-bar').length, 1)
-  })
+  it('renders the LoginLogout component', () => {
+    const wrapper = mount(<Application />)
+    assert.equal(wrapper.find('.login-status-bar').length,1)
+    })
   it('renders xml elements', () => {
     sinon.spy(Application.prototype, 'render')
     const wrapper = mount(<Application />)
     assert.equal(Application.prototype.render.calledOnce, true)
   })
-  it.skip('renders the SearchBar component', () => {
+  it('renders the SearchBar component', () => {
     const wrapper = mount(<Application />)
+    assert.equal(wrapper.find('.search-bar-header').length, 1)
   })
-  it.skip('renders the ContactForm component', () => {
-    const wrapper = shallow(<Application />)
-    assert.equal(wrapper.find(<ContactForm />).length, 1)
-  })
-  it.skip('renders the FollowUpContactList component', () => {
+  it('renders the ContactForm component', () => {
     const wrapper = mount(<Application />)
+    assert.equal(wrapper.find('.contact-form-and-list').length,1)
   })
-  it.skip('renders the ContactList component', () => {
+  it('renders the FollowUpContactList component', () => {
     const wrapper = mount(<Application />)
+    assert.equal(wrapper.find('.follow-up-contact-section').length,1)
   })
-  it.skip('renders the LoginLogout component', () => {
+  it('renders the ContactList component', () => {
     const wrapper = mount(<Application />)
-    })
+    assert.equal(wrapper.find('.contact-section').length,1)
+  })
   })
 
 describe('Application | Feature Tests', () => {
