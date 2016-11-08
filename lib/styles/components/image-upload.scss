@@ -3,7 +3,7 @@
 @import '../config/mixins';
 
 .create-new-contact-title {
-  margin: 15px auto;
+  margin: 20px auto;
   font-family: $tertiary-font;
   text-align: center;
   font-size: 21px;
@@ -15,7 +15,7 @@
 
 .file-instructions {
   text-align: center;
-  margin: 10px auto;
+  margin: 15px auto 0 auto;
   font-family: $tertiary-font;
   cursor: pointer;
   color: #d73d34;
@@ -35,10 +35,16 @@
 }
 
 .user-icon-pic {
-  width: 110px;
+  width: 150px;
   height: 150px;
   cursor: pointer;
   padding: 0 10px;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
+}
 
+@media (max-width: 400px) {
+  .user-icon-pic {
+    width: 100px;
+    height: 100px;
+  }
 }

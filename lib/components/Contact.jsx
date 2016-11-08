@@ -155,7 +155,7 @@ export default class Contact extends Component {
             />
 
             <li
-              className='contact-display'>
+              className='contact-notes'>
               {contact.notes}
             </li>
 

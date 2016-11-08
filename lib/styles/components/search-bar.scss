@@ -4,12 +4,14 @@
 
 .search-bar-header {
   @include flex-container;
-  margin: 20px;
+  margin: 20px 0 40px 0;
+  flex-direction: column;
 }
 
 .application-title {
-  font-size: 28px;
+  font-size: 35px;
   font-family: $tertiary-font;
+  margin: 20px 0 20px 0;
 }
 
 .my {
@@ -28,4 +30,29 @@
 
 .search-bar {
   @include input-style;
+}
+
+.search-bar:hover {
+  background-color: #fff9d0;
+}
+
+@media (max-width: 400px) {
+  .application-title {
+    font-size: 31px;
+  }
+  .search-bar {
+    width: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .application-title {
+    font-size: 28px;
+  }
+  .application-title {
+    margin: 20px;
+  }
+  .search-bar {
+    width: 200px;
+  }
 }
