@@ -39,18 +39,20 @@ export default class ImageUpload extends Component {
 
     return (
       <section className='upload-image-form'>
-        <form onSubmit={(e) =>
+        <form
+          aria-label='upload image form'
+          onSubmit={(e) =>
           this.props.uploadImage(e.target.files)}
         >
           <h1
           className='create-new-contact-title'>
           ~ Create a New Contact ~
           </h1>
-
           <label className='image-upload-container'>
             <img
               className='user-icon-pic'
               src='../../../images/avatar.png'
+              alt='user icon/image'
             >
             </img>
             <p className='file-instructions'>
@@ -58,6 +60,7 @@ export default class ImageUpload extends Component {
             </p>
             <input
               className='update-image-button'
+              aria-label='button to load updated image'
               type='file'
               accept='image/*'
               onChange={(e) =>
@@ -65,7 +68,6 @@ export default class ImageUpload extends Component {
             >
             </input>
           </label>
-
           <div className="imgPreview">
           { imagePreview }
           </div>

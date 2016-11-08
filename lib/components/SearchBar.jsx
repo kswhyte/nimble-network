@@ -9,6 +9,7 @@ export const SearchBar = ({ updateSearch }) => {
       </p>
       <input
         className='search-bar'
+        aria-label='search contact list'
         onChange={updateSearch}
         placeholder='Search Contacts...'
       />
