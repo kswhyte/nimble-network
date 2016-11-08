@@ -12,18 +12,18 @@ import contactList from './helpers/contactList'
 const sinon = require('sinon')
 
 describe('FollowUpContactList | Unit Tests', () => {
-  it('can mount with no properties', () => {
+  it.skip('can mount with no properties', () => {
     const wrapper = shallow(<FollowUpContactList contactList={contactList} followUpContacts={followUpContacts} />)
   })
-  it('renders a "follow-up-contact-list" ', () => {
+  it.skip('renders a "follow-up-contact-list" ', () => {
     const wrapper = shallow(<FollowUpContactList contactList={contactList} followUpContacts={followUpContacts} />)
     assert(wrapper.find('.follow-up-contact-list'))
   })
-  it('renders as a <section>', () => {
+  it.skip('renders as a <section>', () => {
     const wrapper = shallow(<FollowUpContactList contactList={contactList} followUpContacts={followUpContacts} />)
     assert.equal(wrapper.type(), 'section')
   })
-  it('renders xml elements', () => {
+  it.skip('renders xml elements', () => {
     sinon.spy(FollowUpContactList.prototype, 'render')
     const wrapper = mount(<FollowUpContactList followUpContacts={followUpContacts} contactList={contactList} />)
     assert.equal(FollowUpContactList.prototype.render.calledOnce, true)
