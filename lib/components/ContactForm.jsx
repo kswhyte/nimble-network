@@ -75,6 +75,14 @@ export default class ContactForm extends Component {
     this.setState({ isImgUploaded: false })
   }
 
+  toggleSaveButton () {
+    if(this.state.fullName.length > 1){
+      return false
+    }else{
+      return true
+    }
+  }
+
   uploadImage(imageUpload) {
     this.setState({ userImage: imageUpload[0] })
   }
@@ -294,6 +302,7 @@ export default class ContactForm extends Component {
           </div>
 
           <button
+            disabled={this.toggleSaveButton()}
             className='save-contact-button'
             onClick={(e) => this.pushContact(e)}
             >Save Contact
