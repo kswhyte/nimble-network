@@ -13,6 +13,26 @@
   display: none;
 }
 
+div.imgPreview {
+  display: none;
+}
+
+
+.user-icon-pic {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  padding: 0 10px;
+  margin: 10px auto 0 auto;
+}
+
+.user-chosen-pic {
+  margin: 10px auto 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+}
+
 .file-instructions {
   text-align: center;
   margin: 15px auto 0 auto;
@@ -32,14 +52,6 @@
 .image-upload-container {
   @include flex-container;
   flex-direction: column;
-}
-
-.user-icon-pic {
-  width: 150px;
-  height: 150px;
-  cursor: pointer;
-  padding: 0 10px;
-  margin: 10px auto 0 auto;
 }
 
 @media (max-width: 400px) {

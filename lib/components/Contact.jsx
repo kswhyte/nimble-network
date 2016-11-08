@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PhoneContact from './PhoneContact.jsx'
 import EmailContact from './EmailContact.jsx'
 import SocialMedia from './SocialMedia.jsx'
+import ImageUpload from './ImageUpload.jsx'
 
 import firebase, { reference, getDownloadURL, child } from '../firebase'
 
@@ -56,6 +57,7 @@ export default class Contact extends Component {
     this.setState({
       editable: true
     })
+    // this.props.
   }
 
   saveEdit() {
@@ -102,7 +104,6 @@ export default class Contact extends Component {
     if(this.state.editable === false) {
       return(
         <li className='single-contact'>
-
           <img
             className='follow-up-button'
             alt="button to toggle follow up property for contact"
@@ -191,13 +192,10 @@ export default class Contact extends Component {
               hidden={false}
               className='show-contact-info'
             >
-              <input
-                className='update-image-button'
-                aria-label='contact image'
-                type='file'
-                accept='image/*'
-                onChange={(e) =>
-                  this.props.uploadImage(e.target.files)}
+              <img
+                alt='user-image'
+                className='editable-contact-image'
+                src={this.state.userImgSource}
               />
 
               <input

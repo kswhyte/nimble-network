@@ -101,7 +101,7 @@ export default class Application extends Component {
       }
     })
   }
-
+  
   render() {
     return (
       <section className='main-application'>
