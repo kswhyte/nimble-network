@@ -75,7 +75,6 @@ export default class SocialMedia extends Component {
                {contact.github}
              </div>}
           </li>
-
         </ul>
       </li>
     )

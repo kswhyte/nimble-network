@@ -6,7 +6,6 @@ export default class ImageUpload extends Component {
     super()
   }
 
-
   render() {
     let { imagePreviewUrl } = this.props
     let imagePreview

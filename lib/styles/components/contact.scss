@@ -96,10 +96,6 @@ a:hover {
   padding: 0 10px;
 }
 
-input {
-  display: block;
-}
-
 button {
   display: block;
   margin: 5px auto;
@@ -116,28 +112,24 @@ textarea.edit-notes {
   margin-left: 10px;
 }
 
-.input-form-field {
-  width: 200px;
+@media (max-width: 400px) {
+  .single-contact {
+    width: 300px;
+  }
+  .contact-name {
+    font-size: 21px;
+  }
 }
-
-// @media (max-width: 500px) {
-//   .single-contact {
-//     width: 275px;
-//   }
-// }
-//
-// @media (max-width: 440px) {
-//   .single-contact {
-//     width: 250px;
-//   }
-// }
 
 @media (max-width: 360px) {
   .single-contact {
-    width: 225px;
+    width: 250px;
   }
   .contact-image {
     width: 100px;
     height: 100px;
+  }
+  .contact-name {
+    font-size: 18px;
   }
 }

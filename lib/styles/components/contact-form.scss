@@ -4,7 +4,6 @@
 
 .contact-form {
   @include form-style;
-
 }
 
 .input-form-field {
@@ -14,7 +13,7 @@
 
 .social-media-input-form-field {
   @include input-style;
-  margin: 5px 20px;
+  margin: 5px auto;
   background-color: #a12a23;
 }
 
@@ -45,7 +44,8 @@ img {
   border-radius: 25px;
 }
 
-.phone-input .email-input .notes-input .user-input .company-input .linkedIn-input .twitter-input .github-input .facebook-input {
+.phone-input .email-input .notes-input .user-input .company-input .linkedIn-input
+.twitter-input .github-input .facebook-input {
   position: relative;
 }
 
@@ -60,7 +60,7 @@ img {
 }
 
 .linkedIn-input img, .facebook-input img, .twitter-input img, .github-input img {
-  @include social-media-icon-stle;
+  @include input-icon-style;
 }
 
 .notes-input img {
