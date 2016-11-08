@@ -18,7 +18,7 @@ export default class Contact extends Component {
       newCell: '',
       newHome: '',
       newWork: '',
-      newGoogle: '',
+      newlinkedIn: '',
       newFacebook: '',
       newTwitter: '',
       newGithub: '',
@@ -75,8 +75,8 @@ export default class Contact extends Component {
     const newHome = editHome ? editHome: contact.home
     let editWork = this.state.newWork
     const newWork = editWork ? editWork: contact.work
-    let editGoogle = this.state.newGoogle
-    const newGoogle = editGoogle ? editGoogle: contact.google
+    let editlinkedIn = this.state.newlinkedIn
+    const newlinkedIn = editlinkedIn ? editlinkedIn: contact.linkedIn
     let editFacebook = this.state.newFacebook
     const newFacebook = editFacebook ? editFacebook: contact.facebook
     let editTwitter = this.state.editTwitter
@@ -85,7 +85,7 @@ export default class Contact extends Component {
     const newGithub = editGithub ? editGithub: contact.github
     let editNotes = this.state.newNotes
     const newNotes = editNotes ? editNotes: contact.notes
-    this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newGoogle, newFacebook, newTwitter, newGithub, newNotes)
+    this.props.saveEdit(contact.key, newName, newCompany, newEmail1, newEmail2, newCell, newHome, newWork, newlinkedIn, newFacebook, newTwitter, newGithub, newNotes)
   }
 
   toggleFollowUpIcon(contact) {
@@ -262,12 +262,12 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-google input-form-field google'
-                aria-label='edit contact google plus user name'
-                placeholder={contact.google ? contact.google: "Google"}
-                value={this.state.newGoogle}
+                className='edit-linkedIn input-form-field linkedIn'
+                aria-label='edit contact linkedIn plus user name'
+                placeholder={contact.linkedIn ? contact.linkedIn: "linkedIn"}
+                value={this.state.newlinkedIn}
                 onChange={(e) => this.setState({
-                  newGoogle: e.target.value
+                  newlinkedIn: e.target.value
                 })}
               />
 

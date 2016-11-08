@@ -14,7 +14,7 @@ export default class ContactForm extends Component {
       cell: '',
       home: '',
       work: '',
-      google: '',
+      linkedIn: '',
       facebook: '',
       twitter: '',
       github: '',
@@ -36,7 +36,7 @@ export default class ContactForm extends Component {
       cell:     this.state.cell,
       home:     this.state.home,
       work:     this.state.work,
-      google:   this.state.google,
+      linkedIn:   this.state.linkedIn,
       facebook: this.state.facebook,
       twitter:  this.state.twitter,
       github:   this.state.github,
@@ -62,7 +62,7 @@ export default class ContactForm extends Component {
       cell: '',
       home: '',
       work: '',
-      google: '',
+      linkedIn: '',
       facebook: '',
       twitter: '',
       github: '',
@@ -196,16 +196,16 @@ export default class ContactForm extends Component {
               />
             </div>
 
-            <div className='google-input'>
-              <img className='icon-google'
-                role="none" src='../../../images/svg/google-plus-logo.svg'/>
+            <div className='linkedIn-input'>
+              <img className='icon-linkedIn'
+                role="none" src='../../../images/svg/linkedIn.svg'/>
               <input
-                value={this.state.google}
-                className='social-media-input-form-field google'
-                aria-label='google plus user name'
-                placeholder='google+ ...'
+                value={this.state.linkedIn}
+                className='social-media-input-form-field linkedIn'
+                aria-label='linkedIn plus user name'
+                placeholder='linkedIn ...'
                 onChange={(e) => this.setState({
-                    google: e.target.value
+                    linkedIn: e.target.value
                   })
                 }
               />

@@ -39,12 +39,12 @@ img {
   width: 90px;
 }
 
-.phone-input .email-input .notes-input .user-input .company-input .google-input .twitter-input .github-input .facebook-input {
+.phone-input .email-input .notes-input .user-input .company-input .linkedIn-input .twitter-input .github-input .facebook-input {
   position: relative;
 }
 
 .user-input input, .company-input input, .email-input input, .phone-input input,
-.google-input input, .facebook-input input, .twitter-input input,
+.linkedIn-input input, .facebook-input input, .twitter-input input,
 .github-input input, .notes-input textarea {
   @include input-text-style;
 }
@@ -53,7 +53,7 @@ img {
   @include input-icon-style;
 }
 
-.google-input img, .facebook-input img, .twitter-input img, .github-input img {
+.linkedIn-input img, .facebook-input img, .twitter-input img, .github-input img {
   @include social-media-icon-stle;
 }
 
@@ -66,7 +66,7 @@ img {
 
 @media (max-width: 400px) {
   .user-input input, .company-input input, .email-input input, .phone-input input,
-  .google-input input, .facebook-input input, .twitter-input input,
+  .linkedIn-input input, .facebook-input input, .twitter-input input,
   .github-input input, .notes-text-area {
     width: 250px;
   }
@@ -74,7 +74,7 @@ img {
 
 @media (max-width: 360px) {
   .user-input input, .company-input input, .email-input input, .phone-input input,
-  .google-input input, .facebook-input input, .twitter-input input,
+  .linkedIn-input input, .facebook-input input, .twitter-input input,
   .github-input input, .notes-text-area {
     width: 200px;
   }

@@ -25,18 +25,22 @@ export default class EmailContact extends Component {
   render() {
     const { contact } = this.props
     return (
-      <li
-        className='contact-display'>
-        {contact.email1}
+      <li className='contact-display'>
+        Email
 
         <img
           className='email-expand'
           onClick={this.toggleHideEmailDisplay.bind(this)}
           src={this.toggleEmailArrowButton()}/>
 
-        <ul
+        <ul className='indent-info'
           hidden={this.state.hideEmailDisplay}
         >
+          <li
+            className='contact-display'>
+            {contact.email1}
+          </li>
+
           <li
             className='contact-display'>
             {contact.email2}

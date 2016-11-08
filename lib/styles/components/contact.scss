@@ -27,27 +27,28 @@
 .expand {
   @include contact-button-icons;
   float: right;
-  margin-right: 10px;
+  margin: 8px;
 }
 
 .remove {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   float: right;
-  margin-top: 5px;
+  margin: 13px 5px;
 }
 
 .contact-image {
-  width: 150px;
-  height: 150px;
+  // width: 150px;
+  // height: 150px;
   border-radius: 25px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .contact-name {
-  font-size: 21px;
-  margin: 10px 0;
+  font-size: 25px;
+  margin: 10px;
   font-family: $primary-font;
+  display: inline-block;
 }
 
 .contact-display {
@@ -63,7 +64,16 @@ a:hover {
   color: #fff;
 }
 
-.email-expand, .phone-expand {
+.indent-info {
+  margin: 5px 10px;
+  color: #bebebe;
+}
+
+.indent-info li:hover {
+  color: #fff;
+}
+
+.email-expand, .phone-expand, .expand-social-media {
   height: 15px;
   width: 15px;
   padding: 0 10px;
