@@ -27,7 +27,7 @@ describe('Contact | Unit Test', () => {
 })
 
 describe('Contact | Feature Test', () => {
-  it.skip('should change the "newFullName" state with new contact info', () => {
+  it('should change the "newFullName" state with new contact info', () => {
     const wrapper = mount(<Contact contact={contactList} />)
     const messageInput = wrapper.find('.edit-name')
     messageInput.simulate('change', {target: {value: 'New First Last Name'} })
@@ -36,49 +36,50 @@ describe('Contact | Feature Test', () => {
   it('renders "input-fields" when edit is clicked ', () => {
     const wrapper = mount(<Contact contact={contact}/>)
     wrapper.find('.edit-button').simulate('click');
-    assert(wrapper.find('.input-form-field'))
+    assert(wrapper.find('.edit-form'))
   })
-  it.skip('should change the "company" state with new contact info', () => {
+  it.skip('should change the "newCompany" state with new contact info', () => {
     const wrapper = mount(<Contact contact={contact} />)
-    const editCompany = wrapper.find('.edit-company')
-    editCompany.simulate('change', {target: {value: 'new company name'} })
+    wrapper.find('.edit-button').simulate('click');
+    wrapper.find('#edit-company').simulate('change', {target: {value: 'new company name'} })
       assert.equal(wrapper.state('newCompany'), ('new company name'))
   })
-  it.skip('should change the "email1" state with new contact info', () => {
-    const wrapper = mount(<Contact />)
+  it.skip('should change the "newEmail1" state with new contact info', () => {
+    const wrapper = mount(<Contact contact={contact}/>)
     const messageInput = wrapper.find('.email1')
-    messageInput.simulate('change', {target: {value: 'emailaddress1'} })
-      assert.equal(wrapper.state('email1'), ('emailaddress1'))
+    wrapper.find('.edit-button').simulate('click');
+    messageInput.simulate('change', {target: {value: 'newemailaddress1'} })
+      assert.equal(wrapper.state('newEmail1'), ('emailaddress1'))
   })
-  it.skip('should change the "email2" state with new contact info', () => {
+  it.skip('should change the "newEmail2" state with new contact info', () => {
     const wrapper = mount(<Contact />)
     const messageInput = wrapper.find('.email2')
     messageInput.simulate('change', {target: {value: 'emailaddress2'} })
-    assert.equal(wrapper.state('email2'), ('emailaddress2'))
+    assert.equal(wrapper.state('newEmail2'), ('emailaddress2'))
   })
-  it.skip('should change the "cell" state with new contact info', () => {
+  it.skip('should change the "newCell" state with new contact info', () => {
     const wrapper = mount(<Contact />)
     const messageInput = wrapper.find('.cell')
     messageInput.simulate('change', {target: {value: '303-349-8791'} })
       assert.equal(wrapper.state('cell'), ('303-349-8791'))
   })
-  it.skip('should change the "home" state with new contact info', () => {
+  it.skip('should change the "newHome" state with new contact info', () => {
     const wrapper = mount(<Contact />)
     const messageInput = wrapper.find('.home')
     messageInput.simulate('change', {target: {value: '303-349-8791'} })
       assert.equal(wrapper.state('home'), ('303-349-8791'))
   })
-  it.skip('should change the "work" state with new contact info', () => {
+  it.skip('should change the "newWork" state with new contact info', () => {
     const wrapper = mount(<Contact />)
     const messageInput = wrapper.find('.work')
     messageInput.simulate('change', {target: {value: '303-349-8791'} })
       assert.equal(wrapper.state('work'), ('303-349-8791'))
   })
-  it.skip('should change the "google" state with new contact info', () => {
+  it.skip('should change the "newlinkedIn" state with new contact info', () => {
     const wrapper = mount(<Contact />)
     const messageInput = wrapper.find('.google')
     messageInput.simulate('change', {target: {value: 'username'} })
-      assert.equal(wrapper.state('google'), ('username'))
+      assert.equal(wrapper.state('newLinkedIn'), ('username'))
   })
   it.skip('should change the "facebook" state with new contact info', () => {
     const wrapper = mount(<Contact />)

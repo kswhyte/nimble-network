@@ -25,67 +25,67 @@ describe('ContactForm | Unit Test', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.type(), 'section')
   })
-  it('has a constructor that sets initial state of fullName to an empty string', () => {
+  it('sets initial state of fullName to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('fullName'), (''))
   })
-  it('has a constructor that sets initial state of company to an empty string', () => {
+  it('sets initial state of company to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('company'), (''))
   })
-  it('has a constructor that sets initial state of email1 to an empty string', () => {
+  it('sets initial state of email1 to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('email1'), (''))
   })
-  it('has a constructor that sets initial state of email2 to an empty string', () => {
+  it('sets initial state of email2 to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('email2'), (''))
   })
-  it('has a constructor that sets initial state of cell to an empty string', () => {
+  it('sets initial state of cell to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('cell'), (''))
   })
-  it('has a constructor that sets initial state of home to an empty string', () => {
+  it('sets initial state of home to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('home'), (''))
   })
-  it('has a constructor that sets initial state of work to an empty string', () => {
+  it('sets initial state of work to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('work'), (''))
   })
-  it('has a constructor that sets initial state of linkedIn to an empty string', () => {
+  it('sets initial state of linkedIn to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('linkedIn'), (''))
   })
-  it('has a constructor that sets initial state of facebook to an empty string', () => {
+  it('sets initial state of facebook to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('facebook'), (''))
   })
-  it('has a constructor that sets initial state of twitter to an empty string', () => {
+  it('sets initial state of twitter to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('twitter'), (''))
   })
-  it('has a constructor that sets initial state of github to an empty string', () => {
+  it('sets initial state of github to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('github'), (''))
   })
-  it('has a constructor that sets initial state of notes to an empty string', () => {
+  it('sets initial state of notes to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('notes'), (''))
   })
-  it('has a constructor that sets initial state of followUp to false', () => {
+  it('sets initial state of followUp to false', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('followUp'), (false))
   })
-  it('has a constructor that sets initial state of userImage to an avatar', () => {
+  it('sets initial state of userImage to an avatar', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('userImage'), ('../../images/avatar.png'))
   })
-  it('has a constructor that sets initial state of imgKey to an empty string', () => {
+  it('sets initial state of imgKey to an empty string', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('imgKey'), (''))
   })
-  it('has a constructor that sets initial state of isImgUploaded to false', () => {
+  it('sets initial state of isImgUploaded to false', () => {
     const wrapper = shallow(<ContactForm />)
     assert.equal(wrapper.state('isImgUploaded'), (false))
   })
