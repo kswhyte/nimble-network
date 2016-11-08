@@ -1,0 +1,1 @@
+module.exports = {cell: "303-349-8791", company:"Turing", email1:"kristen.burgess@doane.edu", email2:"kristenfburgess@gmail.com",facebook:"kristenburgess25", followUp:false, fullName:"Kristen Burgess", github:"", google:"", home:"308-577-6318,", key:"-KVgBWDPpa7qeNgm-ft2", notes:"it's me", twitter:"kris10_burgess", work:""}
