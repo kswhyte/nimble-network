@@ -2,40 +2,12 @@ import React, { Component } from 'react'
 import { map } from 'lodash'
 
 export default class ImageUpload extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      file: '',
-      imagePreviewUrl: '../../../images/avatar.png',
-      isImgUploaded: this.props.isImgUploaded
-    }
-  }
-
-  componentWillUpdate(nextProps) {
-    if (this.state.isImgUploaded !== nextProps.isImgUploaded) {
-      this.state.imagePreviewUrl = nextProps.userImage
-    }
-  }
-
-  handleImageChange(e) {
-    e.preventDefault()
-    this.props.imgHasUploaded()
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-    }
-    reader.readAsDataURL(file)
-    this.props.uploadImage(e.target.files)
+  constructor() {
+    super()
   }
 
   render() {
-    let { imagePreviewUrl } = this.state
+    let { imagePreviewUrl } = this.props
     let imagePreview
 
     if (imagePreviewUrl) {
@@ -49,7 +21,7 @@ export default class ImageUpload extends Component {
         <form
           aria-label='upload image form'
           onSubmit={(e) =>
-          this.props.uploadImage(e.target.files)}
+            this.props.uploadImage(e.target.files)}
         >
           <h1 className='create-new-contact-title'>
             ~ Create a New Contact ~
@@ -67,7 +39,7 @@ export default class ImageUpload extends Component {
               <div>
                 <img
                   className='user-chosen-pic'
-                  src={imagePreviewUrl}
+                  src={this.props.imagePreviewUrl}
                   alt='user icon/image'
                 >
                 </img>
@@ -82,7 +54,7 @@ export default class ImageUpload extends Component {
               type='file'
               accept='image/*'
               onChange={(e) =>
-                this.handleImageChange(e)}
+                this.props.handleImageChange(e)}
             >
             </input>
           </label>
