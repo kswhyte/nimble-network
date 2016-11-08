@@ -21,7 +21,8 @@ export default class ContactForm extends Component {
       notes: '',
       followUp: false,
       userImage: '../../images/avatar.png',
-      imgKey: ''
+      imgKey: '',
+      isImgUploaded: false
     }
   }
 
@@ -71,19 +72,28 @@ export default class ContactForm extends Component {
       userImage: '../../images/avatar.png',
       imgKey: ''
     })
+    this.setState({ isImgUploaded: false })
   }
 
   uploadImage(imageUpload) {
     this.setState({ userImage: imageUpload[0] })
   }
 
+  imgHasUploaded() {
+    this.setState({
+      isImgUploaded: true
+    })
+  }
+
   render() {
     return (
       <section className='contact-form-and-list'>
         <ImageUpload
-          userImage={this.state.userImage}
           uploadImage={this.uploadImage.bind(this)}
           user={this.props.user}
+          imgHasUploaded={this.imgHasUploaded.bind(this)}
+          isImgUploaded={this.state.isImgUploaded}
+          handleImageChange={this.props.handleImageChange}
         />
 
         <form className='contact-form'
@@ -151,134 +161,133 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='phone-input'>
-              <img className='icon-phone'
-                role="none" src='../../../images/svg/whatsapp-logo.svg'/>
-              <input
-                value={this.state.cell}
-                className='input-form-field cell'
-                aria-label="cell phone number"
-                type='text'
-                placeholder='cell number ...'
-                onChange={(e) => this.setState({
-                    cell: e.target.value
-                  })
-                }
-              />
-            </div>
+            <img className='icon-phone'
+              role="none" src='../../../images/svg/whatsapp-logo.svg'/>
+            <input
+              value={this.state.cell}
+              className='input-form-field cell'
+              aria-label="cell phone number"
+              type='text'
+              placeholder='cell number ...'
+              onChange={(e) => this.setState({
+                  cell: e.target.value
+                })
+              }
+            />
+          </div>
 
-            <div className='phone-input'>
-              <img className='icon-phone'
-                role="none" src='../../../images/svg/whatsapp-logo.svg'/>
-              <input
-                value={this.state.home}
-                className='input-form-field home'
-                aria-label="home phone number"
-                placeholder='home number ...'
-                onChange={(e) => this.setState({
-                    home: e.target.value
-                  })
-                }
-              />
-            </div>
+          <div className='phone-input'>
+            <img className='icon-phone'
+              role="none" src='../../../images/svg/whatsapp-logo.svg'/>
+            <input
+              value={this.state.home}
+              className='input-form-field home'
+              aria-label="home phone number"
+              placeholder='home number ...'
+              onChange={(e) => this.setState({
+                  home: e.target.value
+                })
+              }
+            />
+          </div>
 
-            <div className='phone-input'>
-              <img className='icon-phone'
-                role="none" src='../../../images/svg/whatsapp-logo.svg'/>
-              <input
-                value={this.state.work}
-                className='input-form-field work'
-                aria-label="work phone number"
-                placeholder='work number ...'
-                onChange={(e) => this.setState({
-                    work: e.target.value
-                  })
-                }
-              />
-            </div>
+          <div className='phone-input'>
+            <img className='icon-phone'
+              role="none" src='../../../images/svg/whatsapp-logo.svg'/>
+            <input
+              value={this.state.work}
+              className='input-form-field work'
+              aria-label="work phone number"
+              placeholder='work number ...'
+              onChange={(e) => this.setState({
+                  work: e.target.value
+                })
+              }
+            />
+          </div>
 
-            <div className='google-input'>
-              <img className='icon-google'
-                role="none" src='../../../images/svg/google-plus-logo.svg'/>
-              <input
-                value={this.state.google}
-                className='social-media-input-form-field google'
-                aria-label='google plus user name'
-                placeholder='google+ ...'
-                onChange={(e) => this.setState({
-                    google: e.target.value
-                  })
-                }
-              />
-            </div>
+          <div className='google-input'>
+            <img className='icon-google'
+              role="none" src='../../../images/svg/google-plus-logo.svg'/>
+            <input
+              value={this.state.google}
+              className='social-media-input-form-field google'
+              aria-label='google plus user name'
+              placeholder='google+ ...'
+              onChange={(e) => this.setState({
+                  google: e.target.value
+                })
+              }
+            />
+          </div>
 
-            <div className='facebook-input'>
-              <img className='icon-facebook'
-                role="none" src='../../../images/svg/facebook-logo.svg'/>
-              <input
-                value={this.state.facebook}
-                className='social-media-input-form-field facebook'
-                aria-label='facebook user name'
-                placeholder='facebook ...'
-                onChange={(e) => this.setState({
-                    facebook: e.target.value
-                  })
-                }
-              />
-            </div>
+          <div className='facebook-input'>
+            <img className='icon-facebook'
+              role="none" src='../../../images/svg/facebook-logo.svg'/>
+            <input
+              value={this.state.facebook}
+              className='social-media-input-form-field facebook'
+              aria-label='facebook user name'
+              placeholder='facebook ...'
+              onChange={(e) => this.setState({
+                  facebook: e.target.value
+                })
+              }
+            />
+          </div>
 
-            <div className='twitter-input'>
-              <img className='icon-twitter'
-                role="none" src='../../../images/svg/twitter-logo.svg'/>
-              <input
-                value={this.state.twitter}
-                className='social-media-input-form-field twitter'
-                aria-label='twitter user name'
-                placeholder='twitter ...'
-                onChange={(e) => this.setState({
-                    twitter: e.target.value
-                  })
-                }
-              />
-            </div>
+          <div className='twitter-input'>
+            <img className='icon-twitter'
+              role="none" src='../../../images/svg/twitter-logo.svg'/>
+            <input
+              value={this.state.twitter}
+              className='social-media-input-form-field twitter'
+              aria-label='twitter user name'
+              placeholder='twitter ...'
+              onChange={(e) => this.setState({
+                  twitter: e.target.value
+                })
+              }
+            />
+          </div>
 
-            <div className='github-input'>
-              <img className='icon-github'
-                role="none" src='../../../images/svg/github-sign.svg'/>
-              <input
-                value={this.state.github}
-                className='social-media-input-form-field github'
-                aria-label='github user name'
-                placeholder='github ...'
-                onChange={(e) => this.setState({
-                    github: e.target.value
-                  })
-                }
-              />
-            </div>
+          <div className='github-input'>
+            <img className='icon-github'
+              role="none" src='../../../images/svg/github-sign.svg'/>
+            <input
+              value={this.state.github}
+              className='social-media-input-form-field github'
+              aria-label='github user name'
+              placeholder='github ...'
+              onChange={(e) => this.setState({
+                  github: e.target.value
+                })
+              }
+            />
+          </div>
 
-            <div className='notes-input'>
-              <img className='icon-notes'
-                role="none" src='../../../images/svg/notes.svg'/>
-              <textarea
-                value={this.state.notes}
-                className='notes-text-area'
-                aria-label='notes about contact'
-                placeholder='notes ...'
-                onChange={(e) => this.setState({
-                    notes: e.target.value
-                  })
-                }>
-              </textarea>
-            </div>
+          <div className='notes-input'>
+            <img className='icon-notes'
+              role="none" src='../../../images/svg/notes.svg'/>
+            <textarea
+              value={this.state.notes}
+              className='notes-text-area'
+              aria-label='notes about contact'
+              placeholder='notes ...'
+              onChange={(e) => this.setState({
+                  notes: e.target.value
+                })
+              }>
+            </textarea>
+          </div>
 
-            <button
-              className='save-contact-button'
-              onClick={(e) => this.pushContact(e)}
-              >Save Contact
-            </button>
+          <button
+            className='save-contact-button'
+            onClick={(e) => this.pushContact(e)}
+            >Save Contact
+          </button>
         </form>
       </section>
-
       )
     }
   }

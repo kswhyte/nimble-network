@@ -2,20 +2,24 @@ import React, { Component } from 'react'
 import { map } from 'lodash'
 
 export default class ImageUpload extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       file: '',
-      imagePreviewUrl: '',
-      isImgUploaded: false
+      imagePreviewUrl: '../../../images/avatar.png',
+      isImgUploaded: this.props.isImgUploaded
+    }
+  }
+
+  componentWillUpdate(nextProps) {
+    if (this.state.isImgUploaded !== nextProps.isImgUploaded) {
+      this.state.imagePreviewUrl = nextProps.userImage
     }
   }
 
   handleImageChange(e) {
-    e.preventDefault();
-    this.setState({
-      isImgUploaded: true
-    })
+    e.preventDefault()
+    this.props.imgHasUploaded()
 
     let reader = new FileReader();
     let file = e.target.files[0];
@@ -31,7 +35,6 @@ export default class ImageUpload extends Component {
   }
 
   render() {
-
     let { imagePreviewUrl } = this.state
     let imagePreview
 
@@ -52,7 +55,7 @@ export default class ImageUpload extends Component {
             ~ Create a New Contact ~
           </h1>
           <label className='image-upload-container'>
-            { this.state.isImgUploaded === false ?
+            { this.props.imagePreviewUrl === '../../../images/avatar.png' ?
               <div>
                 <img
                   className='user-icon-pic'
