@@ -86,13 +86,16 @@ export default class ContactForm extends Component {
           user={this.props.user}
         />
 
-        <form className='contact-form'>
+        <form className='contact-form'
+          aria-label='new contact form'>
           <div className='user-input'>
             <img className='icon-user'
+              role="none"
               src='../../../images/avatar.png'/>
             <input
               value={this.state.fullName}
               className='input-form-field image'
+              aria-label="full name"
               placeholder='full name ...'
               onChange={(e) => this.setState({
                   fullName: e.target.value
@@ -102,10 +105,13 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='company-input'>
-            <img className='icon-company' src='../../../images/svg/business.svg'/>
+            <img className='icon-company'
+              role="none"
+           src='../../../images/svg/business.svg'/>
             <input
               value={this.state.company}
               className='input-form-field company'
+              aria-label="company name"
               placeholder='company ...'
               onChange={(e) => this.setState({
                   company: e.target.value
@@ -115,10 +121,12 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='email-input'>
-            <img className='icon-email' src='../../../images/svg/close-envelope.svg'/>
+            <img className='icon-email'
+              role="none" src='../../../images/svg/close-envelope.svg'/>
             <input
               value={this.state.email1}
               className='input-form-field email email1'
+              aria-label="primary email"
               placeholder='email 1 ...'
               onChange={(e) => this.setState({
                   email1: e.target.value
@@ -128,10 +136,12 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='email-input'>
-            <img className='icon-email' src='../../../images/svg/close-envelope.svg'/>
+            <img className='icon-email'
+              role="none" src='../../../images/svg/close-envelope.svg'/>
             <input
               value={this.state.email2}
               className='input-form-field email email2'
+              aria-label="secondary email"
               placeholder='email 2 ...'
               onChange={(e) => this.setState({
                   email2: e.target.value
@@ -141,10 +151,12 @@ export default class ContactForm extends Component {
           </div>
 
           <div className='phone-input'>
-              <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
+              <img className='icon-phone'
+                role="none" src='../../../images/svg/whatsapp-logo.svg'/>
               <input
                 value={this.state.cell}
                 className='input-form-field cell'
+                aria-label="cell phone number"
                 type='text'
                 placeholder='cell number ...'
                 onChange={(e) => this.setState({
@@ -155,10 +167,12 @@ export default class ContactForm extends Component {
             </div>
 
             <div className='phone-input'>
-              <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
+              <img className='icon-phone'
+                role="none" src='../../../images/svg/whatsapp-logo.svg'/>
               <input
                 value={this.state.home}
                 className='input-form-field home'
+                aria-label="home phone number"
                 placeholder='home number ...'
                 onChange={(e) => this.setState({
                     home: e.target.value
@@ -168,10 +182,12 @@ export default class ContactForm extends Component {
             </div>
 
             <div className='phone-input'>
-              <img className='icon-phone' src='../../../images/svg/whatsapp-logo.svg'/>
+              <img className='icon-phone'
+                role="none" src='../../../images/svg/whatsapp-logo.svg'/>
               <input
                 value={this.state.work}
                 className='input-form-field work'
+                aria-label="work phone number"
                 placeholder='work number ...'
                 onChange={(e) => this.setState({
                     work: e.target.value
@@ -181,10 +197,12 @@ export default class ContactForm extends Component {
             </div>
 
             <div className='google-input'>
-              <img className='icon-google' src='../../../images/svg/google-plus-logo.svg'/>
+              <img className='icon-google'
+                role="none" src='../../../images/svg/google-plus-logo.svg'/>
               <input
                 value={this.state.google}
                 className='social-media-input-form-field google'
+                aria-label='google plus user name'
                 placeholder='google+ ...'
                 onChange={(e) => this.setState({
                     google: e.target.value
@@ -194,10 +212,12 @@ export default class ContactForm extends Component {
             </div>
 
             <div className='facebook-input'>
-              <img className='icon-facebook' src='../../../images/svg/facebook-logo.svg'/>
+              <img className='icon-facebook'
+                role="none" src='../../../images/svg/facebook-logo.svg'/>
               <input
                 value={this.state.facebook}
                 className='social-media-input-form-field facebook'
+                aria-label='facebook user name'
                 placeholder='facebook ...'
                 onChange={(e) => this.setState({
                     facebook: e.target.value
@@ -207,10 +227,12 @@ export default class ContactForm extends Component {
             </div>
 
             <div className='twitter-input'>
-              <img className='icon-twitter' src='../../../images/svg/twitter-logo.svg'/>
+              <img className='icon-twitter'
+                role="none" src='../../../images/svg/twitter-logo.svg'/>
               <input
                 value={this.state.twitter}
                 className='social-media-input-form-field twitter'
+                aria-label='twitter user name'
                 placeholder='twitter ...'
                 onChange={(e) => this.setState({
                     twitter: e.target.value
@@ -220,10 +242,12 @@ export default class ContactForm extends Component {
             </div>
 
             <div className='github-input'>
-              <img className='icon-github' src='../../../images/svg/github-sign.svg'/>
+              <img className='icon-github'
+                role="none" src='../../../images/svg/github-sign.svg'/>
               <input
                 value={this.state.github}
                 className='social-media-input-form-field github'
+                aria-label='github user name'
                 placeholder='github ...'
                 onChange={(e) => this.setState({
                     github: e.target.value
@@ -233,10 +257,12 @@ export default class ContactForm extends Component {
             </div>
 
             <div className='notes-input'>
-              <img className='icon-notes' src='../../../images/svg/notes.svg'/>
+              <img className='icon-notes'
+                role="none" src='../../../images/svg/notes.svg'/>
               <textarea
                 value={this.state.notes}
                 className='notes-text-area'
+                aria-label='notes about contact'
                 placeholder='notes ...'
                 onChange={(e) => this.setState({
                     notes: e.target.value

@@ -39,7 +39,9 @@ export default class ImageUpload extends Component {
 
     return (
       <section className='upload-image-form'>
-        <form onSubmit={(e) =>
+        <form
+          aria-label='upload image form'
+          onSubmit={(e) =>
           this.props.uploadImage(e.target.files)}
         >
           <h1
@@ -49,6 +51,7 @@ export default class ImageUpload extends Component {
 
           <input
             className='update-image-button'
+            aria-label='button to load updated image'
             type='file'
             accept='image/*'
             onChange={(e) =>
