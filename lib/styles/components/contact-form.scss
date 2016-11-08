@@ -9,7 +9,7 @@
 
 .input-form-field {
   @include input-style;
-  margin: 5px;
+  margin: 5px auto;
 }
 
 .social-media-input-form-field {
@@ -25,7 +25,7 @@
 .notes-text-area {
   @include input-style;
   overflow: hidden;
-  margin: 5px 0;
+  margin: 5px auto;
   height: 100px;
   background-color: #525151;
 }

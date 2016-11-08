@@ -7,7 +7,7 @@
   color: $primary-turqoise;
   text-align: left;
   height: 100%;
-  width: 400px;
+  width: 350px;
   border: 2px solid $primary-turqoise;
   margin: 10px auto;
   padding: 10px 10px 15px 10px;
@@ -38,8 +38,8 @@
 }
 
 .contact-image {
-  // width: 150px;
-  // height: 150px;
+  width: 150px;
+  height: 150px;
   border-radius: 25px;
   margin: auto;
 }
@@ -94,21 +94,27 @@ button {
   color: #f7c238;
 }
 
-@media (max-width: 500px) {
-  .single-contact {
-    width: 350px;
-  }
+textarea.edit-notes {
+  height: 100px;
+  margin-left: 10px;
 }
 
-@media (max-width: 440px) {
-  .single-contact {
-    width: 300px;
-  }
-}
+
+// @media (max-width: 500px) {
+//   .single-contact {
+//     width: 400px;
+//   }
+// }
+//
+// @media (max-width: 440px) {
+//   .single-contact {
+//     width: 400px;
+//   }
+// }
 
 @media (max-width: 400px) {
   .single-contact {
-    width: 250px;
+    width: 350px;
   }
   .contact-image {
     width: 100px;

@@ -173,10 +173,19 @@ export default class Contact extends Component {
     } else if (this.state.editable === true) {
         return(
           <li className='single-contact edit-form'>
-            <button className='follow-up-button'
-              onClick={() => this.props.toggleFollowUp(contact.key)}>
-              Follow-up
-            </button>
+            <img
+              className='follow-up-button'
+              alt="button to toggle follow up property for contact"
+              onClick={() => this.props.toggleFollowUp(contact.key)}
+              src={this.toggleFollowUpIcon(contact)}
+            />
+
+            <img
+              className='remove'
+              alt="button to delete this contact"
+              onClick={() => this.props.deleteContact(contact.key)}
+              src='../../../images/remove-icon.png'
+            />
 
             <ul
               hidden={false}
@@ -202,7 +211,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className="edit-company input-form-field"
+                className="edit-company input-form-field company"
                 aria-label='edit contact company name'
                 placeholder={contact.company ? contact.company: "Company"}
                 value={this.state.newCompany}
@@ -212,7 +221,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-email1 input-form-field email'
+                className='edit-email1 input-form-field email email1'
                 aria-label='edit contact primary email'
                 placeholder={contact.email1 ? contact.email1: "Email 1"}
                 value={this.state.newEmail1}
@@ -222,7 +231,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-email2 input-form-field email'
+                className='edit-email2 input-form-field email email2'
                 aria-label='edit contact secondary email'
                 placeholder={contact.email2 ? contact.email2: "Email 2"}
                 value={this.state.newEmail2}
@@ -232,7 +241,7 @@ export default class Contact extends Component {
               />
 
               <input
-                className='edit-phonecell input-form-field cell'
+                className='edit-phone cell input-form-field cell'
                 aria-label='edit contact cell phone number'
                 placeholder={contact.cell ? contact.cell: "Cell Phone"}
                 value={this.state.newCell}

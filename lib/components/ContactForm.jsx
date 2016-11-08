@@ -88,6 +88,7 @@ export default class ContactForm extends Component {
 
         <form className='contact-form'
           aria-label='new contact form'>
+
           <div className='user-input'>
             <img className='icon-user'
               role="none"
@@ -107,7 +108,7 @@ export default class ContactForm extends Component {
           <div className='company-input'>
             <img className='icon-company'
               role="none"
-           src='../../../images/svg/business.svg'/>
+              src='../../../images/svg/business.svg'/>
             <input
               value={this.state.company}
               className='input-form-field company'
