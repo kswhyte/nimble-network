@@ -4,6 +4,7 @@
 
 .contact-form {
   @include form-style;
+
 }
 
 .input-form-field {
@@ -42,71 +43,17 @@ img {
   position: relative;
 }
 
-.user-input input {
+.user-input input, .company-input input, .email-input input, .phone-input input,
+.google-input input, .facebook-input input, .twitter-input input,
+.github-input input, .notes-input textarea {
   @include input-text-style;
 }
 
-.company-input input {
-  @include input-text-style;
-}
-
-.email-input input {
-  @include input-text-style;
-}
-
-.phone-input input {
-  @include input-text-style;
-}
-
-.google-input input {
-  @include input-text-style;
-}
-
-.facebook-input input {
-  @include input-text-style;
-}
-
-.twitter-input input {
-  @include input-text-style;
-}
-
-.github-input input {
-  @include input-text-style;
-}
-
-.notes-input textarea {
-  @include input-text-style;
-}
-
-.user-input img {
+.user-input img, .company-input img, .email-input img, .phone-input img {
   @include input-icon-style;
 }
 
-.company-input img {
-  @include input-icon-style;
-}
-
-.email-input img {
-  @include input-icon-style;
-}
-
-.phone-input img {
-  @include input-icon-style;
-}
-
-.google-input img {
-  @include social-media-icon-stle;
-}
-
-.facebook-input img {
-  @include social-media-icon-stle;
-}
-
-.twitter-input img {
-  @include social-media-icon-stle;
-}
-
-.github-input img {
+.google-input img, .facebook-input img, .twitter-input img, .github-input img {
   @include social-media-icon-stle;
 }
 
@@ -115,4 +62,20 @@ img {
   padding: 10px 0 0 8px;
   height: 20px;
   width: 20px;
+}
+
+@media (max-width: 400px) {
+  .user-input input, .company-input input, .email-input input, .phone-input input,
+  .google-input input, .facebook-input input, .twitter-input input,
+  .github-input input, .notes-text-area {
+    width: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .user-input input, .company-input input, .email-input input, .phone-input input,
+  .google-input input, .facebook-input input, .twitter-input input,
+  .github-input input, .notes-text-area {
+    width: 200px;
+  }
 }
