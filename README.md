@@ -13,17 +13,3 @@ Be thoughtfully designed
 
 ---
 Start building your network on the [Nimble Network](https://nimblenetwork-d13c3.firebaseapp.com/) now, hosted on firebase.
-
----
-To install the dependencies:
-`npm install`
-
-To fire up a development server:
-`npm start`
-
-Once the server is running, you can visit:
-
-http://localhost:8080/webpack-dev-server/ to run your application.
-http://localhost:8080/webpack-dev-server/test.html to run your test suite in the browser.
-
-Make sure to `firebase init` and wireup firebase for your app.
