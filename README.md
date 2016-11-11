@@ -7,9 +7,9 @@ We chose to create a contactlist for users to house information of potential emp
 ---
 This application was to:
 
-Work on all screen devices
-Take a mobile-first approach
-Be thoughtfully designed
+- Work on all screen devices
+- Take a mobile-first approach
+- Be thoughtfully designed
 
 ---
 Start building your network on the [Nimble Network](https://nimblenetwork-d13c3.firebaseapp.com/) now, hosted on firebase.
