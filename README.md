@@ -18,8 +18,25 @@ Start building your network on the [Nimble Network](https://nimblenetwork-d13c3.
 
 ---
 
-###Devs
+###Prerequisites
 
-- Clone the repository
+You will need the following properly installed on your computer:
+
+Git
+Node.js (with NPM)
+Bower
+Ember CLI
+PhantomJS
+
+
+###Installation
+
+- git clone <repository-url> this repository
+- cd nimble-network
 - ```npm install```
 - ```npm start``` to launch a local server
+
+###Running / Development
+
+```npm start```
+Visit your app at http://localhost:3000.
