@@ -15,3 +15,11 @@ This application was to:
 Start building your network on the [Nimble Network](https://nimblenetwork-d13c3.firebaseapp.com/) now, hosted on firebase.
 
 <img width="527" alt="screen shot 2017-01-11 at 10 04 32 pm" src="https://cloud.githubusercontent.com/assets/13802107/21877719/35e9a06c-d84a-11e6-964f-4489c9f4d207.png">
+
+---
+
+###Devs
+
+- Clone the repository
+- ```npm install```
+- ```npm start``` to launch a local server
