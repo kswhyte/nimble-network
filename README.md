@@ -5,6 +5,7 @@ The goal of this app was to refine our craft in developing software--to not just
 We chose to create a contactlist for users to house information of potential employers, clients, or whatever category of connections desired. Networking is a critical skill, and it can get hard to keep track of everyone you meet when you’re getting established in a new industry. We Built an app to help you organize all your contacts.
 
 ---
+
 This application was to:
 
 - Work on all screen devices
@@ -12,13 +13,12 @@ This application was to:
 - Be thoughtfully designed
 
 ---
-Start building your network on the [Nimble Network](https://nimblenetwork-d13c3.firebaseapp.com/) now, hosted on firebase.
 
 <img width="527" alt="screen shot 2017-01-11 at 10 04 32 pm" src="https://cloud.githubusercontent.com/assets/13802107/21877719/35e9a06c-d84a-11e6-964f-4489c9f4d207.png">
 
 ---
 
-###Prerequisites
+### Prerequisites
 
 You will need the following properly installed on your computer:
 
@@ -29,14 +29,19 @@ Ember CLI
 PhantomJS
 
 
-###Installation
+### Installation
 
 - git clone <repository-url> this repository
 - cd nimble-network
 - ```npm install```
 - ```npm start``` to launch a local server
 
-###Running / Development
+### Running/Development
 
 ```npm start```
+
 Visit your app at http://localhost:3000.
+
+---
+
+Start building your network on the [Nimble Network](https://nimblenetwork-d13c3.firebaseapp.com/) now, hosted on firebase.
